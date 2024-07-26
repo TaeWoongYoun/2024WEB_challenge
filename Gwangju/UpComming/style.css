@@ -1,0 +1,108 @@
+/* *{
+    padding: 0;
+    margin: 0;
+}
+
+.window{
+    width: 1000px;
+    height: 300px;
+    border: 1px solid black;
+    overflow: hidden;
+}
+
+.slider{
+    width: 4000px;
+    height: 300px;
+    display: flex;
+    position: relative;
+    animation: infinite linear 9s slide;
+}
+
+.slider div{
+    width: 1000px;
+    height: 300px;
+}
+
+@keyframes slide{
+    0%, 23%{left: 0;}
+    33%, 56%{left: -1000px;}
+    66%, 90%{left: -2000px;}
+    100%{left: -3000px;}
+} */
+
+.window2{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 300px;
+    overflow: hidden;
+}
+
+.slider2{
+    width: 4000px;
+    height: 300px;
+    display: flex;
+    position: relative;
+    animation: infinite linear 9s slide;
+}
+
+@keyframes slide{
+    0%, 23%{left: 0;}
+    33%, 56%{left: -1000px;}
+    66%, 90%{left: -2000px;}
+    100%{left: -3000px;}
+}
+
+.slider2 div{
+    width: 1000px;
+    height: 300px;
+    position: relative;
+}
+
+.nextBtn, .prevBtn{
+    width: 100px;
+    height: 40px;
+    display: block;
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+    line-height: 40px;
+    display: none;
+    z-index: 1;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.nextBtn{
+    right: 0;
+}
+
+#slide1:checked~.window2 .btn2,
+#slide2:checked~.window2 .btn3,
+#slide3:checked~.window2 .btn1{
+    display: block;
+}
+
+#slide1:checked~.window2 .btn6,
+#slide2:checked~.window2 .btn4,
+#slide3:checked~.window2 .btn5{
+    display: block;
+}
+
+#slide1:checked~.window2 > .slider2{
+    left: 0px;
+    transition: all 0.5s;
+}
+
+#slide2:checked~.window2 > .slider2{
+    left: -1000px;
+    transition: all 0.5s;
+}
+
+#slide3:checked~.window2 > .slider2{
+    left: -2000px;
+    transition: all 0.5s;
+}
