@@ -41,17 +41,17 @@
 }
 
 .slider2{
-    width: 4000px;
+    width: 6000px;
     height: 300px;
     display: flex;
     position: relative;
-    animation: infinite linear 9s slide;
+    animation: infinite linear 10s slide;
 }
 
 @keyframes slide{
-    0%, 23%{left: 0;}
-    33%, 56%{left: -1000px;}
-    66%, 90%{left: -2000px;}
+    0%, 30%{left: 0;}
+    33%, 63%{left: -1000px;}
+    66%, 96%{left: -2000px;}
     100%{left: -3000px;}
 }
 
@@ -80,16 +80,16 @@
 }
 
 #slide1:checked~.window2 > .slider2{
-    left: 0px;
-    transition: all 0.5s;
+    transition: all 0.3s;
+    transform: translateX(0);
 }
 
 #slide2:checked~.window2 > .slider2{
-    left: -1000px;
-    transition: all 0.5s;
+    transition: all 0.3s;
+    transform: translateX(-1000px);
 }
 
 #slide3:checked~.window2 > .slider2{
-    left: -2000px;
-    transition: all 0.5s;
+    transition: all 0.3s;
+    transform: translateX(-2000px);
 }
