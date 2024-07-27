@@ -69,7 +69,6 @@
     color: aliceblue;
     text-align: center;
     line-height: 40px;
-    display: none;
     z-index: 1;
     position: absolute;
     top: 50%;
@@ -78,18 +77,6 @@
 
 .nextBtn{
     right: 0;
-}
-
-#slide1:checked~.window2 .btn2,
-#slide2:checked~.window2 .btn3,
-#slide3:checked~.window2 .btn1{
-    display: block;
-}
-
-#slide1:checked~.window2 .btn6,
-#slide2:checked~.window2 .btn4,
-#slide3:checked~.window2 .btn5{
-    display: block;
 }
 
 #slide1:checked~.window2 > .slider2{
