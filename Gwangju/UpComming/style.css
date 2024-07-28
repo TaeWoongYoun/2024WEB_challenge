@@ -30,6 +30,10 @@
     100%{left: -3000px;}
 } */
 
+input{
+    display: none;
+}
+
 .window2{
     position: absolute;
     top: 50%;
@@ -46,6 +50,7 @@
     display: flex;
     position: relative;
     animation: infinite linear 10s slide;
+    transform: translateX(0);
 }
 
 @keyframes slide{
@@ -59,6 +64,12 @@
     width: 1000px;
     height: 300px;
     position: relative;
+}
+
+.slider2 div p{
+    text-align: center;
+    line-height: 150px;
+    font-size: 72px;
 }
 
 .nextBtn, .prevBtn{
