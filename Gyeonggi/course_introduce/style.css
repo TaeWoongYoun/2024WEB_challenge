@@ -105,10 +105,19 @@ input:checked + label{
 }
 .pointer {
     position: absolute;
-    width: 20px;
-    height: 20px;
+    width: 30px;
+    height: 30px;
     background-color: #111;
     border-radius: 50%;
+    z-index: 2;
+    color: #fff;
+    text-align: center;
+    line-height: 30px;
+}
+canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
     z-index: 1;
 }
 .map img{
@@ -116,6 +125,7 @@ input:checked + label{
     width: 1280px;
     height: 700px;
     display: none;
+    margin-left: 10px;
 }
 
 #course01:checked~.map > .img01,
