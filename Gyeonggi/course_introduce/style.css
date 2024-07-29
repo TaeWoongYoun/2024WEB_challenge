@@ -43,7 +43,6 @@ input:checked + label {
     margin-top:10px;
     padding:10px;
     width:340px;
-    height:250px;
     font-size:30px;
     box-sizing:border-box;
     border-radius:10px;
@@ -82,10 +81,8 @@ input:checked + label{
 .course-box{
     display: none;
     margin-top: 10px;
-    padding: 10px;
+    padding: 30px;
     width: 550px;
-    height: 250px;
-    font-size: 32px;
     box-sizing: border-box;
     border-radius: 10px;
     text-align: center;
