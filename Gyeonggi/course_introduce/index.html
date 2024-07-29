@@ -7,18 +7,30 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="tab_menu">
-        <ul>
-            <li class="on">
-                <button class="btn">도보</button>
-                <div class="content">도보 컨텐츠</div>
-            </li>
-            <li>
-                <button class="btn">자전거</button>
-                <div class="content">자전거 컨텐츠</div>
-            </li>
-        </ul>
-    </div>
+    
+    <main>
+        <div class="tabcontent">
+            <input type="radio" name="tab" id="tabmenu01" checked >
+            <label for="tabmenu01">도보</label>
+            <input type="radio" name="tab" id="tabmenu02">
+            <label for="tabmenu02">자전거</label>
+        
+            <div class="content-box content01">도보</div>
+            <div class="content-box content02">자전거</div>
+        </div>
+        <div class="course">
+            <input type="radio" name="course" id="course01" checked>
+            <label for="course01">창덕궁</label>
+            <input type="radio" name="course" id="course02">
+            <label for="course02">경복궁</label>
+            <input type="radio" name="course" id="course03">
+            <label for="course03">신라</label>
+    
+            <div class="course-box course-content01">창덕궁</div>
+            <div class="course-box course-content02">경복궁</div>
+            <div class="course-box course-content03">신라</div>
+        </div>
+    </main>
 
     <script  src="http://code.jquery.com/jquery-latest.min.js"></script>
     <script src="index.js"></script>
