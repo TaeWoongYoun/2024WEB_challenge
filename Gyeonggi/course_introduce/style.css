@@ -133,3 +133,28 @@ canvas {
 #course03:checked~.map > .img03{
     display: block;
 }
+
+.route-list {
+    position: absolute;
+    left: 0;
+    top: 300px;
+    margin-top: 20px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.route-list .route-item {
+    padding: 10px;
+    margin-bottom: 10px;
+    background: #e0e0e0;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.route-list .route-item.highlight {
+    background: #00D8CF;
+    color: #fff;
+}
