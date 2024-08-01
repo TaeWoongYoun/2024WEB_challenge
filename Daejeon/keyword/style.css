@@ -1,22 +1,18 @@
-*{
-    padding: 0;
-    margin: 0;
-}
-
-.window{
-    position: absolute;
+.window {
+    position: relative;
     width: 600px;
     height: 600px;
     border: 2px solid #111;
-    }
-    
-    #word-cloud {
-        background-color: aqua;
+}
+
+#word-cloud {
+    background-color: aqua;
     position: absolute;
     width: 600px;
     height: 600px;
     margin: 0 auto;
 }
+
 .word {
     position: absolute;
 }
@@ -28,4 +24,24 @@
     border: 1px solid black;
     padding: 5px;
     z-index: 10;
+}
+
+#table-container{
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+table {
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+th {
+    background-color: #f2f2f2;
 }
