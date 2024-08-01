@@ -3,12 +3,18 @@
     margin: 0;
 }
 
-#word-cloud {
+.window{
     position: absolute;
-    width: 1000px;
-    height: 1000px;
+    width: 600px;
+    height: 600px;
     border: 2px solid #111;
-    overflow: hidden;
+    }
+    
+    #word-cloud {
+        background-color: aqua;
+    position: absolute;
+    width: 600px;
+    height: 600px;
     margin: 0 auto;
 }
 .word {

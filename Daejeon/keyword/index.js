@@ -14,12 +14,12 @@ document.addEventListener("DOMContentLoaded", function() {
         // 'word-cloud'라는 id를 가진 HTML 요소를 선택
         const container = document.getElementById('word-cloud');
         // 컨테이너의 중앙 좌표를 계산
-        const centerX = container.offsetWidth / 2;
-        const centerY = container.offsetHeight / 2;
+        const centerX = container.offsetWidth / 2.2;
+        const centerY = container.offsetHeight / 2.2;
 
         let angle = 0;  // 각도 초기화
         let radius = 1;  // 반경 초기화
-        const step = 20;  // 각도 증가량
+        const step = 15;  // 각도 증가량
         const fontSizeStep = 2;  // 폰트 크기 감소량
         const maxFontSize = 64;  // 최대 폰트 크기
 
@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function() {
             // 위치가 겹치지 않도록 하는 반복문
             do {
                 angle += step;  // 각도 증가
-                radius += 0.3;  // 반경 증가
+                radius += 0.5;  // 반경 증가
                 // (x, y) 좌표 계산
                 x = centerX + radius * Math.cos(angle * Math.PI / 180);
                 y = centerY + radius * Math.sin(angle * Math.PI / 180);
