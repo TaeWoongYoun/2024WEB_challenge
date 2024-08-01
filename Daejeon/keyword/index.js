@@ -35,8 +35,15 @@ document.addEventListener("DOMContentLoaded", function() {
             div.innerText = item.word;  // 단어 텍스트 설정
 
             // 랜덤 색상 생성
-            div.style.color = getRandomColor();
-            
+            const color = getRandomColor();
+            div.style.color = color;
+
+            // 마우스 이벤트 추가
+            div.addEventListener('mouseover', function(event) {
+                showPopup(item.frequency, event.clientX, event.clientY);
+            });
+            div.addEventListener('mouseout', hidePopup);
+
             let x, y;
             // 위치가 겹치지 않도록 하는 반복문
             do {
@@ -85,5 +92,20 @@ document.addEventListener("DOMContentLoaded", function() {
         // 임시로 추가한 요소를 제거
         container.removeChild(element);
         return isOverlapping;  // 겹치는 경우 true 반환
+    }
+
+    // 팝업을 보여주는 함수
+    function showPopup(frequency, x, y) {
+        const popup = document.getElementById('popup');
+        popup.innerText = `Frequency: ${frequency}`;
+        popup.style.left = `${x}px`;
+        popup.style.top = `${y}px`;
+        popup.style.display = 'block';
+    }
+
+    // 팝업을 숨기는 함수
+    function hidePopup() {
+        const popup = document.getElementById('popup');
+        popup.style.display = 'none';
     }
 });
