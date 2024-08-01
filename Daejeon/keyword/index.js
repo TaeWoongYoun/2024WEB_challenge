@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(response => response.json())
         .then(jsonData => {
             const dataArray = jsonData.data;
-            
+
             // 초기 activeWords 설정
             activeWords = dataArray.map(item => item.word);
 
@@ -25,13 +25,12 @@ document.addEventListener("DOMContentLoaded", function() {
         const fontSizeStep = 2;
         const maxFontSize = 64;
 
-        data.sort((a, b) => b.frequency - a.frequency);
+        const activeData = data.filter(item => activeWords.includes(item.word));
+        activeData.sort((a, b) => b.frequency - a.frequency);
 
         container.innerHTML = ''; // Clear previous words
 
-        data.forEach((item, index) => {
-            if (!activeWords.includes(item.word)) return;
-
+        activeData.forEach((item, index) => {
             const div = document.createElement('div');
             div.className = 'word';
             div.style.fontSize = `${maxFontSize - index * fontSizeStep}px`;
