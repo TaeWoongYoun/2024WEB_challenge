@@ -130,6 +130,7 @@ document.addEventListener("DOMContentLoaded", function() {
             checkbox.addEventListener('change', function() {
                 if (!checkbox.checked && activeWords.length <= 15) {
                     checkbox.checked = true;
+                    alert("At least 15 words must be shown.");
                     return;
                 }
 
