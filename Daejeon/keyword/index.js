@@ -85,7 +85,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
     function showPopup(frequency, x, y) {
         const popup = document.getElementById('popup');
-        popup.innerText = `Frequency: ${frequency}`;
+        popup.innerText = `빈도수: ${frequency}`;
         popup.style.left = `${x}px`;
         popup.style.top = `${y}px`;
         popup.style.display = 'block';
@@ -100,27 +100,20 @@ document.addEventListener("DOMContentLoaded", function() {
         const container = document.getElementById('table-container');
         const table = document.createElement('table');
         const headerRow = document.createElement('tr');
-        const headerWord = document.createElement('th');
-        headerWord.innerText = 'Word';
-        const headerFrequency = document.createElement('th');
-        headerFrequency.innerText = 'Frequency';
         const headerCheckbox = document.createElement('th');
-        headerCheckbox.innerText = 'Show/Hide';
+        headerCheckbox.innerText = '';
+        const headerWord = document.createElement('th');
+        headerWord.innerText = '키워드';
+        const headerFrequency = document.createElement('th');
+        headerFrequency.innerText = '빈도수';
 
+        headerRow.appendChild(headerCheckbox);
         headerRow.appendChild(headerWord);
         headerRow.appendChild(headerFrequency);
-        headerRow.appendChild(headerCheckbox);
         table.appendChild(headerRow);
 
         data.forEach(item => {
             const row = document.createElement('tr');
-            const wordCell = document.createElement('td');
-            wordCell.innerText = item.word;
-            wordCell.style.color = wordColors[item.word] || getRandomColor();
-
-            const freqCell = document.createElement('td');
-            freqCell.innerText = item.frequency;
-
             const checkboxCell = document.createElement('td');
             const checkbox = document.createElement('input');
             checkbox.type = 'checkbox';
@@ -129,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function() {
             checkbox.addEventListener('change', function() {
                 if (!checkbox.checked && activeWords.length <= 15) {
                     checkbox.checked = true;
-                    alert("At least 15 words must be shown.");
+                    alert("리스트는 최소 15개 이상이여야 합니다.");
                     return;
                 }
 
@@ -143,9 +136,17 @@ document.addEventListener("DOMContentLoaded", function() {
             });
 
             checkboxCell.appendChild(checkbox);
+
+            const wordCell = document.createElement('td');
+            wordCell.innerText = item.word;
+            wordCell.style.color = wordColors[item.word] || getRandomColor();
+
+            const freqCell = document.createElement('td');
+            freqCell.innerText = item.frequency;
+
+            row.appendChild(checkboxCell);
             row.appendChild(wordCell);
             row.appendChild(freqCell);
-            row.appendChild(checkboxCell);
             table.appendChild(row);
         });
 

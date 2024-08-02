@@ -1,12 +1,15 @@
 .window {
-    position: relative;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 600px;
     height: 600px;
     border: 2px solid #111;
+    overflow: hidden;
 }
 
 #word-cloud {
-    background-color: aqua;
     position: absolute;
     width: 600px;
     height: 600px;
@@ -29,7 +32,7 @@
 #table-container{
     position: absolute;
     top: 0;
-    right: 0;
+    right: 50px;
 }
 
 table {
@@ -44,4 +47,9 @@ th, td {
 
 th {
     background-color: #f2f2f2;
+}
+
+input{
+    width: 30px;
+    height: 30px;
 }
