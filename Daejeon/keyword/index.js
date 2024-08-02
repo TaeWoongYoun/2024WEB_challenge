@@ -7,7 +7,6 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(jsonData => {
             const dataArray = jsonData.data;
 
-            // 초기 activeWords 설정
             activeWords = dataArray.map(item => item.word);
 
             createWordCloud(dataArray);
@@ -18,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function() {
         const container = document.getElementById('word-cloud');
         const centerX = container.offsetWidth / 2.2;
         const centerY = container.offsetHeight / 2.2;
-
         let angle = 0;
         let radius = 1;
         const step = 15;
@@ -28,7 +26,7 @@ document.addEventListener("DOMContentLoaded", function() {
         const activeData = data.filter(item => activeWords.includes(item.word));
         activeData.sort((a, b) => b.frequency - a.frequency);
 
-        container.innerHTML = ''; // Clear previous words
+        container.innerHTML = '';
 
         activeData.forEach((item, index) => {
             const div = document.createElement('div');
@@ -36,13 +34,9 @@ document.addEventListener("DOMContentLoaded", function() {
             div.style.fontSize = `${maxFontSize - index * fontSizeStep}px`;
             div.innerText = item.word;
 
-            const color = wordColors[item.word] || getRandomColor();
-            wordColors[item.word] = color;
-            div.style.color = color;
+            div.style.color = wordColors[item.word] || (wordColors[item.word] = getRandomColor());
 
-            div.addEventListener('mouseover', function(event) {
-                showPopup(item.frequency, event.clientX, event.clientY);
-            });
+            div.addEventListener('mouseover', event => showPopup(item.frequency, event.clientX, event.clientY));
             div.addEventListener('mouseout', hidePopup);
 
             let x, y;
@@ -92,33 +86,29 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     function hidePopup() {
-        const popup = document.getElementById('popup');
-        popup.style.display = 'none';
+        document.getElementById('popup').style.display = 'none';
     }
 
     function createTable(data) {
         const container = document.getElementById('table-container');
         const table = document.createElement('table');
-        const headerRow = document.createElement('tr');
-        const headerCheckbox = document.createElement('th');
-        headerCheckbox.innerText = '';
-        const headerWord = document.createElement('th');
-        headerWord.innerText = '키워드';
-        const headerFrequency = document.createElement('th');
-        headerFrequency.innerText = '빈도수';
-
-        headerRow.appendChild(headerCheckbox);
-        headerRow.appendChild(headerWord);
-        headerRow.appendChild(headerFrequency);
-        table.appendChild(headerRow);
-
+        table.innerHTML = `
+            <tr>
+                <th></th>
+                <th>키워드</th>
+                <th>빈도수</th>
+            </tr>
+        `;
+        
         data.forEach(item => {
             const row = document.createElement('tr');
-            const checkboxCell = document.createElement('td');
-            const checkbox = document.createElement('input');
-            checkbox.type = 'checkbox';
-            checkbox.checked = activeWords.includes(item.word);
-
+            row.innerHTML = `
+                <td><input type="checkbox" ${activeWords.includes(item.word) ? 'checked' : ''}></td>
+                <td style="color: ${wordColors[item.word] || getRandomColor()}">${item.word}</td>
+                <td>${item.frequency}</td>
+            `;
+            
+            const checkbox = row.querySelector('input[type="checkbox"]');
             checkbox.addEventListener('change', function() {
                 if (!checkbox.checked && activeWords.length <= 15) {
                     checkbox.checked = true;
@@ -135,18 +125,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 createWordCloud(data);
             });
 
-            checkboxCell.appendChild(checkbox);
-
-            const wordCell = document.createElement('td');
-            wordCell.innerText = item.word;
-            wordCell.style.color = wordColors[item.word] || getRandomColor();
-
-            const freqCell = document.createElement('td');
-            freqCell.innerText = item.frequency;
-
-            row.appendChild(checkboxCell);
-            row.appendChild(wordCell);
-            row.appendChild(freqCell);
             table.appendChild(row);
         });
 
