@@ -16,7 +16,7 @@ img{
 }
 
 .search_area{
-    width: 700px;
+    width: 1000px;
     display: flex;
     align-items: center;
     margin: 10px;
@@ -33,7 +33,7 @@ img{
 }
 
 .search_area select{
-    width: 200px;
+    width: 180px;
     height: 40px;
     font-size: 18px;
     margin-left: 10px;
