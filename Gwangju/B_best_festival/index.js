@@ -112,7 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
         modal.innerHTML = `
             <div class="modal-content">
                 <span class="close-button" onclick="closeModal()">&times;</span>
-                <img src="${festival.photo}" alt="${festival.title}">
+                <img src="images/${festival.photo}" alt="${festival.title}">
                 <h2>${festival.title}</h2>
                 <p>축제 기간: ${festival.startdate} ~ ${festival.enddate}</p>
                 <p>개최 장소: ${festival.place}</p>
@@ -122,10 +122,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 <p>담당자 직책: ${festival.position}</p>
                 <p>담당자명: ${festival.staff}</p>
                 <p>담당자 연락처: ${festival.tel}</p>
-                <p>2023년도 방문객 정보: 내국인 수: ${festival.visitor_native_2023}, 외국인 수: ${festival.visitor_foreigner_2023}, 합계: ${festival.visitor_total_2023}</p>
-                <button>좋아요</button>
-                <button>싫어요</button>
-                <button>내 여행 일정에 추가</button>
+                <p>2023년도 방문객 정보: <br> 내국인 수: ${festival.visitor_native_2023}, 외국인 수: ${festival.visitor_foreigner_2023}, 합계: ${festival.visitor_total_2023}</p>
+                <div class='modal_btn_area'>
+                    <button>좋아요</button>
+                    <button>싫어요</button>
+                    <button>내 여행 일정에 추가</button>
+                </div>
             </div>
         `;
 
