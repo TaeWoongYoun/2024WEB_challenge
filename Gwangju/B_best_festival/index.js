@@ -22,7 +22,6 @@ document.addEventListener("DOMContentLoaded", () => {
             updateSelectOptions(document.getElementById("gunguSelect"), Array.from(gunguSet));
             updateSelectOptions(document.getElementById("typeSelect"), Array.from(typeSet));
         })
-        .catch(error => console.error('Error loading festivals:', error));
 
     document.getElementById("searchButton").addEventListener("click", searchFestivals);
     document.getElementById("startDateInput").addEventListener("input", formatDateString);
