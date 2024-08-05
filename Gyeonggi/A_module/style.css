@@ -24,6 +24,7 @@ header{
     width: 1440px;
     height: 60px;
     display: flex;
+    z-index: 1;
 }
 
 .logo{
@@ -44,6 +45,7 @@ nav{
     width: 1000px;
     height: 60px;
     display: flex;
+    cursor: pointer;
 }
 
 .main_menu > li{
@@ -57,7 +59,7 @@ nav{
 .sub_menu{
     position: absolute;
     width: 250px;
-    height: 0;
+    height: 0px;
     background-color: #fff;
     overflow: hidden;
 }
@@ -66,6 +68,7 @@ nav{
     width: 100%;
     text-align: left;
     padding-left: 10px;
+    z-index: 1;
 }
 
 .main_menu > li:hover .sub_menu{
