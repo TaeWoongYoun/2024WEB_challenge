@@ -123,6 +123,11 @@ nav{
     height: 100%;
 }
 
+.slide img{
+    width: 1440px;
+    height: 100%;
+}
+
 .slide_txt{
     position: absolute;
     top: 50%;
@@ -133,9 +138,18 @@ nav{
     color: #fff;
 }
 
-.slide img{
-    width: 1440px;
-    height: 100%;
+.slide_num{
+    position: absolute;
+    left: 50%;
+    bottom: 5%;
+    transform: translate(-50%, -50%);
+    padding: 15px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 10px;
+    color: #fff;
+    background: rgba(0, 00, 0, 0.5);
+    border-radius: 10px;
 }
 
 @keyframes slider{
