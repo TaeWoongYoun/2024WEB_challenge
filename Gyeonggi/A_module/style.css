@@ -166,6 +166,7 @@ nav{
 }
 
 .notice{
+    position: relative;
     width: 1440px;
 }
 
@@ -193,6 +194,14 @@ nav{
 .notice_box02,
 .notice_box03{
     display: none;
+    justify-content: space-between;
+}
+
+.notice_box01 img,
+.notice_box02 img,
+.notice_box03 img{
+    width: 600px;
+    height: 300px;
 }
 
 .notice_box{
@@ -215,7 +224,7 @@ nav{
 #tab01:checked~.notice_box01,
 #tab02:checked~.notice_box02,
 #tab03:checked~.notice_box03{
-    display: block;
+    display: flex;
 }
 
 .notice_list:hover h4{
