@@ -1,0 +1,146 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+var{
+    background-color: #03c75a;
+}
+
+a{
+    color: inherit;
+    text-decoration: none;
+}
+
+ul li{
+    padding-left: 0;
+    list-style: none;
+}
+
+header{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1440px;
+    height: 60px;
+    display: flex;
+}
+
+.logo{
+    width: 200px;
+    height: 100%;
+    text-align: left;
+    line-height: 60px;
+    font-size: 28px;
+    font-weight: bolder;
+}
+
+nav{
+    width: 1000px;
+    height: 60px;
+}
+
+.main_menu{
+    width: 1000px;
+    height: 60px;
+    display: flex;
+}
+
+.main_menu > li{
+    padding: 0 20px;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 18px;
+}
+
+.sub_menu{
+    position: absolute;
+    width: 250px;
+    height: 0;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.sub_menu li{
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+}
+
+.main_menu > li:hover .sub_menu{
+    height: 180px;
+    transition: all 0.5s;
+}
+
+.sgin_area{
+    position: absolute;
+    right: 1px;
+    width: 190px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sgin_area button{
+    width: 90px;
+    height: 40px;
+    font-size: 16px;
+}
+
+.login_btn{
+    background-color: #fff;
+    color: #111;
+    border: 1px solid black;
+}
+
+.join_btn{
+    background-color: #111;
+    color: #fff;
+    border: 1px solid black;
+}
+
+.visual{
+    position: absolute;
+    width: 1920px;
+    height: 600px;
+    overflow: hidden;
+}
+
+.slider{
+    width: 7200px;
+    height: 600px;
+    display: flex;
+    position: relative;
+    animation: infinite linear 10s slider;
+    margin-left: 240px;
+}
+
+.slide{
+    position: relative;
+    width: 1440px;
+    height: 100%;
+}
+
+.slide_txt{
+    position: absolute;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 100px;
+    color: #fff;
+}
+
+.slide img{
+    width: 1440px;
+    height: 100%;
+}
+
+@keyframes slider{
+    0%, 23%{left: -1440px;}
+    33%, 56%{left: -2880px;}
+    66%, 90%{left: -4320px;}
+    100%{left: -5760px;}
+}
