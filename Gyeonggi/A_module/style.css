@@ -92,18 +92,17 @@ nav{
 .login_btn{
     background-color: #fff;
     color: #111;
-    border: 1px solid black;
+    border: 1px solid #111;
 }
 
 .join_btn{
     background-color: #111;
     color: #fff;
-    border: 1px solid black;
+    border: 1px solid #111;
 }
 
 .visual{
-    position: absolute;
-    width: 1920px;
+    width: 100%;
     height: 600px;
     overflow: hidden;
 }
@@ -114,7 +113,7 @@ nav{
     display: flex;
     position: relative;
     animation: infinite linear 10s slider;
-    margin-left: 240px;
+    margin-left: 231.5px;
 }
 
 .slide{
@@ -146,7 +145,7 @@ nav{
     padding: 15px;
     font-size: 20px;
     text-align: center;
-    line-height: 10px;
+    line-height: 15px;
     color: #fff;
     background: rgba(0, 00, 0, 0.5);
     border-radius: 10px;
@@ -157,4 +156,79 @@ nav{
     33%, 56%{left: -2880px;}
     66%, 90%{left: -4320px;}
     100%{left: -5760px;}
+}
+
+.notice_area{
+    margin-top: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.notice{
+    width: 1440px;
+}
+
+.notice h2{
+    margin-bottom: 30px;
+}
+
+.notice label{
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    background-color: #fff;
+    border: 1px solid #111;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+}
+
+.notice input:checked + label{
+    background-color: #111;
+    color: #fff;
+}
+
+.notice_box01,
+.notice_box02,
+.notice_box03{
+    display: none;
+}
+
+.notice_box{
+    width: 650px;
+    height: 300px;
+}
+
+.notice_box div{
+    position: relative;
+    width: calc(100% - 10px);
+    height: 59px;
+    border-bottom: 1px solid #111;
+    padding-left: 10px;
+    font-size: 18px;
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+}
+
+#tab01:checked~.notice_box01,
+#tab02:checked~.notice_box02,
+#tab03:checked~.notice_box03{
+    display: block;
+}
+
+.notice_list:hover h4{
+    background-color: yellow;
+    transition: all 0.5s;
+}
+
+.notice_box span{
+    position: absolute;
+    right: 20px;
+}
+
+footer{
+    width: 100%;
+    height: 300px;
 }
