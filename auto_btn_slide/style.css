@@ -1,0 +1,376 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+/* 비주얼 영역 */
+.visual {
+    height: calc(700px + 100px);
+    position: relative;
+    overflow: hidden;
+}
+.visual label { position: absolute; width: 100%; height: 100%; left: 0; top: 0; }
+.visual__image {
+    position: absolute;
+    left: 0; top: 0;
+    width: 300%; height: 700px;
+    display: flex;
+}
+.visual__image > img {
+    width: calc(100% / 3);
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%);
+}
+
+.visual__control {
+    position: absolute;
+    left: 50%; bottom: 0;
+    transform: translate(-50%, -50%);
+    max-width: 1140px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.visual__control > .control {
+    width: calc(100% / 3 - 20px);
+    height: 200px;
+    box-shadow: 0 3px 5px #000a;
+    transition: 0.35s;
+    position: relative;
+    cursor: pointer;
+}
+
+.visual__control .control:hover { transform: translateY(-1em); }
+
+
+.visual__arrow {
+    position: absolute;
+    left: 0; top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2em;
+}
+.visual__arrow .arrow {
+    width: 2em;
+    height: 2em;
+    border-left: 1px solid #fff;
+    border-top: 1px solid #fff;
+    position: relative;
+}
+.visual__arrow .arrow:nth-child(1) { transform: rotate(-45deg); }
+.visual__arrow .arrow:nth-child(2) { transform: rotate(135deg); }
+
+.visual__text {
+    position: absolute;
+    left: 50%; top: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    margin-top: -100px;
+}
+
+.visual__box {
+    margin: 0 auto;
+    width: 330px;
+    height: 330px;
+    padding: 30px;
+    border: 1px solid #fff;
+}
+.visual__box > div {
+    height: 90px;
+    line-height: 30px;
+    text-align: justify;
+    font-size: 2.3em;
+    color: #fff;
+}
+.visual__box > div::before,
+.visual__box > div::after { content: ''; display: inline-block; width: 100%; }
+
+@media(max-width: 992px) {
+    .visual {
+        height: 700px;
+    }
+
+    .visual__arrow {
+        top: auto;
+        bottom: 200px;
+    }
+
+    .visual__control {
+        height: 100px;
+        transform: none;
+        left: 0;
+        bottom: 20px;
+    }
+    .visual__control > .control {
+        width: calc(100% / 3 - 10px);
+        height: 100px;
+    }
+
+    .visual__text {
+        margin-top: -50px;
+    }
+
+}
+
+/* /비주얼 영역 */
+
+/* 슬라이드 */
+
+@keyframes move-1-2 {
+    0%      { left: calc(-100% * 1); }
+    27.777% { left: calc(-100% * 1); }
+
+    33.333% { left: calc(-100% * 2); }
+    61.111% { left: calc(-100% * 2); }
+
+    66.666% { left: calc(-100% * 0); }
+    94.444% { left: calc(-100% * 0); }
+
+    100%    { left: calc(-100% * 1); }
+}
+@keyframes move-2-3 {
+    0%      { left: calc(-100% * 2); }
+    27.777% { left: calc(-100% * 2); }
+
+    33.333% { left: calc(-100% * 0); }
+    61.111% { left: calc(-100% * 0); }
+
+    66.666% { left: calc(-100% * 1); }
+    94.444% { left: calc(-100% * 1); }
+
+    100%    { left: calc(-100% * 2); }
+}
+@keyframes move-3-1 {
+    0%      { left: calc(-100% * 0); }
+    27.777% { left: calc(-100% * 0); }
+
+    33.333% { left: calc(-100% * 1); }
+    61.111% { left: calc(-100% * 1); }
+
+    66.666% { left: calc(-100% * 2); }
+    94.444% { left: calc(-100% * 2); }
+
+    100%    { left: calc(-100% * 0); }
+}
+
+@keyframes move-1-2-copy {
+    0%      { left: calc(-100% * 1); }
+    27.777% { left: calc(-100% * 1); }
+
+    33.333% { left: calc(-100% * 2); }
+    61.111% { left: calc(-100% * 2); }
+
+    66.666% { left: calc(-100% * 0); }
+    94.444% { left: calc(-100% * 0); }
+
+    100%    { left: calc(-100% * 1); }
+}
+@keyframes move-2-3-copy {
+    0%      { left: calc(-100% * 2); }
+    27.777% { left: calc(-100% * 2); }
+
+    33.333% { left: calc(-100% * 0); }
+    61.111% { left: calc(-100% * 0); }
+
+    66.666% { left: calc(-100% * 1); }
+    94.444% { left: calc(-100% * 1); }
+
+    100%    { left: calc(-100% * 2); }
+}
+@keyframes move-3-1-copy {
+    0%      { left: calc(-100% * 0); }
+    27.777% { left: calc(-100% * 0); }
+
+    33.333% { left: calc(-100% * 1); }
+    61.111% { left: calc(-100% * 1); }
+
+    66.666% { left: calc(-100% * 2); }
+    94.444% { left: calc(-100% * 2); }
+
+    100%    { left: calc(-100% * 0); }
+}
+
+
+@keyframes move-2-1-2 {
+    0%      { left: calc(-100% * 1); }
+
+    14.28%  { left: calc(-100% * 0); }
+    85.71%  { left: calc(-100% * 0); }
+
+    100%    { left: calc(-100% * 1); }
+}
+@keyframes move-3-2-3 {
+    0%      { left: calc(-100% * 2); }
+
+    14.28%  { left: calc(-100% * 1); }
+    85.71%  { left: calc(-100% * 1); }
+
+    100%    { left: calc(-100% * 2); }
+}
+@keyframes move-1-3-1 {
+    0%      { left: calc(-100% * 0); }
+
+    14.28%  { left: calc(-100% * 2); }
+    85.71%  { left: calc(-100% * 2); }
+
+    100%    { left: calc(-100% * 0); }
+}
+
+@keyframes move-2-1-2-copy {
+    0%      { left: calc(-100% * 1); }
+
+    14.28%  { left: calc(-100% * 0); }
+    85.71%  { left: calc(-100% * 0); }
+
+    100%    { left: calc(-100% * 1); }
+}
+@keyframes move-3-2-3-copy {
+    0%      { left: calc(-100% * 2); }
+
+    14.28%  { left: calc(-100% * 1); }
+    85.71%  { left: calc(-100% * 1); }
+
+    100%    { left: calc(-100% * 2); }
+}
+@keyframes move-1-3-1-copy {
+    0%      { left: calc(-100% * 0); }
+
+    14.28%  { left: calc(-100% * 2); }
+    85.71%  { left: calc(-100% * 2); }
+
+    100%    { left: calc(-100% * 0); }
+}
+
+.visual__image {
+    animation-duration: 9s;
+    animation-delay: calc(-9s + 0.5s);
+    animation-iteration-count: infinite;
+}
+
+#move-3-1:checked ~ .visual .visual__image { animation-name: move-3-1; }
+#move-1-2:checked ~ .visual .visual__image { animation-name: move-1-2; }
+#move-2-3:checked ~ .visual .visual__image { animation-name: move-2-3; }
+
+#move-1-3:checked ~ .visual .visual__image { animation-name: move-1-3-1, move-3-1; }
+#move-2-1:checked ~ .visual .visual__image { animation-name: move-2-1-2, move-1-2; }
+#move-3-2:checked ~ .visual .visual__image { animation-name: move-3-2-3, move-2-3; }
+
+#move-1-3:checked ~ .visual .visual__image,
+#move-2-1:checked ~ .visual .visual__image,
+#move-3-2:checked ~ .visual .visual__image {
+    animation-duration: 3.5s, 9s;
+    animation-delay: 0s, 3.5s;
+    animation-iteration-count: 1, infinite;
+}
+
+
+#move-3-1-copy:checked ~ .visual .visual__image { animation-name: move-3-1-copy; }
+#move-1-2-copy:checked ~ .visual .visual__image { animation-name: move-1-2-copy; }
+#move-2-3-copy:checked ~ .visual .visual__image { animation-name: move-2-3-copy; }
+
+#move-1-3-copy:checked ~ .visual .visual__image { animation-name: move-1-3-1-copy, move-3-1-copy; }
+#move-2-1-copy:checked ~ .visual .visual__image { animation-name: move-2-1-2-copy, move-1-2-copy; }
+#move-3-2-copy:checked ~ .visual .visual__image { animation-name: move-3-2-3-copy, move-2-3-copy; }
+
+#move-1-3-copy:checked ~ .visual .visual__image,
+#move-2-1-copy:checked ~ .visual .visual__image,
+#move-3-2-copy:checked ~ .visual .visual__image {
+    animation-duration: 3.5s, 9s;
+    animation-delay: 0s, 3.5s;
+    animation-iteration-count: 1, infinite;
+}
+
+
+@keyframes label-1 {
+    0%      { z-index: 1; }
+    27.777% { z-index: 1; }
+
+    33.333% { z-index: -1; }
+    61.111% { z-index: -1; }
+
+    66.666% { z-index: -1; }
+    94.444% { z-index: -1; }
+
+    100%    { z-index: 1; }
+}
+@keyframes label-2 {
+    0%      { z-index: -1; }
+    27.777% { z-index: -1; }
+
+    33.333% { z-index: 1; }
+    61.111% { z-index: 1; }
+
+    66.666% { z-index: -1; }
+    94.444% { z-index: -1; }
+
+    100%    { z-index: -1; }
+}
+@keyframes label-3 {
+    0%      { z-index: -1; }
+    27.777% { z-index: -1; }
+
+    33.333% { z-index: -1; }
+    61.111% { z-index: -1; }
+
+    66.666% { z-index: 1; }
+    94.444% { z-index: 1; }
+
+    100%    { z-index: -1; }
+}
+
+.visual label {
+    animation-duration: 9s;
+    animation-iteration-count: infinite;
+}
+
+#move-2-1:checked ~ .visual .label-1-copy { animation-name: label-1; }
+#move-2-1:checked ~ .visual .label-2-copy { animation-name: label-2; }
+#move-2-1:checked ~ .visual .label-3-copy { animation-name: label-3; }
+#move-3-1:checked ~ .visual .label-1-copy { animation-name: label-1; }
+#move-3-1:checked ~ .visual .label-2-copy { animation-name: label-2; }
+#move-3-1:checked ~ .visual .label-3-copy { animation-name: label-3; }
+
+#move-1-2:checked ~ .visual .label-1-copy { animation-name: label-3; }
+#move-1-2:checked ~ .visual .label-2-copy { animation-name: label-1; }
+#move-1-2:checked ~ .visual .label-3-copy { animation-name: label-2; }
+#move-3-2:checked ~ .visual .label-1-copy { animation-name: label-3; }
+#move-3-2:checked ~ .visual .label-2-copy { animation-name: label-1; }
+#move-3-2:checked ~ .visual .label-3-copy { animation-name: label-2; }
+
+#move-2-3:checked ~ .visual .label-1-copy { animation-name: label-2; }
+#move-2-3:checked ~ .visual .label-2-copy { animation-name: label-3; }
+#move-2-3:checked ~ .visual .label-3-copy { animation-name: label-1; }
+#move-1-3:checked ~ .visual .label-1-copy { animation-name: label-2; }
+#move-1-3:checked ~ .visual .label-2-copy { animation-name: label-3; }
+#move-1-3:checked ~ .visual .label-3-copy { animation-name: label-1; }
+
+
+#move-2-1-copy:checked ~ .visual .label-1 { animation-name: label-1; }
+#move-2-1-copy:checked ~ .visual .label-2 { animation-name: label-2; }
+#move-2-1-copy:checked ~ .visual .label-3 { animation-name: label-3; }
+#move-3-1-copy:checked ~ .visual .label-1 { animation-name: label-1; }
+#move-3-1-copy:checked ~ .visual .label-2 { animation-name: label-2; }
+#move-3-1-copy:checked ~ .visual .label-3 { animation-name: label-3; }
+
+#move-1-2-copy:checked ~ .visual .label-1 { animation-name: label-3; }
+#move-1-2-copy:checked ~ .visual .label-2 { animation-name: label-1; }
+#move-1-2-copy:checked ~ .visual .label-3 { animation-name: label-2; }
+#move-3-2-copy:checked ~ .visual .label-1 { animation-name: label-3; }
+#move-3-2-copy:checked ~ .visual .label-2 { animation-name: label-1; }
+#move-3-2-copy:checked ~ .visual .label-3 { animation-name: label-2; }
+
+#move-2-3-copy:checked ~ .visual .label-1 { animation-name: label-2; }
+#move-2-3-copy:checked ~ .visual .label-2 { animation-name: label-3; }
+#move-2-3-copy:checked ~ .visual .label-3 { animation-name: label-1; }
+#move-1-3-copy:checked ~ .visual .label-1 { animation-name: label-2; }
+#move-1-3-copy:checked ~ .visual .label-2 { animation-name: label-3; }
+#move-1-3-copy:checked ~ .visual .label-3 { animation-name: label-1; }
+
+
+/* /슬라이드 */
