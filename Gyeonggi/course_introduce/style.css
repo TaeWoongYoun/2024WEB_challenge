@@ -153,8 +153,3 @@ canvas {
     border-radius: 10px;
     cursor: pointer;
 }
-
-.route-list .route-item.highlight {
-    background: #00D8CF;
-    color: #fff;
-}

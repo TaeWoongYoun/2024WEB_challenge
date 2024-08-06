@@ -13,6 +13,10 @@ ul li{
     list-style: none;
 }
 
+.highlight{
+    color: #03c75a;
+}
+
 /* 헤더 영역 */
 header{
     position: relative;
@@ -113,6 +117,159 @@ nav{
     border: 1px solid #111;
 }
 /* 헤더 영역 */
+/* 코스 소개 페이지 */
+
+.course_area{
+    width: 100%;
+    height: 1000px;
+}
+
+.course_area h1{
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+}
+
+.course_content{
+    width: 1880px;
+    height: 900px;
+    display: flex;
+    justify-content: center;
+}
+
+.left{
+    width: 600px;
+    height: 100%;
+    background-color: #fff;
+}
+
+.tab_area{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.move_area label{
+    display: inline-block;
+    padding: 5px 10px;
+    color: gray;
+    border-bottom: 2px solid gray;
+}
+
+.move_area input:checked + label{
+    border-bottom: 2px solid #03c75a;
+    color: #111;
+    font-weight: 600;
+}
+
+.move_content{
+    width: 122px;
+    height: 40px;
+    background-color: #fff;
+    text-align: center;
+    line-height: 40px;
+    border: 2px solid #03c75a;
+    border-top: none;
+    display: none;
+}
+
+#move01:checked~.move_content01,
+#move02:checked~.move_content02{
+    display: block;
+}
+
+.festa_area label{
+    display: inline-block;
+    padding: 5px 10px;
+    color: gray;
+    border-bottom: 2px solid gray;
+}
+
+.festa_area input:checked + label{
+    border-bottom: 2px solid #03c75a;
+    color: #111;
+    font-weight: 600;
+}
+
+.festa_content{
+    width: 384px;
+    padding: 10px;
+    background-color: #fff;
+    text-align: center;
+    border: 2px solid #03c75a;
+    border-top: none;
+    display: none;
+}
+
+#festa01:checked~.festa_content01,
+#festa02:checked~.festa_content02,
+#festa03:checked~.festa_content03{
+    display: block;
+}
+
+.map{
+    position: relative;
+    width: 1280px;
+    height: 100%;
+}
+
+/* 코스 소개 페이지 */
+
+/* JS */
+/* 포인터 생성 */
+.pointer{
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: #111;
+    color: #fff;
+    z-index: 2;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+}
+
+/* 캔버스 */
+canvas {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+}
+
+.map img{
+    position: absolute;
+    width: 1280px;
+    height: 700px;
+}
+
+#festa01:checked~.map > .img01,
+#festa02:checked~.map > .img02,
+#festa03:checked~.map > .img03{
+    display: block;
+}
+/* 이동시간 리스트 */
+.route-list{
+    position: absolute;
+    left: 0;
+    top: 400px;
+    padding: 10px;
+    background-color: #eee;
+    border-radius: 10px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.route-item{
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #03c75a;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+}
+/* JS */
 
 /* 푸터 영역 */
 .footer_area{
