@@ -14,8 +14,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const createPointer = pointer => {
         const pointerElement = document.createElement('div');
         pointerElement.className = 'pointer';
-        pointerElement.style.left = `${pointer.location[0]}px`
-        pointerElement.style.top = `${pointer.location[1]}px`
+        pointerElement.style.left = `${pointer.location[0]}px`;
+        pointerElement.style.top = `${pointer.location[1]}px`;
         pointerElement.textContent = pointer.idx;
         return pointerElement;
     }
@@ -34,22 +34,22 @@ document.addEventListener('DOMContentLoaded', () => {
                     ctx.beginPath();
                     ctx.moveTo(pointer.location[0] + 15, pointer.location[1] + 15);
                     ctx.lineTo(targetPointer.location[0] + 15, targetPointer.location[1] + 15);
-                    ctx.stroke.style = '#111';
+                    ctx.strokeStyle = '#111';
                     ctx.lineWidth = 5;
                     ctx.stroke();
                 }
-            })
+            });
         });
 
         if (highlight.length > 0) {
-            for (let i = 0; i<highlight.length - 1; i++){
+            for (let i = 0; i < highlight.length - 1; i++) {
                 const start = pointers.find(p => p.idx === highlight[i]);
                 const end = pointers.find(p => p.idx === highlight[i + 1]);
                 if (start && end) {
                     ctx.beginPath();
                     ctx.moveTo(start.location[0] + 15, start.location[1] + 15);
                     ctx.lineTo(end.location[0] + 15, end.location[1] + 15);
-                    ctx.stroke.style = '#FF0000';
+                    ctx.strokeStyle = '#FF0000';
                     ctx.lineWidth = 5;
                     ctx.stroke();
                 }
@@ -66,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         data.pointer.forEach(pointer => {
             mapContainer.appendChild(createPointer(pointer));
-        })
+        });
 
         renderLink(data.pointer);
     }
@@ -76,9 +76,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const startPointer = data.pointer.find(p => p.idx === 1);
         if (!startPointer) return;
 
-        const traverse = (current, path, distanse) => {
+        const traverse = (current, path, distance) => {
             if (current.idx === 6){
-                routes.push({path: [...path, current.idx], distanse});
+                routes.push({path: [...path, current.idx], distance});
                 return;
             }
             current.link.forEach(linkIdx => {
@@ -86,14 +86,14 @@ document.addEventListener('DOMContentLoaded', () => {
                     const nextPointer = data.pointer.find(p => p.idx === linkIdx);
                     if (nextPointer) {
                         const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1]);
-                        traverse(nextPointer, [...path, current.idx], distanse + dist);
+                        traverse(nextPointer, [...path, current.idx], distance + dist);
                     }
                 }
-            })
+            });
         }
 
         traverse(startPointer, [], 0);
-        routes.sort((a,b) => a.distanse = b.distanse);
+        routes.sort((a, b) => a.distance - b.distance);
         renderRoute(routes.slice(0, 5));
     }
 
@@ -104,13 +104,13 @@ document.addEventListener('DOMContentLoaded', () => {
         routes.forEach(route => {
             const listItem = document.createElement('div');
             listItem.className = 'route-item';
-            const time = (route.distanse / speed).toFixed(2);
-            listItem.innerHTML = `경로: ${route.path.join(' -> ')} <br>이동시간: ${convertTime(time)}<br>이동거리: ${route.distanse.toFixed(2)}m`;
+            const time = (route.distance / speed).toFixed(2);
+            listItem.innerHTML = `경로: ${route.path.join(' -> ')} <br>이동시간: ${convertTime(time)}<br>이동거리: ${route.distance.toFixed(2)}m`;
             listItem.addEventListener('click', function(){
                 highlightRoute(route.path);
             });
             routeList.appendChild(listItem);
-        })
+        });
     }
 
     const convertTime = time => {
@@ -143,4 +143,4 @@ document.addEventListener('DOMContentLoaded', () => {
     ['move01', 'move02'].forEach(id => {
         document.getElementById(id).addEventListener('change', tabChange);
     })
-})
+});
