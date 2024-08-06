@@ -13,6 +13,10 @@ ul li{
     list-style: none;
 }
 
+.highlight{
+    color: #03c75a;
+}
+
 /* 헤더 영역 */
 header{
     position: relative;
@@ -449,9 +453,63 @@ footer{
 }
 
 .danger_content div:hover{
-    transition: transform 1s;
-    transform: rotateY(90deg);
+    transition: transform 0.5s;
+    transform: scale(1.1);
 }
 /* 이용수칙 영역 */
+
+/* 관람 동선 안내 영역 */
+.map_area{
+    position: relative;
+    width: 100%;
+    height: 800px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 50px;
+}
+
+.map_content{
+    position: relative;
+    width: 1440px;
+    height: 800px;
+}
+
+.map_content img{
+    width: 100%;
+    height: 100%;
+}
+
+.map_content button{
+    padding: 5px 10px;
+    border: 1px solid black;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.map_content button:hover{
+    transform: scale(1.2);
+    transition: all 0.5s;
+}
+
+.map_btn01{
+    position: absolute;
+    top: 150px;
+    left: 600px;
+}
+
+.map_btn02{
+    position: absolute;
+    top: 340px;
+    left: 850px;
+}
+
+.map_btn03{
+    position: absolute;
+    top: 740px;
+    left: 530px;
+}
+
+
+/* 관람 동선 안내 영역 */
 
 /* 달빛기행축제란 서브페이지 */
