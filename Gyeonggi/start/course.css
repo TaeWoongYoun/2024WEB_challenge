@@ -261,22 +261,22 @@ canvas {
 /* 이동시간 리스트 */
 .route-list{
     position: absolute;
-    left: 0;
+    width: 560px;
+    left: 20px;
     top: 400px;
-    padding: 10px;
-    background-color: #eee;
-    border-radius: 10px;
     max-height: 300px;
     overflow-y: auto;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .route-item{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
     padding: 10px;
-    margin-bottom: 10px;
-    background-color: #03c75a;
-    color: #fff;
-    border-radius: 10px;
+    padding-bottom: 10px;
     cursor: pointer;
+    background-color: #fff;
 }
 /* JS */
 
