@@ -416,7 +416,6 @@ footer{
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #eee;
 }
 
 .danger_area h1{
@@ -434,9 +433,24 @@ footer{
 .danger_content div{
     width: 300px;
     height: 200px;
+    padding: 10px;
     border-radius: 35px 5px;
     background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     text-align: center;
+    font-weight: 600;
+    box-shadow: 0 0 15px #444;
+}
+
+.danger_content p{
+    font-size: 20px;
+}
+
+.danger_content div:hover{
+    transition: transform 1s;
+    transform: rotateY(90deg);
 }
 /* 이용수칙 영역 */
 
