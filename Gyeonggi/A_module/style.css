@@ -3,10 +3,6 @@
     margin: 0;
 }
 
-var{
-    background-color: #03c75a;
-}
-
 a{
     color: inherit;
     text-decoration: none;
@@ -17,6 +13,7 @@ ul li{
     list-style: none;
 }
 
+/* 헤더 영역 */
 header{
     position: relative;
     left: 50%;
@@ -115,7 +112,9 @@ nav{
     color: #fff;
     border: 1px solid #111;
 }
+/* 헤더 영역 */
 
+/* 비주얼 영역 */
 .visual{
     width: 100%;
     height: 700px;
@@ -172,7 +171,9 @@ nav{
     66%, 90%{left: -4320px;}
     100%{left: -5760px;}
 }
+/* 비주얼 영역 */
 
+/* 공지사항 영역 */
 .notice_area{
     width: 100%;
     height: 500px;
@@ -255,7 +256,9 @@ nav{
     width: 600px;
     height: 300px;
 }
+/* 공지사항 영역 */
 
+/* 갤러리 영역 */
 .gall_area{
     width: 100%;
     height: 900px;
@@ -321,7 +324,9 @@ nav{
     width: 100%;
     height: 100%;
 }
+/* 갤러리 영역 */
 
+/* 푸터 영역 */
 .footer_area{
     width: 100%;
     height: 100px;
@@ -364,3 +369,4 @@ footer{
 .sns i{
     font-size: 44px;
 }
+/* 푸터 영역 */
