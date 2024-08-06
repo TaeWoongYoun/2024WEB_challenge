@@ -508,8 +508,147 @@ footer{
     top: 740px;
     left: 530px;
 }
-
-
 /* 관람 동선 안내 영역 */
-
 /* 달빛기행축제란 서브페이지 */
+
+/* 문화달력 페이지 */
+.calender_area{
+    padding-top: 50px;
+    width: 100%;
+    height: 1000px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: aliceblue;
+}
+
+.calender_box{
+    width: 1440px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calender_content{
+    width: 530px;
+    height: 100%;
+}
+
+.search_box{
+    width: 410px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+
+.search_box input{
+    width: 300px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 18px;
+    border: #111 solid 1px;
+    border-radius: 5px;
+}
+
+.search_box button{
+    width: 90px;
+    height: 40px;
+    border: 1px solid black;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.calender_btn{
+    width: 600px;
+    height: 60px;
+    margin-left: 10px;
+}
+
+.calender_btn button{
+    width: 90px;
+    height: 40px;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.calender_btn select{
+    width: 100px;
+    height: 40px;
+    font-size: 18px;
+    padding-left: 10px;
+    border-radius: 5px;
+    border: 1px solid black;
+}
+
+.calender_card{
+    width: 100%;
+    height: 630px;
+}
+
+.calender_card h1{
+    height: 60px;
+    line-height: 60px;
+}
+
+.calender_card img{
+    width: 530px;
+    height: 430px;
+}
+
+.calender_card h3{
+    padding: 10px 0 10px 3px;
+}
+
+.calender_card p{
+    font-size: 18px;
+    padding-left: 3px;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+.calender{
+    margin-top: 200px;
+    width: 908px;
+    height: 100%;
+}
+
+.calender h3{
+    width: 100%;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 34px;
+}
+
+.calender th, .calender td{
+    width: 130px;
+    height: 130px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.red{
+    color: red;
+}
+
+.blue{
+    color: blue;
+}
+
+.gray{
+    color: gray;
+}
+
+.count25{
+    background-color: #eee;
+    border-radius: 15px;
+}
+/* 문화달력 페이지 */
