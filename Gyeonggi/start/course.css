@@ -235,18 +235,21 @@ canvas {
     position: absolute;
     top: 0;
     right: 0;
-    z-index: 1;
+    z-index: 11;
 }
 
-.map img{
+.festa_area img{
     position: absolute;
+    top: 170px;
+    right: 0;
     width: 1280px;
     height: 700px;
+    display: none;
 }
 
-#festa01:checked~.map > .img01,
-#festa02:checked~.map > .img02,
-#festa03:checked~.map > .img03{
+#festa01:checked~.img01,
+#festa02:checked~.img02,
+#festa03:checked~.img03{
     display: block;
 }
 /* 이동시간 리스트 */
