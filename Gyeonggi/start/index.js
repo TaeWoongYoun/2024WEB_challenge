@@ -16,11 +16,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const createPointerElement = pointer => {
         const pointerElement = document.createElement('div');
         pointerElement.className = 'pointer';
-        pointerElement.style.left = `${pointer.location[0]}px`;
-        pointerElement.style.top = `${pointer.location[1]}px`;
+        pointerElement.style.left = `${pointer.location[0] + 15}px`; // 포인터 위치 조정
+        pointerElement.style.top = `${pointer.location[1] + 15}px`;
         pointerElement.textContent = pointer.idx; // 포인터의 인덱스를 텍스트로 표시
         return pointerElement;
-    };
+    };    
 
     // 링크를 그리는 함수, highlightPath는 하이라이트할 경로
     const renderLinks = (pointers, highlightPath = []) => {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
         canvas.width = document.getElementById('mapContainer').offsetWidth;
         canvas.height = document.getElementById('mapContainer').offsetHeight;
         ctx.clearRect(0, 0, canvas.width, canvas.height); // 캔버스를 초기화
-
+    
         // 포인터 간의 기본 링크를 그림
         pointers.forEach(pointer => {
             pointer.link.forEach(linkIdx => {
@@ -44,21 +44,21 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-
+    
         // 하이라이트할 경로가 있는 경우, 경로를 빨간색으로 그림
         if (highlightPath.length > 0) {
+            ctx.beginPath();
             for (let i = 0; i < highlightPath.length - 1; i++) {
                 const start = pointers.find(p => p.idx === highlightPath[i]);
                 const end = pointers.find(p => p.idx === highlightPath[i + 1]);
                 if (start && end) {
-                    ctx.beginPath();
                     ctx.moveTo(start.location[0] + 15, start.location[1] + 15);
                     ctx.lineTo(end.location[0] + 15, end.location[1] + 15);
-                    ctx.strokeStyle = '#FF0000';
-                    ctx.lineWidth = 5;
-                    ctx.stroke();
                 }
             }
+            ctx.strokeStyle = '#FF0000'; // 하이라이트 색상
+            ctx.lineWidth = 5; // 선 굵기
+            ctx.stroke();
         }
     };
 
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const routes = [];
         const startPointer = data.pointer.find(p => p.idx === 1); // 시작 포인터를 찾음
         if (!startPointer) return;
-
+    
         // 재귀적으로 경로를 탐색하는 함수
         const traverse = (current, path, distance) => {
             if (current.idx === 6) { // 목적지에 도달한 경우
@@ -100,7 +100,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         };
-
+    
         traverse(startPointer, [], 0); // 경로 탐색 시작
         routes.sort((a, b) => a.distance - b.distance); // 경로를 거리 기준으로 정렬
         renderRouteList(routes.slice(0, 5)); // 상위 5개의 경로만 선택 후 렌더링
