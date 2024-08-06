@@ -16,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const createPointerElement = pointer => {
         const pointerElement = document.createElement('div');
         pointerElement.className = 'pointer';
-        pointerElement.style.left = `${pointer.location[0] + 15}px`; // 포인터 위치 조정
-        pointerElement.style.top = `${pointer.location[1] + 15}px`;
+        pointerElement.style.left = `${pointer.location[0]}px`; // 포인터 위치 조정
+        pointerElement.style.top = `${pointer.location[1]}px`;
         pointerElement.textContent = pointer.idx; // 포인터의 인덱스를 텍스트로 표시
         return pointerElement;
     };    
