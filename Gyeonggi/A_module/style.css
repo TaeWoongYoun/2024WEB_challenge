@@ -370,3 +370,74 @@ footer{
     font-size: 44px;
 }
 /* 푸터 영역 */
+
+/* 달빛기행축제란 서브페이지 */
+/* 소개 영역 */
+.sub01_introduce_area{
+    position: relative;
+    width: 100%;
+}
+
+.sub01_introduce_area img{
+    width: 100%;
+    height: 100%;
+    filter: brightness(50%);
+}
+
+.sub01_txt{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+}
+
+.sub01_txt h3{
+    font-size: 64px;
+    padding: 20px;
+}
+
+.sub01_txt p{
+    font-size: 18px;
+}
+
+.sub_txt{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    color: #fff;
+}
+/* 소개 영역 */
+/* 이용수칙 영역 */
+.danger_area{
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #eee;
+}
+
+.danger_area h1{
+    text-align: center;
+}
+
+.danger_content{
+    width: 1440px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.danger_content div{
+    width: 300px;
+    height: 200px;
+    border-radius: 35px 5px;
+    background-color: #fff;
+    text-align: center;
+}
+/* 이용수칙 영역 */
+
+/* 달빛기행축제란 서브페이지 */
