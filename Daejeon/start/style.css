@@ -36,6 +36,17 @@ a{
     line-height: 40px;
 }
 
+.search{
+    margin-bottom: 3px;
+    margin-right: 100px;
+}
+
+.search input{
+    width: 130px;
+    height: 30px;
+    padding-left: 10px;
+}
+
 .header_content{
     width: 100%;
     height: 70px;
