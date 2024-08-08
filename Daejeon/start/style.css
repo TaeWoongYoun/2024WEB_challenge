@@ -16,78 +16,189 @@ a{
 .header_area{
     position: fixed;
     width: 100%;
-    height: 100px;
     z-index: 1;
+}
+
+.sgin_btn{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: black;
+    color: #fff;
+}
+
+.sgin_btn div{
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.header_content{
+    width: 100%;
+    height: 70px;
+    background: rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
-    border-bottom: 0.5px solid #fff;
-    background: rgba(0, 0, 0, 0.3);
 }
 
 header{
     width: 1440px;
-    height: 100%;
+    height: 70px;
+    color: #fff;
     display: flex;
-    background-color: black;
 }
 
 .logo{
-    width: 400px;
+    width: 700px;
     height: 100%;
-    line-height: 100px;
-    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: start;
 }
 
 nav{
     width: 600px;
     height: 100%;
-    color: #fff;
-    font-size: 20px;
 }
 
 .main_menu{
     width: 100%;
     height: 100%;
     display: flex;
+    align-items: center;
 }
 
 .main_menu li{
     width: 150px;
-    line-height: 100px;
+    height: 70px;
     text-align: center;
+    line-height: 70px;
+    font-size: 20px;
 }
 
-.btn_area{
-    width: 290px;
+.main_menu li:hover{
+    background-color: #111;
+}
+
+.main_menu li:hover .sub_menu{
+    height: 210px;
+}
+
+.main_menu li:hover .sub_menu04{
+    height: 280px;
+}
+
+.sub_menu {
+    transition: all 0.5s;
+    width: 100%;
+    height: 0px;
+    background: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.sub_menu li:hover{
+    background-color: #111;
+}
+
+.ham{
+    width: 45px;
     height: 100%;
     display: flex;
-    justify-content: end;
     align-items: center;
+    justify-content: end;
+    margin-left: 95px;
 }
 
-.btn_area div{
-    width: 80px;
-    height: 40px;
-    background: none;
-    color: #fff;
-    text-align: center;
-    line-height: 40px;
+.ham svg{
+    width: 45px;
+    height: 45px;
 }
 
-.ham_btn{
-    position: relative;
-    width: 100px;
+#nav:checked~.nav_modal{
+    width: 100%;
+}
+
+.nav_modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 1080px;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.nav_back{
+    position: absolute;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: calc(100% - 285px);
     height: 100%;
 }
 
-i{
+.height_nav{
+    margin-top: 40px;
     position: absolute;
+    right: 0;
+    width: 285px;
+    height: 1080px;
+    background-color: #fff;
+    color: #111;
+}
+
+.height_nav label{
+    display: block;
+    width: 45px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.height_nav label svg{
+    width: 60px;
+    height: 60px;
+}
+
+.main_menu2{
+    width: 100%;
+    overflow: hidden;
+}
+
+.main_menu2 > li{
+    width: 100%;
+    text-align: center;
+    line-height: 70px;
     font-size: 20px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+}
+
+.main_menu2 > li:hover{
+    background-color: #111;
     color: #fff;
+}
+
+.main_menu2 > li:hover .sub_menu2{
+    height: 210px;
+    line-height: 70px;
+}
+
+.main_menu2 > li:hover .sub_menu04{
+    height: 280px;
+    line-height: 70px;
+}
+
+.sub_menu2 {
+    width: 100%;
+    height: 0px;
+    transition: height 0.5s;
+    overflow: hidden;
+}
+
+.sub_menu2 li:hover{
+    background-color: #111;
 }
 
 .visual{
