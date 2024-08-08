@@ -374,11 +374,12 @@ nav{
     visibility: hidden;
 }
 
-.tour_img:hover p{
+/* 버그로 일단 임시 주석 */
+/* .tour_img:hover p{
     opacity: 1;
     visibility: visible;
     transition: all 0.5s;
-}
+} */
 
 /* 경북 베스트5 영역 */
 /* 푸터 영역 */
