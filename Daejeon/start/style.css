@@ -538,6 +538,53 @@ nav{
     padding: 5px 10px;
 }
 /* 경북관광갤러리 영역 */
+/* 문화축제영역 */
+.festa_area{
+    width: 100%;
+    height: 650px;
+    position: relative;
+    background-color: #c8fcea;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.festa_area h1{
+    position: absolute;
+    left: 50%;
+    top: 50px;
+    transform: translateX(-50%);
+}
+
+.festa{
+    transform: rotate(270deg);
+    width: 400px;
+    height: 1440px;
+    overflow-y: scroll;
+    background-color: #fff;
+}
+
+.festa::-webkit-scrollbar{
+    display: none;
+}
+
+.festa_box{
+    width: 300px;
+    height: 450px;
+    transform: rotate(90deg);
+    margin: 20px;
+    transition: all 0.5s;
+}
+
+.festa_box:hover{
+    transform: rotate(100deg);
+}
+
+.festa_box img{
+    width: 100%;
+    height: 100%;
+}
+/* 문화축제영역 */
 /* 푸터 영역 */
 footer{
     width: 100%;
