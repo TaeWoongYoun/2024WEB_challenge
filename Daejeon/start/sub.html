@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>경북그랜드 문화투어</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <!-- 헤더 영역 -->
+    <div class="header_area">
+        <div class="sgin_btn">
+            <div class="search">
+                <input type="text" name="" id="" placeholder="search">
+            </div>
+            <div class="login_btn">로그인</div>
+            <div class="join_btn">회원가입</div>
+        </div>
+        <div class="header_content">
+            <header>
+                <div class="logo">
+                    <h1><a href="index.html">경복그랜드문화투어</a></h1>
+                </div>
+                <nav>
+                    <ul class="main_menu">
+                        <li><a href="sub.html">투어경북</a></li>
+                        <li><a href="#">숙박</a>
+                            <ul class="sub_menu">
+                                <li><a href="#">호텔</a></li>
+                                <li><a href="#">펜션</a></li>
+                                <li><a href="#">게스트하우스</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">문화유산</a>
+                            <ul class="sub_menu">
+                                <li><a href="#">세계문화유산</a></li>
+                                <li><a href="#">경주의역사</a></li>
+                                <li><a href="#">분류별역사</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">체험예약/안내</a>
+                            <ul class="sub_menu sub_menu04">
+                                <li><a href="#">체험예약</a></li>
+                                <li><a href="#">관광안내</a></li>
+                                <li><a href="#">주변관광지</a></li>
+                                <li><a href="#">문화재투어</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+                <input type="checkbox" id="nav" hidden>
+                <label class="ham" for="nav">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
+                    </svg>
+                </label>
+                <div class="nav_modal">
+                    <div class="nav_back"></div>
+                    <div class="height_nav">
+                        <label for="nav">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708"/>
+                            </svg>
+                        </label>
+                        <ul class="main_menu2">
+                            <li><a href="sub.html">투어경북</a></li>
+                            <li><a href="#">숙박</a>
+                                <ul class="sub_menu2">
+                                    <li><a href="#">호텔</a></li>
+                                    <li><a href="#">펜션</a></li>
+                                    <li><a href="#">게스트하우스</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">문화유산</a>
+                                <ul class="sub_menu2">
+                                    <li><a href="#">세계문화유산</a></li>
+                                    <li><a href="#">경주의역사</a></li>
+                                    <li><a href="#">분류별역사</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">체험예약/안내</a>
+                                <ul class="sub_menu2 sub_menu04">
+                                    <li><a href="#">체험예약</a></li>
+                                    <li><a href="#">관광안내</a></li>
+                                    <li><a href="#">주변관광지</a></li>
+                                    <li><a href="#">문화재투어</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </header>
+        </div>
+    </div>
+    <!-- 헤더 영역 -->
+    <!-- 투어경북 소개 영역-->
+    <div class="introduce_area">
+        <div class="introduce">
+            <input type="radio" name="introduce" id="introduce01" hidden checked>
+            <label for="introduce01">전체</label>
+            <input type="radio" name="introduce" id="introduce02" hidden>
+            <label for="introduce02">산</label>
+            <input type="radio" name="introduce" id="introduce03" hidden>
+            <label for="introduce03">호수</label>
+            <input type="radio" name="introduce" id="introduce04" hidden>
+            <label for="introduce04">바다</label>
+            <input type="radio" name="introduce" id="introduce05" hidden>
+            <label for="introduce05">문화유산</label>
+
+            <div class="introduce_box introduce_box01">
+                <img src="images/image (5).jpg" alt="">
+                <img src="images/image (6).jpg" alt="">
+                <img src="images/image (10).jpg" alt="">
+                <img src="images/image (50).jpg" alt="">
+                <img src="images/image (63).jpg" alt="">
+                <img src="images/image (58).jpg" alt="">
+                <img src="images/image (74).jpg" alt="">
+                <img src="images/image (71).jpg" alt="">
+                <img src="images/image (69).jpg" alt="">
+                <img src="images/image (68).jpg" alt="">
+                <img src="images/image (66).jpg" alt="">
+                <img src="images/image (65).jpg" alt="">
+                <img src="images/image (1).jpg" alt="">
+                <img src="images/image (16).jpg" alt="">
+                <img src="images/image (25).jpg" alt="">
+            </div>
+            <div class="introduce_box introduce_box02">
+                <img src="images/image (5).jpg" alt="">
+                <img src="images/image (6).jpg" alt="">
+                <img src="images/image (10).jpg" alt="">
+                <img src="images/image (50).jpg" alt="">
+                <img src="images/image (63).jpg" alt="">
+            </div>
+            <div class="introduce_box introduce_box03">
+                <img src="images/image (58).jpg" alt="">
+                <img src="images/image (74).jpg" alt="">
+            </div>
+            <div class="introduce_box introduce_box04">
+                <img src="images/image (71).jpg" alt="">
+                <img src="images/image (69).jpg" alt="">
+                <img src="images/image (68).jpg" alt="">
+                <img src="images/image (66).jpg" alt="">
+                <img src="images/image (65).jpg" alt="">
+
+            </div>
+            <div class="introduce_box introduce_box05">
+                <img src="images/image (1).jpg" alt="">
+                <img src="images/image (16).jpg" alt="">
+                <img src="images/image (25).jpg" alt="">
+            </div>
+        </div>
+    </div>
+    <!-- 투어경북 소개 영역 -->
+    <!-- 푸터 영역 -->
+    <div class="footer_area">
+        <footer>
+            <div class="footer_txt">
+                <p>경상북도 안동시 풍천면 도청대로 455 관광문의(경상북도관광홍보관) : 054-745-0753</p>
+                <p>e-mail : gbnadri@gmail.com 홈페이지문의(경상북도관광공사) : 070-4820-6437</p>
+                <p>관광자료신청 : 054-678-5430</p>
+                <p>경북투어문의 : 054-678-5432</p>
+                <p>Copyright ⓒ 2020 Gyeongsangbuk-do all rights reserved.</p>
+            </div>
+            <div class="icon">
+                <img src="./푸터/insta.png" alt="">
+                <img src="./푸터/youtube.png" alt="">
+                <img src="./푸터/twit.png" alt="">
+            </div>
+        </footer>
+    </div>
+    <!-- 푸터 영역 -->
+</body>
+</html>

@@ -635,3 +635,47 @@ footer{
     filter: none;
 }
 /* 푸터 영역 */
+/* 투어경북 소개 영역 */
+.introduce_area{
+    padding-top: 200px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.introduce{
+    width: 1440px;
+}
+
+.introduce label{
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+input:checked+label{
+    border-bottom: 2px solid black;
+}
+
+.introduce_box{
+    width: 1420px;
+    padding: 10px;
+    background-color: #c8fcea;
+    flex-wrap: wrap;
+    display: none;
+}
+
+#introduce01:checked~.introduce_box01,
+#introduce02:checked~.introduce_box02,
+#introduce03:checked~.introduce_box03,
+#introduce04:checked~.introduce_box04,
+#introduce05:checked~.introduce_box05{
+    display: flex;
+}
+
+.introduce_box img{
+    width: 300px;
+    height: 300px;
+    margin: 27px;
+    border-radius: 5px 30px;
+}
+/* 투어경북 소개 영역 */
