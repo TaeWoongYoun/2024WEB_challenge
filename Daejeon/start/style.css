@@ -22,16 +22,18 @@ a{
     align-items: center;
     justify-content: center;
     border-bottom: 0.5px solid #fff;
+    background: rgba(0, 0, 0, 0.3);
 }
 
 header{
     width: 1440px;
     height: 100%;
     display: flex;
+    background-color: black;
 }
 
 .logo{
-    width: 600px;
+    width: 400px;
     height: 100%;
     line-height: 100px;
     color: #fff;
@@ -54,6 +56,38 @@ nav{
     width: 150px;
     line-height: 100px;
     text-align: center;
+}
+
+.btn_area{
+    width: 290px;
+    height: 100%;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.btn_area div{
+    width: 80px;
+    height: 40px;
+    background: none;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+}
+
+.ham_btn{
+    position: relative;
+    width: 100px;
+    height: 100%;
+}
+
+i{
+    position: absolute;
+    font-size: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
 }
 
 .visual{
