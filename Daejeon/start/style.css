@@ -455,6 +455,89 @@ nav{
     font-size: 18px;
 }
 /* 이달의 공연/전시 영역 */
+/* 경북관광갤러리 영역 */
+.gall_area{
+    position: relative;
+    width: 100%;
+    height: 800px;
+}
+
+.gall_area h1{
+    text-align: center;
+    line-height: 100px;
+}
+
+.gall{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1440px;
+    height: 350px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.box{
+    position: relative;
+    transform-style: preserve-3d;
+    width: 350px;
+    height: 350px;
+    display: flex;
+    transition: all 2s linear;
+}
+
+.box:hover{
+    transform: rotateY(-270deg);
+}
+
+.box img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.box img:nth-child(1){
+    transform: rotateY(0deg) translateZ(175px);
+}
+
+.box img:nth-child(2){
+    transform: rotateY(90deg) translateZ(175px);
+}
+
+.box img:nth-child(3){
+    transform: rotateY(180deg) translateZ(175px);
+}
+
+.gall_txt{
+    position: relative;
+    transform: rotateY(270deg) translateZ(175px);
+    width: 100%;
+    height: 100%;
+    background-color: #c8fcea;
+    color: #111;
+}
+
+.gall_txt h1{
+    line-height: 150px;
+    text-align: center;
+}
+
+.gall_txt p{
+    font-size: 20px;
+    padding: 20px;
+}
+
+.gall_txt button{
+    position: absolute;
+    right: 10px;
+    bottom: 10px;
+    border: 1px solid black;
+    background-color: #fff;
+    color: #111;
+    padding: 5px 10px;
+}
+/* 경북관광갤러리 영역 */
 /* 푸터 영역 */
 footer{
     width: 100%;
