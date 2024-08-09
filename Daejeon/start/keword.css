@@ -213,16 +213,18 @@ nav{
 /* 헤더 영역 */
 /* 키워드 영역 */
 .window_area{
-    padding-top: 110px;
-    width: 100%;
-    height: 1550px;
-    background-color: beige;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1440px;
+    height: 1000px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .window{
+    padding: 10px;
     width: 600px;
     height: 600px;
     border: 2px solid black;
@@ -249,10 +251,13 @@ nav{
     z-index: 3;
 }
 
+.table_area{
+    width: 250px;
+    height: 600px;
+    overflow-y: scroll;
+}
+
 #table-container{
-    position: absolute;
-    right: 0;
-    top: 150px;
     background-color: #fff;
 }
 
