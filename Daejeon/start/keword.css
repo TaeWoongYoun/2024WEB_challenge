@@ -1,0 +1,256 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+ul li{
+    padding-left: 0;
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 헤더 영역 */
+.header_area{
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.sgin_btn{
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    background-color: black;
+    color: #fff;
+}
+
+.sgin_btn div{
+    width: 80px;
+    height: 40px;
+    line-height: 40px;
+}
+
+.search{
+    margin-bottom: 3px;
+    margin-right: 100px;
+}
+
+.search input{
+    width: 130px;
+    height: 30px;
+    padding-left: 10px;
+}
+
+.header_content{
+    width: 100%;
+    height: 70px;
+    background: rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header{
+    width: 1440px;
+    height: 70px;
+    color: #fff;
+    display: flex;
+}
+
+.logo{
+    width: 700px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+}
+
+nav{
+    width: 600px;
+    height: 100%;
+}
+
+.main_menu{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+}
+
+.main_menu li{
+    width: 150px;
+    height: 70px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 20px;
+}
+
+.main_menu li:hover{
+    background-color: #111;
+}
+
+.main_menu li:hover .sub_menu{
+    height: 210px;
+}
+
+.main_menu li:hover .sub_menu04{
+    height: 280px;
+}
+
+.sub_menu {
+    transition: all 0.5s;
+    width: 100%;
+    height: 0px;
+    background: rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.sub_menu li:hover{
+    background-color: #111;
+}
+
+.ham{
+    width: 45px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    margin-left: 95px;
+}
+
+.ham svg{
+    width: 45px;
+    height: 45px;
+}
+
+#nav:checked~.nav_modal{
+    width: 100%;
+    transition: all 0.5s;
+}
+
+.nav_modal{
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 1080px;
+    overflow: hidden;
+}
+
+.nav_back{
+    position: absolute;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    width: calc(100% - 285px);
+    height: 100%;
+}
+
+.height_nav{
+    position: absolute;
+    right: 0;
+    width: 285px;
+    height: 1080px;
+    background-color: #fff;
+    color: #111;
+}
+
+.height_nav label{
+    display: block;
+    width: 45px;
+    height: 70px;
+    margin: 5px;
+    margin-top: 45px;
+}
+
+.height_nav label svg{
+    width: 60px;
+    height: 60px;
+}
+
+.main_menu2{
+    width: 100%;
+    overflow: hidden;
+}
+
+.main_menu2 > li{
+    width: 100%;
+    text-align: center;
+    line-height: 70px;
+    font-size: 20px;
+}
+
+.main_menu2 > li:hover{
+    background-color: #111;
+    color: #fff;
+}
+
+.main_menu2 > li:hover .sub_menu2{
+    height: 210px;
+    line-height: 70px;
+}
+
+.main_menu2 > li:hover .sub_menu04{
+    height: 280px;
+    line-height: 70px;
+}
+
+.sub_menu2 {
+    width: 100%;
+    height: 0px;
+    transition: height 0.5s;
+    overflow: hidden;
+}
+
+.sub_menu2 li:hover{
+    background-color: #111;
+}
+/* 헤더 영역 */
+/* 키워드 영역 */
+
+/* 키워드 영역 */
+/* 푸터 영역 */
+.footer_area{
+    width: 100%;
+    height: 200px;
+    background-color: #111;
+    display: flex;
+    justify-content: center;
+}
+footer{
+    width: 1440px;
+    height: 200px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer_txt{
+    width: 1200px;
+    height: 110px;
+    color: #444;
+    font-size: 18px;
+}
+.icon{
+    width: 240px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.icon img{
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    filter: grayscale(100%);
+}
+    
+.icon img:hover{
+    transition: all 0.3s;
+    filter: none;
+}
+/* 푸터 영역 */
