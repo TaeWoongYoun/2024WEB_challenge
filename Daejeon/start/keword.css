@@ -252,9 +252,10 @@ nav{
 }
 
 .table_area{
-    width: 250px;
+    width: 230px;
     height: 600px;
     overflow-y: scroll;
+    border-bottom: 1px solid black;
 }
 
 #table-container{
