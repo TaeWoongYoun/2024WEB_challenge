@@ -212,7 +212,63 @@ nav{
 }
 /* 헤더 영역 */
 /* 키워드 영역 */
+.window_area{
+    padding-top: 110px;
+    width: 100%;
+    height: 1550px;
+    background-color: beige;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
+.window{
+    width: 600px;
+    height: 600px;
+    border: 2px solid black;
+    overflow: hidden;
+}
+
+#word-cloud{
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    margin: 0 auto;
+}
+
+.word{
+    position: absolute;
+}
+
+.popup{
+    display: none;
+    position: absolute;
+    background-color: #fff;
+    border: 1px solid black;
+    padding: 5px 10px;
+    z-index: 3;
+}
+
+#table-container{
+    position: absolute;
+    right: 0;
+    top: 150px;
+    background-color: #fff;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th, td{
+    border: #111 1px solid;
+    padding: 5px 10px;
+}
+
+input{
+    width: 30px;
+    height: 30px;
+}
 /* 키워드 영역 */
 /* 푸터 영역 */
 .footer_area{
