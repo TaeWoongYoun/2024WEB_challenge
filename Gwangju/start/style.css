@@ -476,10 +476,15 @@ footer p{
     filter: grayscale(100%);
 }
 
+.icon img:hover{
+    transition: all 0.5s;
+    filter: grayscale(0);
+}
+
 .icon p{
     width: 100px;
     height: 10px;
-    font-size: 10px;
+    font-size: 11px;
     text-align: center;
 }
 /* 푸터 영역 */
