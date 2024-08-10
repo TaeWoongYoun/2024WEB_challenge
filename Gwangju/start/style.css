@@ -64,6 +64,11 @@ nav{
     cursor: pointer;
 }
 
+.main_menu li:hover{
+    background-color: black;
+    color: #fff;
+}
+
 .sgin_area{
     width: 220px;
     height: 100%;
@@ -209,3 +214,63 @@ nav{
     display: block;
 }
 /* 회원가입 모달 */
+/* Up comming 축제 섹션 영역 */
+.visual{
+    width: 100%;
+    height: 900px;
+    overflow: hidden;
+}
+
+.slider{
+    width: 400%;
+    height: 100%;
+    display: flex;
+    position: relative;
+    animation: slider 10s infinite linear;
+}
+
+.slide{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.slide img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    filter: brightness(50%);
+}
+
+.slide_txt{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    line-height: 50px;
+    color: #fff;
+}
+
+.slide_txt h1{
+    font-size: 48px;
+}
+
+.slide button{
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 150px;
+    height: 40px;
+    border: 1px solid black;
+    background-color: #fff;
+    border-radius: 5px;
+    z-index: 1;
+}
+@keyframes slider{
+    0%, 23%{left: 0}
+    33%, 56%{left: -100%;}
+    66%, 90%{left: -200%;}
+    100%{left: -300%;}
+}
+/* Up comming 축제 섹션 영역 */
