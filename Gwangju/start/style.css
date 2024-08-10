@@ -46,7 +46,7 @@ nav{
     width: 600px;
     height: 50px;
     display: flex;
-    justify-content: center
+    justify-content: center;
 }
 
 .main_menu{
@@ -98,6 +98,7 @@ nav{
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     display: none;
+    z-index: 10;
 }
 
 .login_modal{
@@ -153,6 +154,7 @@ nav{
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     display: none;
+    z-index: 10;
 }
 
 .join_modal{
@@ -214,7 +216,7 @@ nav{
     display: block;
 }
 /* 회원가입 모달 */
-/* Up comming 축제 섹션 영역 */
+/* Up comming 축제 섹션 */
 .visual{
     width: 100%;
     height: 900px;
@@ -239,7 +241,7 @@ nav{
     position: absolute;
     width: 100%;
     height: 100%;
-    filter: brightness(50%);
+    filter: brightness(70%);
 }
 
 .slide_txt{
@@ -265,7 +267,6 @@ nav{
     border: 1px solid black;
     background-color: #fff;
     border-radius: 5px;
-    z-index: 1;
 }
 @keyframes slider{
     0%, 23%{left: 0}
@@ -273,4 +274,164 @@ nav{
     66%, 90%{left: -200%;}
     100%{left: -300%;}
 }
-/* Up comming 축제 섹션 영역 */
+/* Up comming 축제 섹션 */
+/* BEST 축제 섹션 */
+.best_festa_area{
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.best_festa_area h1{
+    position: absolute;
+    top: 30px;
+    text-align: center;
+}
+
+.best_festa{
+    margin-top: 100px;
+    width: 1440px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.festa_card{
+    position: relative;
+    width: 400px;
+    height: 400px;
+    margin: 40px;
+}
+
+.festa_card img{
+    width: 400px;
+    height: 300px;
+}
+
+.festa_txt{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 200px;
+    width: 350px;
+    height: 200px;
+    background-color: #fff;
+}
+
+.festa_txt h3{
+    text-align: center;
+    line-height: 70px;
+}
+
+.festa_txt p{
+    text-align: center;
+}
+
+.festa_txt span{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.festa_txt label{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.festa_card button{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-size: 18px;
+    border: 1px solid black;
+    border-radius: 15px;
+    background-color: #fff;
+}
+/* 축제 모달창 */
+.festa_modal_back{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+}
+
+.festa_modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    width: 1440px;
+    height: 600px;
+    background-color: #fff;
+}
+
+.festa_modal img{
+    width: 900px;
+    height: 600px;
+}
+
+.festa_modal_txt{
+    position: relative;
+    width: 520px;
+    height: 600px;
+    padding-left: 20px;
+}
+
+.festa_modal_txt label{
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+}
+
+.festa_modal_txt h1{
+    margin-top: 150px;
+}
+
+.festa_modal_txt div{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.festa_modal_txt button{
+    padding: 5px 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+#festa:checked~.festa_modal_back{
+    display: block;
+}
+/* 축제 모달창 */
+/* BEST 축제 섹션 */
+/* 임시 푸터 */
+footer{
+    width: 100%;
+    height: 100px;
+    background-color: black;
+}
+/* 임시 푸터 */
