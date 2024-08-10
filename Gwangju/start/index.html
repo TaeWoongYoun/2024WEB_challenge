@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문화관광포털</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="checkbox" id="login" hidden>
+    <input type="checkbox" id="join" hidden>
+    <!-- 헤더 영역 -->
+    <div class="header_area">
+        <header>
+            <div class="logo">
+                <h1><a href="#">문화관광포털</a></h1>
+            </div>
+            <nav>
+                <ul class="main_menu">
+                    <li><a href="#">Up comming 축제</a></li>
+                    <li><a href="#">Best 축제</a></li>
+                    <li><a href="#">지역 별 축제</a></li>
+                    <li><a href="#">이달의 축제</a></li>
+                </ul>
+            </nav>
+            <div class="sgin_area">
+                <label for="login" class="login_btn">로그인</label>
+                <label for="join" class="join_btn">회원가입</label>
+            </div>
+        </header>
+    </div>
+    <!-- 헤더 영역 -->
+    <!-- 로그인 모달 -->
+    <div class="login_modal_area">
+        <div class="login_modal">
+            <h2>로그인</h2>
+            <p><input type="text" placeholder="아이디"></p>
+            <p><input type="password" placeholder="비밀번호"></p>
+            <p><a href="#">비밀번호 찾기</a></p>
+            <p><button>로그인</button> <button><label for="login">닫기</label></button></p>
+        </div>
+    </div>
+    <!-- 로그인 모달 -->
+    <!-- 회원가입 모달 -->
+    <div class="join_modal_area">
+        <div class="join_modal">
+            <h2>회원가입</h2>
+            <p><input type="text" placeholder="아이디"></p>
+            <p><input type="text" placeholder="이름"></p>
+            <p><input type="password" placeholder="비밀번호"></p>
+            <p><input type="password" placeholder="비밀번호 확인"></p>
+            <p class="captcha"><img src="samples/캡차2.png" alt=""> <button>새로고침</button></p>
+            <p><input type="text" placeholder="코드 입력"></p>
+            <p><button>회원가입</button> <button><label for="join">닫기</label></button></p>
+        </div>
+    </div>
+    <!-- 회원가입 모달 -->
+
+</body>
+</html>
