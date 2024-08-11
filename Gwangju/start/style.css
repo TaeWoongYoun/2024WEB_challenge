@@ -421,7 +421,11 @@ nav{
 }
 
 .festa_modal_txt h1{
-    margin-top: 150px;
+    margin-top: 130px;
+}
+
+.festa_modal_txt p{
+    padding: 5px;
 }
 
 .festa_modal_txt div{
