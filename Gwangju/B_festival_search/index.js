@@ -1,142 +1,59 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const sidoSet = new Set();
-    const gunguSet = new Set();
-    const typeSet = new Set();
-    const resultContent = document.getElementById("resultContent");
-    let currentPage = 1;
-    const resultsPerPage = 5;
-    let festivals = [];
-
-    fetch('json/festivals.json')
-        .then(response => response.json())
-        .then(data => {
-            festivals = data;
-
-            festivals.forEach(festival => {
-                sidoSet.add(festival.sido);
-                gunguSet.add(festival.gungu);
-                typeSet.add(festival.type);
-            });
-
-            updateSelectOptions(document.getElementById("sidoSelect"), Array.from(sidoSet));
-            updateSelectOptions(document.getElementById("gunguSelect"), Array.from(gunguSet));
-            updateSelectOptions(document.getElementById("typeSelect"), Array.from(typeSet));
-        })
-
-    document.getElementById("searchButton").addEventListener("click", searchFestivals);
-    document.getElementById("startDateInput").addEventListener("input", formatDateString);
-
-    document.getElementById("prevButton").addEventListener("click", () => {
-        currentPage--;
-        searchFestivals();
-    });
-
-    document.getElementById("nextButton").addEventListener("click", () => {
-        currentPage++;
-        searchFestivals();
-    });
-
-    function updateSelectOptions(selectElement, options) {
-        options.forEach(option => {
-            const opt = document.createElement("option");
-            opt.value = option;
-            opt.textContent = option;
-            selectElement.appendChild(opt);
-        });
+document.addEventListener('DOMContentLoaded', function() {
+    // JSON 데이터를 불러오는 함수
+    function fetchFestivalData() {
+        return fetch('json/festivals.json')
+            .then(response => response.json())
+            .then(data => data.sort((a, b) => b.like - a.like).slice(0, 10));
     }
 
-    function formatDateString(event) {
-        let input = event.target.value.replace(/\D/g, '');
-        if (input.length >= 6) {
-            input = input.slice(0, 4) + '-' + input.slice(4, 6) + '-' + input.slice(6, 8);
-        } else if (input.length >= 4) {
-            input = input.slice(0, 4) + '-' + input.slice(4, 6);
-        }
-        event.target.value = input;
-    }
-
-    function searchFestivals() {
-        const searchInput = document.getElementById("searchInput").value.toLowerCase();
-        const sidoSelect = document.getElementById("sidoSelect").value;
-        const gunguSelect = document.getElementById("gunguSelect").value;
-        const typeSelect = document.getElementById("typeSelect").value;
-        const startDateInput = document.getElementById("startDateInput").value;
-
-        const filteredFestivals = festivals.filter(festival => {
-            const matchesSearch = festival.title.toLowerCase().includes(searchInput);
-            const matchesSido = !sidoSelect || festival.sido === sidoSelect;
-            const matchesGungu = !gunguSelect || festival.gungu === gunguSelect;
-            const matchesType = !typeSelect || festival.type === typeSelect;
-            const matchesStartDate = !startDateInput || festival.startdate.startsWith(startDateInput);
-
-            return matchesSearch && matchesSido && matchesGungu && matchesType && matchesStartDate;
-        });
-
-        displayResults(filteredFestivals.sort((a, b) => new Date(a.startdate) - new Date(b.startdate)));
-    }
-
-    function displayResults(results) {
-        resultContent.innerHTML = "";
-        const totalResults = results.length;
-        const totalPages = Math.ceil(totalResults / resultsPerPage);
-
-        const startIndex = (currentPage - 1) * resultsPerPage;
-        const endIndex = Math.min(startIndex + resultsPerPage, totalResults);
-
-        results.slice(startIndex, endIndex).forEach(festival => {
-            const card = document.createElement("div");
-            card.className = "card";
-
-            card.innerHTML = `
-                <h3>${festival.sido} <span>${festival.gungu}</span></h3>
-                <p>축제명: ${festival.title}</p>
-                <p>축제 유형: ${festival.type}</p>
-                <p>개최 기간: <br>${festival.startdate} ~ ${festival.enddate}</p>
-                <button onclick="showModal(${festival.id})">더보기</button>
-            `;
-
-            resultContent.appendChild(card);
-        });
-
-        document.getElementById("prevButton").disabled = currentPage === 1;
-        document.getElementById("nextButton").disabled = currentPage === totalPages;
-    }
-
-    window.showModal = function (festivalId) {
-        const festival = festivals.find(f => f.id === festivalId);
-        if (!festival) return;
-
-        const modal = document.createElement("div");
-        modal.className = "modal";
-        modal.innerHTML = `
-            <div class="modal-content">
-                <span class="close-button" onclick="closeModal()">&times;</span>
-                <img src="images/${festival.photo}" alt="${festival.title}">
-                <h2>${festival.title}</h2>
-                <p>축제 기간: ${festival.startdate} ~ ${festival.enddate}</p>
-                <p>개최 장소: ${festival.place}</p>
-                <p>축제 개최조직: ${festival.organization}</p>
-                <p>담당 지자체: ${festival.government}</p>
-                <p>담당 부서: ${festival.department}</p>
-                <p>담당자 직책: ${festival.position}</p>
-                <p>담당자명: ${festival.staff}</p>
-                <p>담당자 연락처: ${festival.tel}</p>
-                <p>2023년도 방문객 정보: <br> 내국인 수: ${festival.visitor_native_2023}, 외국인 수: ${festival.visitor_foreigner_2023}, 합계: ${festival.visitor_total_2023}</p>
-                <div class='modal_btn_area'>
-                    <button>좋아요</button>
-                    <button>싫어요</button>
-                    <button>내 여행 일정에 추가</button>
-                </div>
-            </div>
+    // 축제 카드를 생성하는 함수
+    function createFestivalCard(festival) {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+            <img src="images/${festival.photo}" alt="${festival.title}">
+            <h3>${festival.title}</h3>
+            <p>기간 : ${festival.startdate} ~ ${festival.enddate}</p>
+            <p>개최 장소 : ${festival.place}</p>
+            <p>좋아요 : ${festival.like}개</p>
+            <button>더보기</button>
         `;
+        return card;
+    }
 
-        document.body.appendChild(modal);
-    };
+    // 모달 창에 데이터를 표시하는 함수
+    function showModal(festival) {
+        document.getElementById('modal_img').src = `images/${festival.photo}`;
+        document.getElementById('modal_title').textContent = festival.title;
+        document.getElementById('modal_period').textContent = `축제 기간: ${festival.startdate} ~ ${festival.enddate}`;
+        document.getElementById('modal_place').textContent = `개최 장소: ${festival.place}`;
+        document.getElementById('modal_organization').textContent = `축제 개최조직: ${festival.organization}`;
+        document.getElementById('modal_government').textContent = `담당 지자체: ${festival.government}`;
+        document.getElementById('modal_department').textContent = `담당 부서: ${festival.department}`;
+        document.getElementById('modal_position').textContent = `담당자 직책: ${festival.position}`;
+        document.getElementById('modal_staff').textContent = `담당자명: ${festival.staff}`;
+        document.getElementById('modal_tel').textContent = `담당자 연락처: ${festival.tel}`;
+        document.getElementById('modal_visitors').innerHTML = `2023년도 방문객 정보: <br> 내국인 수: ${festival.visitor_native_2023}, 외국인 수: ${festival.visitor_foreigner_2023}, 합계: ${festival.visitor_total_2023}`;
 
-    window.closeModal = function () {
-        const modal = document.querySelector(".modal");
-        if (modal) {
-            modal.remove();
-        }
-    };
+        document.getElementById('festa_modal').style.display = 'block';
+    }
+
+    // JSON 데이터를 불러와서 축제 카드 및 이벤트 핸들러 설정
+    fetchFestivalData().then(festivals => {
+        const contentDiv = document.querySelector('.content');
+        
+        festivals.forEach(festival => {
+            const card = createFestivalCard(festival);
+            contentDiv.appendChild(card);
+
+            card.querySelector('button').addEventListener('click', function() {
+                showModal(festival);
+            });
+        });
+    });
+
+    // 모달 닫기 버튼 클릭 이벤트 핸들러
+    document.getElementById('close_button').addEventListener('click', function() {
+        document.getElementById('festa_modal').style.display = 'none';
+    });
 });
