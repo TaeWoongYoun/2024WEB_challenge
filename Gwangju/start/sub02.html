@@ -61,22 +61,21 @@
         <h1>축제 찾기</h1>
         <div class="search">
             <div class="search_box">
-                <input type="text" name="" id="" placeholder="search"><br>
-                <select name="" id="">
+                <input type="text" id="searchInput" placeholder="search"><br>
+                <select id="sidoSelect">
                     <option value="광역자치 단체명" disabled selected>광역자치 단체명</option>
                 </select>
-                <select name="" id="">
+                <select id="gunguSelect">
                     <option value="기초자치 단체명" disabled selected>기초자치 단체명</option>
                 </select>
-                <select name="" id="">
+                <select id="typeSelect">
                     <option value="축제유형" disabled selected>축제유형</option>
                 </select>
-                <select name="" id="">
-                    <option value="축제 시작일" disabled selected>축제 시작일</option>
-                </select>
+                <input type="text" id="startDateInput" placeholder="축제 시작일 (YYYY-MM-DD)">
+                <button id="searchButton">검색</button>
                 <img src="maps/kr.svg" alt="">
             </div>
-            <div class="content">
+            <div class="content" id="resultContent">
                 <div class="card">
                     <h3>인천 <span>중구(인천관광공사)</span></h3>
                     <p>축제명 : 인천머시기축제</p>
@@ -84,38 +83,10 @@
                     <p>개최 기간 : <br> 2024-09-04 ~ 2024-09-07</p>
                     <button>더보기</button>
                 </div>
-                <div class="card">
-                    <h3>서울</h3>
-                    <p>축제명 : 서울드럼페스티벌</p>
-                    <p>축제 유형 : 문화예술</p>
-                    <p>개최 기간 : <br> 2024-08-08 ~ 2024-08-11</p>
-                    <button>더보기</button>
-                </div>
-                <div class="card">
-                    <h3>서울</h3>
-                    <p>축제명 : 서울뮤직페스티벌</p>
-                    <p>축제 유형 : 문화예술</p>
-                    <p>개최 기간 : <br> 2024-10-19 ~ 2024-10-21</p>
-                    <button>더보기</button>
-                </div>
-                <div class="card">
-                    <h3>서울</h3>
-                    <p>축제명 : 서울국악축제</p>
-                    <p>축제 유형 : 전통역사</p>
-                    <p>개최 기간 : <br> 2024-12-02 ~ 2024-12-04</p>
-                    <button>더보기</button>
-                </div>
-                <div class="card">
-                    <h3>서울</h3>
-                    <p>축제명 : 서울페스타 2024</p>
-                    <p>축제 유형 : 문화예술</p>
-                    <p>개최 기간 : <br> 2024-05-27 ~ 2024-05-29</p>
-                    <button>더보기</button>
-                </div>
             </div>
             <div class="search_btn_area">
-                <button class="prev">이전</button>
-                <button class="next">다음</button>
+                <button class="prev" id="prevButton">이전</button>
+                <button class="next" id="nextButton">다음</button>
             </div>
         </div>
     </div>
@@ -144,5 +115,6 @@
         </footer>
     </div>
     <!-- 푸터 영역 -->
+    <script src="sub02.js"></script>
 </body>
 </html>

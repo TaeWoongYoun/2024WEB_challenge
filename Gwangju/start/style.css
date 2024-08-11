@@ -498,6 +498,15 @@ nav{
     border-radius: 5px;
 }
 
+#searchButton{
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 18px;
+    background-color: #fff;
+}
+
 .content{
     width: 100%;
     height: 300px;
@@ -507,7 +516,9 @@ nav{
 }
 
 .card{
+    position: relative;
     width: 250px;
+    height: 250px;
     padding: 5px;
     background-color: #fff;
 }
@@ -522,8 +533,9 @@ nav{
 }
 
 .card button{
-    margin-top: 10px;
-    margin-right: 5px;
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
     padding: 5px 10px;
     border-radius: 5px;
     background-color: #111;
@@ -551,6 +563,69 @@ nav{
     border-radius: 5px;
     margin: 5px;
     font-size: 18px;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.modal-content {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1300px;
+    height: 600px;
+    display: flex;
+}
+
+.modal-content img{
+    width: 600px;
+    height: 600px;
+    border-radius: 10px;
+}
+
+.modal-content h1{
+    margin-top: 25px;
+    padding: 10px;
+    padding-left: 30px;
+    margin-bottom: 15px;
+}
+
+.modal-content p{
+    padding: 10px;
+    padding-left: 30px;
+    font-size: 18px;
+}
+
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    font-size: 48px;
+    cursor: pointer;
+}
+
+.modal_btn_area{
+    position: absolute;
+    bottom: 20px;
+    right: 0;
+    width: 300px;
+}
+
+.modal_btn_area button{
+    padding: 5px 10px;
+    background-color: #fff;
+    border: 1px solid black;
+
 }
 /* 축제 찾기 섹션 */
 /* 이달의 축제 섹션 */
