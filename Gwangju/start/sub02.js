@@ -45,7 +45,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 셀렉트 박스의 옵션을 업데이트하는 함수
     function updateSelectOptions(selectElement, options) {
-        selectElement.innerHTML = '<option value="" disabled selected>선택</option>'; // 기본 옵션 추가
+        // 기존의 모든 옵션을 제거합니다.
+        // selectElement.innerHTML = ''; //이거 사용하면 인풋에 내용 다 입력해야 정상 작동
+    
+        // 각 옵션을 `<option>` 태그로 생성하여 `selectElement`에 추가합니다.
         options.forEach(option => {
             const opt = document.createElement("option");
             opt.value = option;
@@ -53,7 +56,6 @@ document.addEventListener('DOMContentLoaded', function() {
             selectElement.appendChild(opt);
         });
     }
-
     // 날짜 입력 형식을 포맷하는 함수
     function formatDateString(event) {
         let input = event.target.value.replace(/\D/g, ''); // 숫자가 아닌 문자를 제거합니다.
