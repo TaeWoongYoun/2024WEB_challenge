@@ -364,28 +364,13 @@ nav{
     background-color: #fff;
 }
 
-.festa_txt label{
+.festa_txt label, .festa_txt button{
     position: absolute;
     bottom: 10px;
     right: 10px;
     padding: 5px 10px;
     border: 1px solid black;
     border-radius: 5px;
-    background-color: #fff;
-}
-
-.festa_card button{
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
-    font-size: 18px;
-    border: 1px solid black;
-    border-radius: 15px;
     background-color: #fff;
 }
 /* 축제 모달창 */
@@ -422,7 +407,7 @@ nav{
     padding-left: 20px;
 }
 
-.festa_modal_txt label{
+.festa_modal_txt label, .close_modal{
     position: absolute;
     top: 0;
     right: 0;
@@ -432,6 +417,7 @@ nav{
     line-height: 40px;
     border-left: 1px solid black;
     border-bottom: 1px solid black;
+    display: block;
 }
 
 .festa_modal_txt h1{
@@ -444,7 +430,7 @@ nav{
     right: 10px;
 }
 
-.festa_modal_txt button{
+.festa_modal_txt > div > button{
     padding: 5px 10px;
     border: 1px solid black;
     border-radius: 5px;
