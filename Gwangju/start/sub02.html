@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문화관광포털</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="checkbox" id="login" hidden>
+    <input type="checkbox" id="join" hidden>
+    <!-- 헤더 영역 -->
+    <a href="#top"><button class="top_btn">></button></a>
+    <div class="header_area" id="top">
+        <header>
+            <div class="logo">
+                <h1><a href="#">문화관광포털</a></h1>
+            </div>
+            <nav>
+                <ul class="main_menu">
+                    <li><a href="#">Up comming 축제</a></li>
+                    <li><a href="sub01.html">Best 축제</a></li>
+                    <li><a href="sub02.html">지역 별 축제</a></li>
+                    <li><a href="#">이달의 축제</a></li>
+                </ul>
+            </nav>
+            <div class="sgin_area">
+                <label for="login" class="login_btn">로그인</label>
+                <label for="join" class="join_btn">회원가입</label>
+            </div>
+        </header>
+    </div>
+    <!-- 헤더 영역 -->
+    <!-- 로그인 모달 -->
+    <div class="login_modal_area">
+        <div class="login_modal">
+            <h2>로그인</h2>
+            <p><input type="text" placeholder="아이디"></p>
+            <p><input type="password" placeholder="비밀번호"></p>
+            <p><a href="#">비밀번호 찾기</a></p>
+            <p><button>로그인</button> <button><label for="login">닫기</label></button></p>
+        </div>
+    </div>
+    <!-- 로그인 모달 -->
+    <!-- 회원가입 모달 -->
+    <div class="join_modal_area">
+        <div class="join_modal">
+            <h2>회원가입</h2>
+            <p><input type="text" placeholder="아이디"></p>
+            <p><input type="text" placeholder="이름"></p>
+            <p><input type="password" placeholder="비밀번호"></p>
+            <p><input type="password" placeholder="비밀번호 확인"></p>
+            <p class="captcha"><img src="samples/캡차2.png" alt=""> <button>새로고침</button></p>
+            <p><input type="text" placeholder="코드 입력"></p>
+            <p><button>회원가입</button> <button><label for="join">닫기</label></button></p>
+        </div>
+    </div>
+    <!-- 회원가입 모달 -->
+    <!-- 축제 찾기 섹션 -->
+    <div class="search_area">
+        <h1>축제 찾기</h1>
+        <div class="search">
+            <div class="search_box">
+                <input type="text" name="" id="" placeholder="search"><br>
+                <select name="" id="">
+                    <option value="광역자치 단체명" disabled selected>광역자치 단체명</option>
+                </select>
+                <select name="" id="">
+                    <option value="기초자치 단체명" disabled selected>기초자치 단체명</option>
+                </select>
+                <select name="" id="">
+                    <option value="축제유형" disabled selected>축제유형</option>
+                </select>
+                <select name="" id="">
+                    <option value="축제 시작일" disabled selected>축제 시작일</option>
+                </select>
+                <img src="maps/kr.svg" alt="">
+            </div>
+            <div class="content">
+                <div class="card">
+                    <h3>인천 <span>중구(인천관광공사)</span></h3>
+                    <p>축제명 : 인천머시기축제</p>
+                    <p>축제 유형 : 전통역사</p>
+                    <p>개최 기간 : <br> 2024-09-04 ~ 2024-09-07</p>
+                    <button>더보기</button>
+                </div>
+                <div class="card">
+                    <h3>서울</h3>
+                    <p>축제명 : 서울드럼페스티벌</p>
+                    <p>축제 유형 : 문화예술</p>
+                    <p>개최 기간 : <br> 2024-08-08 ~ 2024-08-11</p>
+                    <button>더보기</button>
+                </div>
+                <div class="card">
+                    <h3>서울</h3>
+                    <p>축제명 : 서울뮤직페스티벌</p>
+                    <p>축제 유형 : 문화예술</p>
+                    <p>개최 기간 : <br> 2024-10-19 ~ 2024-10-21</p>
+                    <button>더보기</button>
+                </div>
+                <div class="card">
+                    <h3>서울</h3>
+                    <p>축제명 : 서울국악축제</p>
+                    <p>축제 유형 : 전통역사</p>
+                    <p>개최 기간 : <br> 2024-12-02 ~ 2024-12-04</p>
+                    <button>더보기</button>
+                </div>
+                <div class="card">
+                    <h3>서울</h3>
+                    <p>축제명 : 서울페스타 2024</p>
+                    <p>축제 유형 : 문화예술</p>
+                    <p>개최 기간 : <br> 2024-05-27 ~ 2024-05-29</p>
+                    <button>더보기</button>
+                </div>
+            </div>
+            <div class="search_btn_area">
+                <button class="prev">이전</button>
+                <button class="next">다음</button>
+            </div>
+        </div>
+    </div>
+    <!-- 축제 찾기 섹션 -->
+    <!-- 푸터 영역 -->
+    <div class="footer_area">
+        <footer>
+            <div class="logo">
+                <h1><a href="index.html">문화관광포털</a></h1>
+            </div>
+            <p>Copyright : (C)Korea Cultural Festival Potal 2024 All rights reserved.</p>
+            <div class="icon_area">
+                <div class="icon">
+                    <a href="#"><img src="icons/icon1.jpg" alt=""></a>
+                    <p>산삼 캐기 체험</p>
+                </div>
+                <div class="icon">
+                    <a href="#"><img src="icons/icon2.jpg" alt=""></a>
+                    <p>태권도 체험</p>
+                </div>
+                <div class="icon">
+                    <a href="#"><img src="icons/icon3.jpg" alt=""></a>
+                    <p>태극기 만들기 체험</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <!-- 푸터 영역 -->
+</body>
+</html>
