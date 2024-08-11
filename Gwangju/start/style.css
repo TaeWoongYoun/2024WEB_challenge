@@ -512,7 +512,6 @@ nav{
     height: 300px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
 }
 
 .card{
@@ -521,6 +520,7 @@ nav{
     height: 250px;
     padding: 5px;
     background-color: #fff;
+    margin: 14px;
 }
 
 .card h3{
