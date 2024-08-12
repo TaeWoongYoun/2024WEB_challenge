@@ -44,6 +44,10 @@ header{
     line-height: 100px;
 }
 
+.logo:hover{
+    cursor: pointer;
+}
+
 nav{
     width: 1000px;
     height: 100px;
@@ -119,6 +123,10 @@ nav{
     text-align: center;
     font-size: 18px;
     font-weight: 800;
+}
+
+.login_btn:hover, .join_btn:hover{
+    cursor: pointer;
 }
 
 .login_btn img{
