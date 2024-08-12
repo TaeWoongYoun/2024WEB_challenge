@@ -13,6 +13,11 @@ ul li{
     list-style: none;
 }
 
+.highlight{
+    background-color: #F7C537;
+    color: #fff;
+}
+
 /* 헤더 영역 */
 .header_area{
     width: 100%;
