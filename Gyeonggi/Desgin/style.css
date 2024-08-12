@@ -578,137 +578,142 @@ footer{
     width: 100%;
     height: 1000px;
     display: flex;
-    align-items: center;
     justify-content: center;
 }
 
 .calender_box{
     width: 1440px;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.calender_content{
-    width: 530px;
-    height: 100%;
-}
-
-.search_box{
-    width: 410px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-left: 10px;
-}
-
-.search_box input{
-    width: 300px;
-    height: 40px;
-    padding-left: 10px;
-    font-size: 18px;
-    border: #111 solid 1px;
-    border-radius: 5px;
-}
-
-.search_box button{
-    width: 90px;
-    height: 40px;
-    border: 1px solid black;
-    background-color: #fff;
-    border-radius: 5px;
-    font-size: 18px;
 }
 
 .calender_btn{
-    width: 600px;
-    height: 60px;
-    margin-left: 10px;
+    width: 430px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .calender_btn button{
-    width: 90px;
+    width: 100px;
     height: 40px;
-    font-size: 18px;
     border: 1px solid black;
     border-radius: 5px;
     background-color: #fff;
+    font-size: 18px;
 }
 
 .calender_btn select{
     width: 100px;
     height: 40px;
-    font-size: 18px;
-    padding-left: 10px;
-    border-radius: 5px;
     border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 18px;
+    text-align: center;
+}
+
+.calender_search{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search_box{
+    width: 420px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search_box input{
+    padding-left: 10px;
+    width: 300px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.search_box button{
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 18px;
+}
+
+.calender_content{
+    width: 100%;
+    height: 700px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .calender_card{
-    margin-top: 50px;
-    width: 100%;
-    height: 630px;
+    width: 600px;
+    height: 700px;
 }
 
 .calender_card h1{
-    height: 60px;
-    line-height: 60px;
+    text-align: center;
+    line-height: 70px;
 }
 
 .calender_card img{
-    width: 530px;
-    height: 430px;
+    width: 100%;
+    height: 460px;
+    border-radius: 30px;
 }
 
 .calender_card h3{
-    padding: 10px 0 10px 3px;
+    padding: 10px;
 }
 
 .calender_card p{
-    font-size: 18px;
-    padding-left: 3px;
+    padding-left: 10px;
 }
 
-table{
-    border-collapse: collapse;
+.calender_card p span{
+    font-weight: 800;
 }
 
 .calender{
-    width: 908px;
-    height: 100%;
+    width: 700px;
+    height: 700px;
+    border: 1.5px solid #ddd;
+    border-radius: 30px;
 }
 
-.calender h3{
-    width: 100%;
-    height: 100px;
-    line-height: 100px;
+.calender h1{
     text-align: center;
-    font-size: 34px;
+    line-height: 70px;
 }
 
 .calender th, .calender td{
-    width: 130px;
-    height: 130px;
-    font-size: 28px;
+    width: 100px;
+    height: 100px;
     text-align: center;
 }
 
 .red{
-    color: red;
+    color: #F86B4F;
 }
 
 .blue{
-    color: blue;
+    color: #37A3FF;
 }
 
 .gray{
     color: gray;
 }
 
-.count25{
+.d-day{
     background-color: #eee;
-    border-radius: 15px;
+    border-radius: 50%;
+    padding: 10px;
 }
 /* 문화달력 페이지 */
