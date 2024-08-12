@@ -344,6 +344,7 @@ nav{
     width: 100%;
     height: 1000px;
     background-color: #E5E6E8;
+    padding-bottom: 50px;
 }
 
 .gall_area > h1{
@@ -389,3 +390,47 @@ nav{
     transform: translate(-50%, -50%);
 }
 /* 갤러리 영역 */
+/* 푸터 영역 */
+.footer_area{
+    width: 100%;
+    height: 100px;
+    background-color: #111;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+footer{
+    width: 1440px;
+    height: 100px;
+    display: flex;
+    color: #555;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.footer_logo{
+    width: 200px;
+    height: 100%;
+    text-align: left;
+    line-height: 100px;
+    font-size: 28px;
+    font-weight: bolder;
+}
+
+.copy{
+    font-size: 20px;
+}
+
+.sns{
+    width: 180px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sns i{
+    font-size: 44px;
+}
+/* 푸터 영역 */
