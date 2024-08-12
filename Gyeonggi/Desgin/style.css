@@ -513,9 +513,9 @@ footer{
     color: #fff;
     background-color: #ff9108;
     padding: 5px 10px;
-    border-radius: 10px;
+    border-radius: 5px;
     text-align: center;
-    line-height: 5px;
+    margin-right: 10px;
 }
 /* 이용수칙 영역 */
 
