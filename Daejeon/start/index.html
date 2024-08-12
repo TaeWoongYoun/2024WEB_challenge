@@ -8,14 +8,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
+    <input type="checkbox" id="login" hidden>
+    <input type="checkbox" id="join" hidden>
     <!-- 헤더 영역 -->
     <div class="header_area">
         <div class="sgin_btn">
             <div class="search">
                 <input type="text" name="" id="" placeholder="search">
             </div>
-            <div class="login_btn">로그인</div>
-            <div class="join_btn">회원가입</div>
+            <label for="login" class="login_btn">로그인</label>
+            <label for="join" class="join_btn">회원가입</label>
         </div>
         <div class="header_content">
             <header>
@@ -93,6 +95,33 @@
             </header>
         </div>
     </div>
+    <!-- 로그인 모달 영역 -->
+    <div class="login_modal_back">
+        <div class="login_modal">
+            <h1>로그인</h1>
+            <p><input type="text" name="userid" id="loginid" placeholder="아이디"></p>
+            <p><input type="password" name="userpw" id="loginpw" placeholder="비밀번호"></p>
+            <div class="login_btn_area">
+                <button type="submit">로그인</button>
+                <button type="reset"><label for="login">종료</label></button>
+            </div>
+        </div>
+    </div>
+    <!-- 로그인 모달 영역 -->
+    <!-- 회원가입 모달 영역 -->
+    <div class="join_modal_back">
+        <div class="join_modal">
+            <h1>회원가입</h1>
+            <p><input type="text" name="userid" id="userid" placeholder="아이디"></p>
+            <p><input type="text" name="username" id="username" placeholder="이름"></p>
+            <p><input type="password" name="userpw" id="userpw" placeholder="비밀번호"></p>
+            <div class="join_btn_area">
+                <button type="submit">회원가입</button>
+                <button type="reset"><label for="join">종료</label></button>
+            </div>
+        </div>
+    </div>
+    <!-- 회원가입 모달 영역 -->
     <!-- 헤더 영역 -->
     <!-- 비주얼 영역 -->
     <div class="visual">
