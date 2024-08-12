@@ -21,6 +21,7 @@ ul li{
     align-items: center;
     justify-content: center;
     background-color: #fff;
+    z-index: 10;
 }
 
 header{
@@ -72,20 +73,22 @@ nav{
 .sub_menu{
     transition: all 0.5s;
     position: absolute;
-    width: 300px;
+    width: 320px;
     height: 0;
     overflow: hidden;
     text-align: left;
     background-color: #fff;
     color: black;
+    z-index: 2;
+    padding-left: 10px;
 }
 
 .sub_menu01{
-    margin-left: 50px;
+    margin-left: 40px;
 }
 
 .sub_menu02{
-    margin-left: 25px;
+    margin-left: 20px;
 }
 
 .sub_menu li{
@@ -234,3 +237,104 @@ nav{
     91%, 100% {display: none;}
 }
 /* 비주얼 영역 */
+/* 공지사항 영역 */
+.notice_area{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+}
+
+.notice_area h1{
+    position: absolute;
+    top: 100px;
+    right: 230px;
+}
+
+.notice_box{
+    margin-top: 100px;
+    width: 1440px;
+    height: 350px;
+}
+
+.notice_box label{
+    display: inline-block;
+    width: 90px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    font-style: 18px;
+    font-weight: 900;
+    color: gray;
+}
+
+.notice_box input:checked + label{
+    border-bottom: 2px solid black;
+    color: black;
+}
+
+.notice{
+    display: none;
+    justify-content: space-between;
+}
+
+#notice01:checked~.notice01,
+#notice02:checked~.notice02,
+#notice03:checked~.notice03{
+    display: flex;
+}
+
+.notice_img{
+    position: relative;
+    width: 600px;
+    height: 300px;
+}
+
+
+.img_front{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 500px;
+    height: 250px;
+    z-index: 1;
+    border-radius: 20px;
+}
+
+.img_back{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 500px;
+    height: 250px;
+    filter: brightness(50%);
+    border-radius: 20px;
+}
+
+.notice_content{
+    width: 700px;
+    height: 300px;
+}
+
+.notice_content div{
+    width: 100%;
+    height: 59px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 20px;
+    border-bottom: 1px solid black;
+    font-weight: 900;
+}
+
+.notice_content div:hover{
+    color: #F7C537;
+}
+
+.notice_content div span{
+    padding-right: 20px;
+    color: grey;
+    font-weight: 100;
+}
+/* 공지사항 영역 */
