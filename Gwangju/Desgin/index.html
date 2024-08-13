@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문화관광포털</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="checkbox" id="login" hidden>
+    <input type="checkbox" id="join" hidden>
+    <!-- 헤더 영역 -->
+    <div class="header_area">
+        <header>
+            <div class="logo">
+                <img src="logo2.png" alt="">
+            </div>
+            <nav>
+                <ul class="menu">
+                    <li><a href="#">Up comming 축제</a></li>
+                    <li><a href="#">Best 축제</a></li>
+                    <li><a href="#">지역 별 축제</a></li>
+                    <li><a href="#">이달의 축제</a></li>
+                </ul>
+            </nav>
+            <div class="sgin_area">
+                <label for="login" class="login_btn">로그인</label>
+                <label for="join" class="join_btn">회원가입</label>
+            </div>
+        </header>
+    </div>
+    <!-- 로그인 모달 -->
+    <div class="login_modal_back">
+        <div class="login_modal">
+            <h1>로그인</h1>
+            <p><input type="text" name="userid" id="loginid" placeholder="아이디"></p>
+            <p><input type="password" name="userpw" id="loginpw" placeholder="비밀번호"></p>
+            <p><a href="#">비밀번호 찾기</a></p>
+            <p><button type="submit">로그인</button> <button><label for="login">닫기</label></button></p>
+        </div>
+    </div>
+    <!-- 로그인 모달 -->
+    <!-- 회원가입 모달 -->
+    <div class="join_modal_back">
+        <div class="join_modal">
+            <h1>회원가입</h1>
+            <p><input type="text" name="userid" id="uesrid" placeholder="아이디"></p>
+            <p><input type="text" name="username" id="username" placeholder="이름"></p>
+            <p><input type="password" name="userpw" id="userpw" placeholder="비밀번호"></p>
+            <p><input type="password" name="userpw" id="userpw_ck" placeholder="비밀번호 확인"></p>
+            <span class="captcha"><img src="samples/캡차2.png" alt=""> <div class="captcha_btn">새로고침</div></span>
+            <p><input type="text" id="cpatcha" placeholder="코드 입력"></p>
+            <p><button type="submit">로그인</button> <button><label for="join">닫기</label></button></p>
+        </div>
+    </div>
+    <!-- 회원가입 모달 -->
+    <!-- 헤더 영역 -->
+</body>
+</html>
