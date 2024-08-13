@@ -362,8 +362,8 @@ nav{
     width: 300px;
     height: 100px;
     position: absolute;
-    left: 140px;
-    top: 60px;
+    top: 50px;
+    left: 130px;
     z-index: 1;
 }
 
@@ -503,7 +503,7 @@ footer{
 /* 이용수칙 영역 */
 .danger_area{
     width: 100%;
-    height: 1000px;
+    height: 500px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -511,7 +511,7 @@ footer{
 
 .danger_content{
     width: 1300px;
-    height: 600px;
+    height: 300px;
     padding: 35px 70px;
     border: 1px dashed #ff9108;
     border-radius: 20px;
@@ -520,14 +520,13 @@ footer{
 .danger_content h1{
     width: 100%;
     height: 60px;
-    font-size: 44px;
 }
 
 .danger_content div{
     width: 100%;
-    height: 120px;
-    line-height: 120px;
-    font-size: 29px;
+    height: 59px;
+    line-height: 59px;
+    font-size: 20px;
     font-weight: 600;
     border-bottom: dashed 1px #ff9108;
 }
