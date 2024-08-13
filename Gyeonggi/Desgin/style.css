@@ -68,11 +68,10 @@ nav{
     text-align: center;
     line-height: 100px;
     font-size: 24px;
-    font-weight: 600;
 }
 
 .main_menu > li:hover{
-    color: #F7C537;
+    font-weight: bold;
 }
 
 .main_menu > li:hover .sub_menu{
@@ -87,7 +86,7 @@ nav{
     overflow: hidden;
     text-align: left;
     background-color: #fff;
-    color: black;
+    font-weight: 100;
     z-index: 2;
     padding-left: 10px;
 }
@@ -106,7 +105,7 @@ nav{
 }
 
 .sub_menu li:hover{
-    color: #F7C537;
+    font-weight: bold;
 }
 
 .sgin_btn{
@@ -118,11 +117,10 @@ nav{
 }
 
 .login_btn{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     text-align: center;
     font-size: 18px;
-    font-weight: 800;
 }
 
 .login_btn:hover, .join_btn:hover{
@@ -130,21 +128,20 @@ nav{
 }
 
 .login_btn img{
-    margin-top: 25px;
+    margin-top: 20px;
     width: 20px;
     height: 20px;
 }
 
 .join_btn{
-    width: 100px;
-    height: 100px;
+    width: 80px;
+    height: 80px;
     text-align: center;
     font-size: 18px;
-    font-weight: 800;
 }
 
 .join_btn img{
-    margin-top: 25px;
+    margin-top: 20px;
     width: 20px;
     height: 20px;
 }
@@ -219,7 +216,6 @@ nav{
 
 .slide_num span{
     color: gray;
-
 }
 
 .slide_num p:nth-child(1){
@@ -252,21 +248,23 @@ nav{
 /* 비주얼 영역 */
 /* 공지사항 영역 */
 .notice_area{
+    margin-top: 50px;
     position: relative;
     width: 100%;
-    height: 500px;
+    height: 600px;
     display: flex;
     justify-content: center;
 }
 
 .notice_area h1{
     position: absolute;
-    top: 100px;
-    right: 230px;
+    top: 50px;
+    left: 240px;
+    font-size: 44px;
 }
 
 .notice_box{
-    margin-top: 100px;
+    margin-top: 150px;
     width: 1440px;
     height: 350px;
 }
@@ -338,11 +336,11 @@ nav{
     justify-content: space-between;
     padding-left: 20px;
     border-bottom: 1px solid black;
-    font-weight: 900;
+    font-size: 18px;
 }
 
 .notice_content div:hover{
-    color: #F7C537;
+    font-weight: bold;
 }
 
 .notice_content div span{
@@ -355,15 +353,23 @@ nav{
 .gall_area{
     position: relative;
     width: 100%;
-    height: 1000px;
+    height: 800px;
     background-color: #E5E6E8;
     padding-bottom: 50px;
 }
 
-.gall_area > h1{
+.gall_title{
+    width: 300px;
+    height: 100px;
     position: absolute;
-    left: 230px;
+    left: 140px;
     top: 60px;
+    z-index: 1;
+}
+
+.gall_title img{
+    width: 100%;
+    height: 100%;
 }
 
 .gall{
@@ -371,7 +377,7 @@ nav{
     left: 50%;
     transform: translateX(-50%);
     width: 1440px;
-    height: 900px;
+    height: 600px;
     margin-top: 100px;
     overflow: auto;
     scroll-snap-type: y mandatory;
@@ -401,6 +407,14 @@ nav{
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.gall_img i{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 30px;
+    font-size: 32px;
 }
 /* 갤러리 영역 */
 /* 푸터 영역 */
@@ -489,7 +503,7 @@ footer{
 /* 이용수칙 영역 */
 .danger_area{
     width: 100%;
-    height: 500px;
+    height: 1000px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -497,7 +511,7 @@ footer{
 
 .danger_content{
     width: 1300px;
-    height: 300px;
+    height: 600px;
     padding: 35px 70px;
     border: 1px dashed #ff9108;
     border-radius: 20px;
@@ -506,13 +520,14 @@ footer{
 .danger_content h1{
     width: 100%;
     height: 60px;
+    font-size: 44px;
 }
 
 .danger_content div{
     width: 100%;
-    height: 59px;
-    line-height: 59px;
-    font-size: 20px;
+    height: 120px;
+    line-height: 120px;
+    font-size: 29px;
     font-weight: 600;
     border-bottom: dashed 1px #ff9108;
 }
@@ -534,7 +549,7 @@ footer{
     height: 800px;
     display: flex;
     justify-content: center;
-    margin-bottom: 50px;
+    background-color: #242424;
 }
 
 .map_content{
