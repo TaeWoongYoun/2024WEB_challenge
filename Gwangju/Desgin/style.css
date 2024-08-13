@@ -89,6 +89,7 @@ nav{
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     display: none;
+    z-index: 10;
 }
 
 .login_modal{
@@ -159,6 +160,7 @@ nav{
     height: 100vh;
     background: rgba(0, 0, 0, 0.5);
     display: none;
+    z-index: 10;
 }
 
 .join_modal{
@@ -317,6 +319,7 @@ nav{
     position: absolute;
     left: 240px;
     top: 40px;
+    font-size: 44px;
 }
 
 .best_festa{
@@ -339,6 +342,7 @@ nav{
     width: 220px;
     height: 200px;
     border-radius: 15px;
+    margin-right: 10px;
 }
 
 .title{
@@ -347,25 +351,28 @@ nav{
 
 .title span{
     padding: 5px;
-    background-color: #FF8484;
+    background-color: #Deff4f;
     border-radius: 5px;
-    color: #fff;
     font-size: 12px;
+    margin-right: 10px;
 }
 
 .festa_card p{
     padding: 10px;
+    display: flex;
+}
+
+.festa_card p span{
     font-weight: 600;
 }
 
 .festa_card button{
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
     padding: 5px 10px;
     border: 1px solid gray;
     background-color: #fff;
     border-radius: 5px;
+    margin-top: 30px;
+    margin-left: 10px;
 }
 
 .festa_card label{
@@ -456,13 +463,14 @@ nav{
     height: 900px;
     display: flex;
     justify-content: center;
-    background-color: beige;
+    background-color: #eeeeee;
 }
 
 .search_area > h1{
     position: absolute;
-    text-align: center;
+    left: 230px;
     margin-top: 50px;
+    font-size: 44px;
 }
 
 .search{
@@ -511,7 +519,7 @@ nav{
     height: 250px;
     padding: 5px;
     background-color: #fff;
-    border-radius: 20px;
+    border-radius: 15px;
 }
 
 .card img{
@@ -523,11 +531,13 @@ nav{
 .card h2{
     margin-top: 20px;
     padding: 5px;
+    padding-left: 15px;
 }
 
 .card p{
     margin-top: 10px;
     padding: 5px;
+    padding-left: 15px;
 }
 
 .card button{
@@ -535,10 +545,9 @@ nav{
     bottom: 10px;
     right: 10px;
     padding: 5px 10px;
-    border-radius: 5px;
+    border-radius: 12px;
     background-color: #111;
     color: #fff;
-    font-weight: 900;
     float: right;
 }
 
