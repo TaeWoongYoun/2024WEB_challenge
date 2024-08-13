@@ -454,7 +454,7 @@ nav{
     background-color: beige;
 }
 
-.search_area h1{
+.search_area > h1{
     position: absolute;
     text-align: center;
     margin-top: 50px;
@@ -515,7 +515,7 @@ nav{
     height: 250px;
 }
 
-.card h3{
+.card h2{
     margin-top: 20px;
     padding: 5px;
 }
