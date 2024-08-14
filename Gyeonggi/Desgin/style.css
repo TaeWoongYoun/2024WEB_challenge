@@ -586,6 +586,106 @@ footer{
     color: #fff;
 }
 /* 소개 영역 */
+
+
+/* 관람 동선 안내 영역 */
+.map_area{
+    position: relative;
+    width: 100%;
+    height: 700px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map_content{
+    position: relative;
+    width: 1440px;
+    height: 500px;
+}
+
+.map_content h1{
+    position: absolute;
+    top: 0px;
+    font-size: 44px;
+}
+
+.map_content > img{
+    position: absolute;
+    right: 0;
+    width: 900px;
+    height: 500px;
+    border-radius: 20px;
+}
+
+.map_content button{
+    padding: 5px 10px;
+    border: 1px solid black;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.map_content button:hover{
+    transform: scale(1.1);
+    transition: all 0.5s;
+}
+
+.map_btn01{
+    position: absolute;
+    top: 100px;
+    left: 900px;
+}
+
+.map_btn02{
+    position: absolute;
+    top: 205px;
+    left: 1050px;
+}
+
+.map_btn03{
+    position: absolute;
+    bottom: 10px;
+    left: 860px;
+}
+
+.map_content button:hover~.img_card p{
+    display: none;
+}
+
+.map_btn01:hover~.img_card > .map_img01{
+    display: block;
+}
+.map_btn02:hover~.img_card > .map_img02{
+    display: block;
+}
+.map_btn03:hover~.img_card > .map_img03{
+    display: block;
+}
+
+.img_card{
+    position: absolute;
+    top: 150px;
+    width: 500px;
+    height: 350px;
+    background-color: #eee;
+    border-radius: 20px;
+}
+
+.img_card p{
+    text-align: center;
+    line-height: 350px;
+    font-size: 24px;
+}
+
+.img_card img{
+    width: 100%;
+    position: absolute;
+    height: 350px;
+    border-radius: 20px;
+    display: none;
+}
+/* 관람 동선 안내 영역 */
+
 /* 이용수칙 영역 */
 .danger_area{
     width: 100%;
@@ -626,58 +726,6 @@ footer{
     margin-right: 10px;
 }
 /* 이용수칙 영역 */
-
-/* 관람 동선 안내 영역 */
-.map_area{
-    position: relative;
-    width: 100%;
-    height: 800px;
-    display: flex;
-    justify-content: center;
-    background-color: #242424;
-}
-
-.map_content{
-    position: relative;
-    width: 1440px;
-    height: 800px;
-}
-
-.map_content img{
-    width: 100%;
-    height: 100%;
-}
-
-.map_content button{
-    padding: 5px 10px;
-    border: 1px solid black;
-    background-color: #fff;
-    border-radius: 5px;
-}
-
-.map_content button:hover{
-    transform: scale(1.2);
-    transition: all 0.5s;
-}
-
-.map_btn01{
-    position: absolute;
-    top: 150px;
-    left: 600px;
-}
-
-.map_btn02{
-    position: absolute;
-    top: 340px;
-    left: 850px;
-}
-
-.map_btn03{
-    position: absolute;
-    top: 740px;
-    left: 530px;
-}
-/* 관람 동선 안내 영역 */
 /* 달빛기행축제란 서브페이지 */
 
 /* 문화달력 페이지 */
