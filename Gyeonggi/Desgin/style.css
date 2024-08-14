@@ -38,10 +38,9 @@ header{
 }
 
 .logo{
-    width: 200px;
-    height: 100px;
+    width: 360px;
+    height:64px;
     text-align: center;
-    line-height: 100px;
 }
 
 .logo:hover{
@@ -184,18 +183,23 @@ nav{
 .slide img{
     width: 100%;
     height: 100%;
+    /* filter: grayscale(100%); */
 }
 
 .slide_txt{
-    padding: 10px;
+    width: 250px;
+    padding: 10px 25px 20px 25px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    left: 100px;
+    right: 150px;
     z-index: 1;
     color: #fff;
-    background: rgba(0, 0, 0, 0.7);
-    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.slide_txt h1{
+    line-height: 70px;
 }
 
 .slide_num{
@@ -211,7 +215,6 @@ nav{
     text-align: center;
     line-height: 40px;
     font-size: 20px;
-    font-weight: 900;
     overflow: hidden;
 }
 
@@ -252,20 +255,116 @@ nav{
     margin-top: 50px;
     position: relative;
     width: 100%;
-    height: 600px;
+    height: 800px;
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.bubble1{
+    position: absolute;
+    right: 200px;
+    top: -90px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #1078D4;
+    opacity: 0.5;
+    border: 2px solid #eee;
+}
+
+.bubble2{
+    position: absolute;
+    right: 350px;
+    top: 50px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #1078D4;
+    opacity: 0.3;
+}
+
+.bubble3{
+    position: absolute;
+    right: 200px;
+    top: 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #1078D4;
+    opacity: 0.2;
+}
+
+.bubble4{
+    position: absolute;
+    right: 430px;
+    top: -30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1078D4;
+    opacity: 0.7;
+    z-index: 1;
+}
+
+.bubble5{
+    position: absolute;
+    left: 200px;
+    bottom: -90px;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background-color: #1078D4;
+    opacity: 0.5;
+    border: 2px solid #eee;
+    z-index: 1;
+}
+
+.bubble6{
+    position: absolute;
+    left: 350px;
+    bottom: 50px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    background-color: #1078D4;
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.bubble7{
+    position: absolute;
+    left: 200px;
+    bottom: 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: #1078D4;
+    opacity: 0.2;
+    z-index: 1;
+}
+
+.bubble8{
+    position: absolute;
+    left: 430px;
+    bottom: -30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #1078D4;
+    opacity: 0.7;
+    z-index: 1;
+    border: 2px solid #eee;
 }
 
 .notice_area h1{
     position: absolute;
-    top: 50px;
+    top: 120px;
     left: 240px;
     font-size: 44px;
 }
 
 .notice_box{
-    margin-top: 150px;
     width: 1440px;
     height: 350px;
 }
@@ -351,71 +450,40 @@ nav{
 }
 /* 공지사항 영역 */
 /* 갤러리 영역 */
-.gall_area{
-    position: relative;
+.gall_container{
     width: 100%;
-    height: 800px;
-    background-color: #E5E6E8;
-    padding-bottom: 50px;
-}
-
-.gall_title{
-    width: 300px;
-    height: 100px;
-    position: absolute;
-    top: 50px;
-    left: 130px;
-    z-index: 1;
-}
-
-.gall_title img{
-    width: 100%;
-    height: 100%;
-}
-
-.gall{
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 1440px;
-    height: 600px;
-    margin-top: 100px;
+    height: 900px;
     overflow: auto;
     scroll-snap-type: y mandatory;
-    flex-direction: column;
 }
 
-.gall::-webkit-scrollbar{
+.gall_container::-webkit-scrollbar{
     display: none;
 }
 
-.gall_img{
+.gall_area{
     position: relative;
     width: 100%;
-    height: 100%;
-    flex: none;
+    height: 900px;
     scroll-snap-align: start;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.gall_img img{
+.gall_area img{
     width: 100%;
     height: 100%;
 }
 
-.gall_img h1{
-    position: absolute;
-    color: #fff;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-
-.gall_img i{
+.gall_area i{
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
     bottom: 30px;
-    font-size: 32px;
+    font-size: 36px;
+    color: #111;
+    z-index: 10;
 }
 /* 갤러리 영역 */
 /* 푸터 영역 */
