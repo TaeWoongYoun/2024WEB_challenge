@@ -38,9 +38,15 @@ header{
 }
 
 .logo{
-    width: 360px;
-    height:64px;
+    width: 200PX;
+    height: 85px;
     text-align: center;
+    margin-left: 10px;
+}
+
+.logo img{
+    width: 100%;
+    height: 100%;
 }
 
 .logo:hover{
@@ -74,7 +80,7 @@ nav{
 }
 
 .main_menu > li:hover .sub_menu{
-    height: 300px;
+    height: 180px;
 }
 
 .sub_menu{
@@ -88,7 +94,7 @@ nav{
     font-weight: 100;
     z-index: 2;
     padding-left: 10px;
-    font-size: 22px;
+    font-size: 20px;
 }
 
 .sub_menu01{
@@ -101,7 +107,7 @@ nav{
 
 .sub_menu li{
     width: 300px;
-    line-height: 100px;
+    line-height: 60px;
 }
 
 .sub_menu li:hover{
