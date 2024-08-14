@@ -86,7 +86,7 @@ nav{
 .sub_menu{
     transition: all 0.5s;
     position: absolute;
-    width: 320px;
+    width: 260px;
     height: 0;
     overflow: hidden;
     text-align: left;
@@ -95,18 +95,19 @@ nav{
     z-index: 2;
     padding-left: 10px;
     font-size: 20px;
+    border-radius: 10px;
 }
 
 .sub_menu01{
-    margin-left: 40px;
-}
-
-.sub_menu02{
     margin-left: 20px;
 }
 
+.sub_menu02{
+    margin-left: 0px;
+}
+
 .sub_menu li{
-    width: 300px;
+    width: 260px;
     line-height: 60px;
 }
 
@@ -522,11 +523,12 @@ footer{
 
 .footer_logo{
     width: 200px;
-    height: 100%;
-    text-align: left;
-    line-height: 100px;
-    font-size: 28px;
-    font-weight: bolder;
+    height: 85px;
+    display: flex;
+    align-items: center;
+}
+.footer_logo img{
+    filter: grayscale(100%);
 }
 
 .copy{
