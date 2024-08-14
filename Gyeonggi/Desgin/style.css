@@ -126,36 +126,35 @@ nav{
     width: 80px;
     height: 80px;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
+    color: #888;
+}
+
+.login_btn i{
+    margin-top: 20px;
 }
 
 .login_btn:hover, .join_btn:hover{
     cursor: pointer;
-}
-
-.login_btn img{
-    margin-top: 20px;
-    width: 20px;
-    height: 20px;
+    color: #111;
 }
 
 .join_btn{
     width: 80px;
     height: 80px;
     text-align: center;
-    font-size: 18px;
+    font-size: 20px;
+    color: #888;
 }
 
-.join_btn img{
+.join_btn i{
     margin-top: 20px;
-    width: 20px;
-    height: 20px;
 }
 /* 헤더 영역 */
 /* 비주얼 영역 */
 .visual{
     width: 100%;
-    height: 600px;
+    height: 700px;
     overflow: hidden;
     position: relative;
 }
@@ -193,19 +192,18 @@ nav{
 }
 
 .slide_txt{
-    width: 250px;
-    padding: 10px 25px 20px 25px;
+    width: 400px;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
     right: 150px;
     z-index: 1;
     color: #fff;
-    background: rgba(0, 0, 0, 0.3);
 }
 
 .slide_txt h1{
     line-height: 70px;
+    font-size: 44px;
 }
 
 .slide_num{
@@ -267,6 +265,7 @@ nav{
     align-items: center;
 }
 
+/* 물방울 */
 .bubble1{
     position: absolute;
     right: 200px;
@@ -362,6 +361,7 @@ nav{
     z-index: 1;
     border: 2px solid #eee;
 }
+/* 물방울 */
 
 .notice_area h1{
     position: absolute;
@@ -381,14 +381,14 @@ nav{
     height: 40px;
     text-align: center;
     line-height: 40px;
-    font-style: 18px;
-    font-weight: 900;
+    font-size: 22px;
     color: gray;
 }
 
 .notice_box input:checked + label{
     border-bottom: 2px solid black;
     color: black;
+    font-weight: bold;
 }
 
 .notice{
@@ -405,7 +405,7 @@ nav{
 .notice_img{
     position: relative;
     width: 600px;
-    height: 300px;
+    height: 350px;
 }
 
 
@@ -414,7 +414,7 @@ nav{
     top: 0;
     left: 0;
     width: 500px;
-    height: 250px;
+    height: 300px;
     z-index: 1;
     border-radius: 20px;
 }
@@ -424,25 +424,25 @@ nav{
     bottom: 0;
     right: 0;
     width: 500px;
-    height: 250px;
+    height: 300px;
     filter: brightness(50%);
     border-radius: 20px;
 }
 
 .notice_content{
     width: 700px;
-    height: 300px;
+    height: 350px;
 }
 
 .notice_content div{
     width: 100%;
-    height: 59px;
+    height: 69px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding-left: 20px;
     border-bottom: 1px solid black;
-    font-size: 18px;
+    font-size: 20px;
 }
 
 .notice_content div:hover{
@@ -488,8 +488,17 @@ nav{
     transform: translateX(-50%);
     bottom: 30px;
     font-size: 36px;
-    color: #111;
+    color: #eee;
     z-index: 10;
+}
+
+.gall_title{
+    width: 1000px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 /* 갤러리 영역 */
 /* 푸터 영역 */
