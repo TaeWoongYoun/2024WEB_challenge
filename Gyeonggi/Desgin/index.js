@@ -1,23 +1,23 @@
 document.addEventListener('DOMContentLoaded', function(){
     let mapData;
     let speed = 3
-    let courseIndex = 0;
+    let courseIndex = 0
 
     fetch('course.json')
         .then(response => response.json())
         .then(data => {
-            mapData = data
+            mapData = data;
             renderMap(mapData[courseIndex])
             calculateRoutes(mapData[courseIndex])
         })
-
+    
     const createPointer = pointer => {
         const pointerElement = document.createElement('div')
         pointerElement.className = 'pointer'
         pointerElement.style.left = `${pointer.location[0]}px`
         pointerElement.style.top = `${pointer.location[1]}px`
         pointerElement.textContent = pointer.idx;
-        return pointerElement
+        return pointerElement;
     }
 
     const renderLinks = (pointers, highlight, []) => {
@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
         pointers.forEach(pointer => {
             pointer.link.forEach(linkIdx => {
-                const targetPointer = pointers.find(p => p.idx === linkIdx)
+                const targetPointer = pointers.find(p => p.dix === linkIdx)
                 if (targetPointer) {
                     ctx.beginPath()
                     ctx.moveTo(pointer.location[0] + 15, pointer.location[1] + 15)
@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', function(){
             })
         });
 
-        if (highlight.length > 0 ) {
-            ctx.beginPath()
+        if (highlight.length > 0) {
+            ctx.beginPath();
             for (let i = 0; i < highlight.length - 1; i++) {
                 const start = pointers.find(p => p.idx === highlight[i])
                 const end = pointers.find(p => p.idx === highlight[i + 1])
@@ -65,7 +65,9 @@ document.addEventListener('DOMContentLoaded', function(){
         mapContainer.appendChild(canvas)
 
         data.pointer.forEach(pointer => {
-            mapContainer.appendChild(createElement(pointer))
+            mapContainer.appendChild(createPointer(pointer))
         })
+
+        renderLinks(data.pointer)
     }
 })
