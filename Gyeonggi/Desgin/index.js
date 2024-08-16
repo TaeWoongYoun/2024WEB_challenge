@@ -58,41 +58,29 @@ document.addEventListener('DOMContentLoaded', function(){
     }
 
     const renderMap = data => {
-        const mapContainer = document.getElementById('mapContainer')
-        mapContainer.innerHTML = ''
+        const mapCotainer = document.getElementById('mapContainer')
+        mapCotainer.innerHTML = ''
         const canvas = document.createElement('canvas')
         canvas.id = 'mapCanvas'
-        mapContainer.appendChild(canvas)
+        mapCotainer.appendChild(canvas)
 
         data.pointer.forEach(pointer => {
-            mapContainer.appendChild(createPointer(pointer))
+            mapCotainer.appendChild(createPointer(pointer))
         })
 
         renderLinks(data.pointer)
     }
 
     const calculateRoutes = data => {
-        const routes = []
+        const routes = [] ;
         const startPointer = data.pointer.find(p => p.idx === 1)
-        if (!startPointer) return;
+        if(!startPointer) return;
 
-        const traverse = (current , path, distance) => {
-            if (current.idx == 6) {
+        const traverse = (current, path, distance) => {
+            if (current.idx === 6) {
                 routes.push({path : [...path, current.idx], distance})
-                return;
+                return
             }
-            current.link.forEach(linkIdx => {
-                if (!path.includes(linkIdx)) {
-                    const nextPointer = data.pointer.find(p => p.idx === linkIdx)
-                    if (nextPointer) {
-                        const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1])
-                        traverse(nextPointer, [...path, current.idx], distance + dist)
-                    }
-                }
-            })
         }
-        traverse(startPointer, [], 0)
-        routes.sort((a,b) => a.distance - b.distance)
-        renderRouteList(routes.slice(0, 5))
     }
 })
