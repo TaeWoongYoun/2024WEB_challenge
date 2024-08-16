@@ -11,16 +11,16 @@ document.addEventListener('DOMContentLoaded', () => {
             calculateRoutes(mapData[courseIndex]);
         });
 
-    const createPointerElement = pointer => {
+    const createPointer = pointer => {
         const pointerElement = document.createElement('div');
         pointerElement.className = 'pointer';
         pointerElement.style.left = `${pointer.location[0]}px`;
         pointerElement.style.top = `${pointer.location[1]}px`;
         pointerElement.textContent = pointer.idx;
         return pointerElement;
-    };
+    }
 
-    const renderLinks = (pointers, highlightPath = []) => {
+    const renderLinks = (pointers, highlight = []) => {
         const canvas = document.getElementById('mapCanvas');
         const ctx = canvas.getContext('2d');
         canvas.width = document.getElementById('mapContainer').offsetWidth;
@@ -41,11 +41,11 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        if (highlightPath.length > 0) {
+        if (highlight.length > 0) {
             ctx.beginPath();
-            for (let i = 0; i < highlightPath.length - 1; i++) {
-                const start = pointers.find(p => p.idx === highlightPath[i]);
-                const end = pointers.find(p => p.idx === highlightPath[i + 1]);
+            for (let i = 0; i < highlight.length - 1; i++) {
+                const start = pointers.find(p => p.idx === highlight[i]);
+                const end = pointers.find(p => p.idx === highlight[i + 1]);
                 if (start && end) {
                     ctx.moveTo(start.location[0] + 15, start.location[1] + 15);
                     ctx.lineTo(end.location[0] + 15, end.location[1] + 15);
@@ -62,12 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
         mapContainer.innerHTML = '';
         const canvas = document.createElement('canvas');
         canvas.id = 'mapCanvas';
+
         mapContainer.appendChild(canvas);
 
         data.pointer.forEach(pointer => {
-            mapContainer.appendChild(createPointerElement(pointer));
+            mapContainer.appendChild(createPointer(pointer));
         });
-
         renderLinks(data.pointer);
     };
 
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
             current.link.forEach(linkIdx => {
-                if (!path.includes(linkIdx)) {
+                if(!path.includes(linkIdx)){
                     const nextPointer = data.pointer.find(p => p.idx === linkIdx);
                     if (nextPointer) {
                         const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1]);
@@ -93,14 +93,13 @@ document.addEventListener('DOMContentLoaded', () => {
         };
 
         traverse(startPointer, [], 0);
-        routes.sort((a, b) => a.distance - b.distance);
+        routes.sort((a,b) => a.distance - b.distance);
         renderRouteList(routes.slice(0, 5));
     };
-
+    
     const renderRouteList = routes => {
         const routeList = document.getElementById('routeList');
         routeList.innerHTML = '';
-
         routes.forEach(route => {
             const listItem = document.createElement('div');
             listItem.className = 'route-item';
@@ -114,9 +113,9 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const convertTime = time => {
-        const minutes = Math.floor(time / 60);
-        const seconds = Math.round(time % 60);
-        return `${minutes}분 ${seconds}초`;
+        const min = Math.floor(time / 60);
+        const sec = Math.round(time % 60);
+        return `${min}분 ${sec}초`;
     };
 
     const highlightRoute = path => {
