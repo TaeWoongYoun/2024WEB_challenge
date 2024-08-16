@@ -142,5 +142,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ['move01', 'move02'].forEach(id => {
         document.getElementById(id).addEventListener('change', handleTabChange)
-    })
+    });
 })
