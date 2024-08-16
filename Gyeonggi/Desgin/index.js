@@ -112,8 +112,14 @@ document.addEventListener('DOMContentLoaded', function(){
         })
     }
 
+    const convertTime = time => {
+        const minutes = Math.floor(time / 60);
+        const seconds = Math.round(time % 60);
+        return `${minutes}분 ${seconds}초`;
+    };
+
     const highlightRoute = path => {
-        renderMap(mapData[currentCourseIndex]);
-        renderLinks(mapData[currentCourseIndex].pointer, path);
+        renderMap(mapData[courseIndex]);
+        renderLinks(mapData[courseIndex].pointer, path);
     };
 })  
