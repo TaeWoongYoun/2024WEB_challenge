@@ -20,7 +20,7 @@ document.addEventListener('DOMContentLoaded', function(){
         return pointerElement
     }
 
-    const renderLinks = (pointers, highlight, []) => {
+    const renderLinks = (pointers, highlight = []) => {
         const canvas = document.getElementById('mapCanvas')
         const ctx = canvas.getContext('2d')
         canvas.width = document.getElementById('mapContainer').offsetWidth;
@@ -49,11 +49,11 @@ document.addEventListener('DOMContentLoaded', function(){
                 if (start && end) {
                     ctx.moveTo(start.location[0] + 15, start.location[1] + 15)
                     ctx.lineTo(end.location[0] + 15, end.location[1] + 15)
-                    ctx.strokeStyle = '#FF0000'
-                    ctx.lineWidth = 5
-                    ctx.stroke();
                 }
             }
+            ctx.strokeStyle = '#FF0000'
+            ctx.lineWidth = 5
+            ctx.stroke();
         }
     }
 
@@ -93,6 +93,6 @@ document.addEventListener('DOMContentLoaded', function(){
         }
         traverse(startPointer, [], 0)
         routes.sort((a,b) => a.distance - b.distance)
-        renderRoutesList(routes.slice(0, 5))
+        renderRouteList(routes.slice(0, 5))
     }
 })
