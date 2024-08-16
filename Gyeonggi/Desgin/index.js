@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     const nextPointer = data.pointer.find(p => p.idx === linkIdx)
                     if (nextPointer) {
                         const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1])
-                        traverse(nextPointer, [...path, current.idx], distance - dist)
+                        traverse(nextPointer, [...path, current.idx], distance + dist)
                     }
                 }
             })
@@ -103,7 +103,7 @@ document.addEventListener('DOMContentLoaded', function(){
         routes.forEach(route => {
             const listItem = document.createElement('div')
             listItem.className = 'list-item'
-            const time = (current.distance / speed)
+            const time = (route.distance / speed).toFixed(2)
             listItem.innerHTML = `경로: ${route.path.join(' -> ')}<br>이동시간: ${convertTime(time)}<br>이동거리: ${route.distance.toFixed(2)}m`
             listItem.addEventListener('click', function(){
                 highlightRoute(route.path)
@@ -111,4 +111,9 @@ document.addEventListener('DOMContentLoaded', function(){
             routeList.appendChild(listItem)
         })
     }
-})
+
+    const highlightRoute = path => {
+        renderMap(mapData[currentCourseIndex]);
+        renderLinks(mapData[currentCourseIndex].pointer, path);
+    };
+})  
