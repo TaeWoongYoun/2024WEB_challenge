@@ -82,10 +82,12 @@ document.addEventListener('DOMContentLoaded', function(){
                 return
             }
             current.link.forEach(linkIdx => {
-                const nextPointer = data.pointer.find(p => p.idx === linkIdx)
-                if (nextPointer) {
-                    const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1])
-                    traverse(nextPointer, [...path, current.idx], distance - dist)
+                if(!path.includes(linkIdx)){
+                    const nextPointer = data.pointer.find(p => p.idx === linkIdx)
+                    if (nextPointer) {
+                        const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1])
+                        traverse(nextPointer, [...path, current.idx], distance - dist)
+                    }
                 }
             })
         }
