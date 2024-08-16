@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function(){
         pointerElement.className = 'pointer'
         pointerElement.style.left = `${pointer.location[0]}px`
         pointerElement.style.top = `${pointer.location[1]}px`
-        pointerElement.textCOntent = pointer.idx
+        pointerElement.textContent = pointer.idx
         return pointerElement
     }
 
@@ -74,7 +74,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const calculateRoutes = data => {
         const routes = []
         const startPointer = data.pointer.find(p => p.idx === 1)
-        if (!startPointer) return
+        if (!startPointer) return;
 
         const traverse = (current, path, distance) => {
             if (current.idx === 6) {
@@ -82,18 +82,32 @@ document.addEventListener('DOMContentLoaded', function(){
                 return
             }
             current.link.forEach(linkIdx => {
-                if(!path.includes(linkIdx)){
-                    const nextPointer = data.pointer.find(p => p.idx === linkIdx)
-                    if (nextPointer) {
-                        const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1])
-                        traverse(nextPointer, [...path, current.idx], distance + dist)
-                    }
+                const nextPointer = data.pointer.find(p => p.idx === linkIdx)
+                if (nextPointer) {
+                    const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1])
+                    traverse(nextPointer, [...path, current.idx], distance - dist)
                 }
             })
         }
 
         traverse(startPointer, [], 0)
-        routes.sort((a,b) => a.distance - b.distance)
+        routes.sort((a,b => a.distance - b.distance))
         renderRouteList(routes.slice(0, 5))
+    }
+
+    const renderRouteList = routes => {
+        const routeList = document.getElementById('routeList')
+        routeList.innerHTML = ''
+        
+        routes.forEach(route => {
+            const listItem = document.createElement('div')
+            listItem.className = 'list-itme'
+            const time = (route.distance/ speed)
+            listItem.innerHTML = `경로: ${route.path.join(' -> ')}<br>이동시간 : ${convertTime(time)}<br>이동거리 : ${route.distance.toFixed(2)}m`
+            listItem.addEventListener('click', function(){
+                highlightRoute(route.path)
+            })
+            routeList.appendChild(listItem)
+        })
     }
 })
