@@ -193,7 +193,7 @@ nav{
 }
 
 .move_area input:checked + label{
-    border-bottom: 2px solid #03c75a;
+    border-bottom: 2px solid #1078D4;
     color: #111;
     font-weight: 600;
 }
@@ -204,7 +204,7 @@ nav{
     background-color: #fff;
     text-align: center;
     line-height: 40px;
-    border: 2px solid #03c75a;
+    border: 2px solid #1078D4;
     border-top: none;
     display: none;
 }
@@ -222,7 +222,7 @@ nav{
 }
 
 .festa_area input:checked + label{
-    border-bottom: 2px solid #03c75a;
+    border-bottom: 2px solid #1078D4;
     color: #111;
     font-weight: 600;
 }
@@ -232,7 +232,7 @@ nav{
     padding: 10px;
     background-color: #fff;
     text-align: center;
-    border: 2px solid #03c75a;
+    border: 2px solid #1078D4;
     border-top: none;
     display: none;
 }

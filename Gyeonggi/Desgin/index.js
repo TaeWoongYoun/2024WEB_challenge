@@ -31,18 +31,18 @@ document.addEventListener('DOMContentLoaded', function(){
             pointer.link.forEach(linkIdx => {
                 const targetPointer = pointers.find(p => p.idx === linkIdx)
                 if (targetPointer) {
-                    ctx.beginPath();
+                    ctx.beginPath()
                     ctx.moveTo(pointer.location[0] + 15, pointer.location[1] + 15)
                     ctx.lineTo(targetPointer.location[0] + 15, targetPointer.location[1] + 15)
                     ctx.strokeStyle = '#111'
                     ctx.lineWidth = 5
-                    ctx.stroke()
+                    ctx.stroke();
                 }
             })
         });
 
         if (highlight.length > 0) {
-            ctx.beginPath()
+            ctx.beginPath();
             for (let i = 0; i < highlight.length - 1; i++) {
                 const start = pointers.find(p => p.idx === highlight[i])
                 const end = pointers.find(p => p.idx === highlight[i + 1])
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     ctx.lineTo(end.location[0] + 15, end.location[1] + 15)
                     ctx.strokeStyle = '#FF0000'
                     ctx.lineWidth = 5
-                    ctx.stroke()
+                    ctx.stroke();
                 }
             }
         }
@@ -69,5 +69,30 @@ document.addEventListener('DOMContentLoaded', function(){
         })
 
         renderLinks(data.pointer)
+    }
+
+    const calculateRoutes = data => {
+        const routes = []
+        const startPointer = data.pointer.find(p => p.idx === 1)
+        if (!startPointer) return;
+
+        const traverse = (current , path, distance) => {
+            if (current.idx == 6) {
+                routes.push({path : [...path, current.idx], distance})
+                return;
+            }
+            current.link.forEach(linkIdx => {
+                if (!path.includes(linkIdx)) {
+                    const nextPointer = data.pointer.find(p => p.idx === linkIdx)
+                    if (nextPointer) {
+                        const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1])
+                        traverse(nextPointer, [...path, current.idx], distance + dist)
+                    }
+                }
+            })
+        }
+        traverse(startPointer, [], 0)
+        routes.sort((a,b) => a.distance - b.distance)
+        renderRoutesList(routes.slice(0, 5))
     }
 })
