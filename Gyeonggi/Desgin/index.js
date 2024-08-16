@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', function(){
                 return
             }
             current.link.forEach(linkIdx => {
-                if (!path.includex(linkIdx)) {
+                if(!path.includes(linkIdx)){
                     const nextPointer = data.pointer.find(p => p.idx === linkIdx)
                     if (nextPointer) {
                         const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1])
@@ -94,6 +94,6 @@ document.addEventListener('DOMContentLoaded', function(){
 
         traverse(startPointer, [], 0)
         routes.sort((a,b) => a.distance - b.distance)
-        renderRoutesList(routes.slice(0, 5))
+        renderRouteList(routes.slice(0, 5))
     }
 })
