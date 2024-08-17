@@ -443,17 +443,17 @@ const question = [
   
     switch(value) {
       case '창덕궁':
-        mapImage.src = 'img/창덕궁.png';
+        mapImage.src = 'map/창덕궁.png';
         locationIndex = 0;
         break;
   
       case '경복궁':
-        mapImage.src = 'img/경복궁.png';
+        mapImage.src = 'map/경복궁.png';
         locationIndex = 1;
         break;
   
       case '신라':
-        mapImage.src = 'img/신라.png';
+        mapImage.src = 'map/신라.png';
         locationIndex = 2;
         break;
   
@@ -471,7 +471,7 @@ const question = [
   const updateStamp = function() {
     const imgCanvas = canvas.getContext('2d');
     const stamp = new Image();
-    stamp.src = 'img/stamp.png';
+    stamp.src = 'coupon/stamp_card.png';
     image.src = couponImage.src;
   
     image.onload = function() {
