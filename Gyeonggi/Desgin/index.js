@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let mapData;
     let speed = 3;
-    let courseIndex= 0;
+    let courseIndex = 0;
 
     fetch('course.json')
         .then(response => response.json())
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pointerElement.style.top = `${pointer.location[1]}px`;
         pointerElement.textContent = pointer.idx;
         return pointerElement;
-    }
+    };
 
     const renderLinks = (pointers, highlight = []) => {
         const canvas = document.getElementById('mapCanvas');
@@ -91,10 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         };
-
         traverse(startPointer, [], 0);
         routes.sort((a,b) => a.distance - b.distance);
-        renderRouteList(routes.slice(0,5));
+        renderRouteList(routes.slice(0, 5));
     };
 
     const renderRouteList = routes => {
