@@ -1,13 +1,14 @@
 let question = []; // JSON 파일 데이터를 저장할 변수
+let locationIndex = 0; // locationIndex를 기본 값으로 초기화
 
 // JSON 파일을 비동기로 불러오기
 fetch('quiz.json')
   .then(response => response.json())
   .then(data => {
     question = data;
-    // JSON 파일 로드 후 실행할 코드
-    window.addEventListener('DOMContentLoaded', eventChange);
-  })
+    initMap(); // 맵 초기화 함수 호출
+    window.addEventListener('DOMContentLoaded', eventChange); // 맵이 로드되면 eventChange 호출
+  });
 
 // 쿠폰 발급 모달창
 const openCoupon = document.querySelector('.coupon');
@@ -114,7 +115,6 @@ const startQuiz = function() {
 
 const resultBox = document.querySelector('.result-box');
 let currentIndex = 0;
-let locationIndex = 0;
 let completedCourse = [];
 
 // 문제를 랜덤(무작위)으로 출력
@@ -203,6 +203,33 @@ const loadQuestion = function() {
 // 지도 변경효과
 const locationSelect = document.getElementById('location');
 const mapImage = document.getElementById('map-image');
+
+// 초기 맵 설정
+const initMap = function() {
+  const selectedCourse = locationSelect.value;
+  switch(selectedCourse) {
+    case '창덕궁':
+      mapImage.src = 'map/창덕궁.png';
+      locationIndex = 0;
+      break;
+
+    case '경복궁':
+      mapImage.src = 'map/경복궁.png';
+      locationIndex = 1;
+      break;
+
+    case '신라':
+      mapImage.src = 'map/신라.png';
+      locationIndex = 2;
+      break;
+
+    default:
+      mapImage.src = 'map/창덕궁.png'; // 기본값 설정
+      locationIndex = 0;
+      break;
+  }
+  eventChange(); // 맵 초기화 후 eventChange 호출하여 waypoints 설정
+};
 
 locationSelect.addEventListener('change', function() {
   const value = this.value;
