@@ -9,7 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
             mapData = data;
             renderMap(mapData[courseIndex]);
             calculateRoutes(mapData[courseIndex]);
-        });
+        })
 
     const createPointer = pointer => {
         const pointerElement = document.createElement('div');
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pointerElement.style.top = `${pointer.location[1]}px`;
         pointerElement.textContent = pointer.idx;
         return pointerElement;
-    }
+    };
 
     const renderLinks = (pointers, highlight = []) => {
         const canvas = document.getElementById('mapCanvas');
@@ -62,12 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
         mapContainer.innerHTML = '';
         const canvas = document.createElement('canvas');
         canvas.id = 'mapCanvas';
-
         mapContainer.appendChild(canvas);
 
         data.pointer.forEach(pointer => {
             mapContainer.appendChild(createPointer(pointer));
         });
+
         renderLinks(data.pointer);
     };
 
@@ -78,14 +78,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const traverse = (current, path, distance) => {
             if (current.idx === 6) {
-                routes.push({ path: [...path, current.idx], distance });
+                routes.push({ path: [...path, current.idx], distance});
                 return;
             }
             current.link.forEach(linkIdx => {
-                if(!path.includes(linkIdx)){
+                if(!path.includes(linkIdx)) {
                     const nextPointer = data.pointer.find(p => p.idx === linkIdx);
                     if (nextPointer) {
-                        const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1]);
+                        const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1])
                         traverse(nextPointer, [...path, current.idx], distance + dist);
                     }
                 }
@@ -96,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         routes.sort((a,b) => a.distance - b.distance);
         renderRouteList(routes.slice(0, 5));
     };
-    
+
     const renderRouteList = routes => {
         const routeList = document.getElementById('routeList');
         routeList.innerHTML = '';
@@ -104,7 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const listItem = document.createElement('div');
             listItem.className = 'route-item';
             const time = (route.distance / speed).toFixed(2);
-            listItem.innerHTML = `경로: ${route.path.join(' -> ')}<br>이동시간: ${convertTime(time)}<br>이동거리: ${route.distance.toFixed(2)}m`;
+            listItem.innerHTML = `경로: ${route.path.join(' -> ')}<br>이동시간: ${convertTime(time)}<br>이동시간: ${route.distance.toFixed(2)}m`;
             listItem.addEventListener('click', () => {
                 highlightRoute(route.path);
             });
@@ -120,26 +120,26 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const highlightRoute = path => {
         renderMap(mapData[courseIndex]);
-        renderLinks(mapData[courseIndex].pointer, path);
+        renderLinks(mapData[courseIndex].pointer, path)
     };
 
-    const handleCourseChange = event => {
+    const courseChange = event => {
         const index = event.target.id.slice(-1) - 1;
         courseIndex = index;
         renderMap(mapData[index]);
         calculateRoutes(mapData[index]);
     };
 
-    const handleTabChange = event => {
+    const tabChange = event => {
         speed = event.target.id === 'move01' ? 3 : 10;
         calculateRoutes(mapData[courseIndex]);
     };
 
     ['festa01', 'festa02', 'festa03'].forEach(id => {
-        document.getElementById(id).addEventListener('change', handleCourseChange);
+        document.getElementById(id).addEventListener('change', courseChange);
     });
 
     ['move01', 'move02'].forEach(id => {
-        document.getElementById(id).addEventListener('change', handleTabChange);
+        document.getElementById(id).addEventListener('change', tabChange);
     });
-});
+})
