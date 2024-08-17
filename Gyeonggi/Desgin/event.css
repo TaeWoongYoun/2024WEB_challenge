@@ -1,0 +1,515 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    cursor: default;
+}
+
+li {
+    list-style: none;
+    padding-left: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.hidden {
+    display: none;
+}
+
+/* 헤더 영역 */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    background-color: #022c5f;
+    display: flex;
+    justify-content: center;
+    color: white;
+    z-index: 2;
+}
+
+.header-container {
+    width: 1280px;
+}
+
+.header-inner {
+    width: 100%;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* 로고 */
+.logo,
+.login {
+    display: flex;
+    align-items: center;
+}
+
+.logo p {
+    font-size: 25px;
+    cursor: pointer;
+}
+
+/* 로그인 & 회원가입 */
+.login a {
+    font-size: 15px;
+    cursor: pointer;
+}
+
+.login a:hover {
+    color: rgb(195, 195, 195);
+}
+
+.login a:nth-of-type(1) {
+    position: relative;
+    margin: 0 20px;
+}
+
+.login a:nth-of-type(1)::before {
+    position: absolute;
+    content: "";
+    top: 3px;
+    right: -10px;
+    width: 1px;
+    height: 13px;
+    background-color: white;
+}
+
+/* 네비게이션 */
+.header-menu {
+    width: 100%;
+    height: 30px;
+}
+
+/* 메인 메뉴 */
+.nav-menu {
+    position: relative;
+    display: flex;
+    color: rgb(195, 195, 195);
+}
+
+.nav-menu > li {
+    padding-right: 20px;
+    height: 30px;
+}
+
+.nav-menu > li > a {
+    position: relative;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.nav-menu > li > a:hover {
+    color: white;
+    font-weight: bold;
+}
+
+.nav-menu > li > a:hover::before {
+    position: absolute;
+    content: "";
+    bottom: -8.9px;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background-color: white;
+}
+
+/* 서브 메뉴 */
+.nav-submenu {
+    position: absolute;
+    top: 30px;
+    left: 0;
+    width: 100%;
+    height: 0;
+    padding-left: 35px;
+    background-color: #f5f3f2;
+    color: rgb(40, 40, 40);
+    transition: 0.5s ease;
+    overflow: hidden;
+}
+
+.nav-submenu > li {
+    width: 100%;
+    line-height: 50px;
+}
+
+.nav-submenu > li > a {
+    position: relative;
+    cursor: pointer;
+}
+
+.nav-submenu > li > a:hover {
+    font-weight: bold;
+}
+
+.nav-submenu > li > a:hover::before {
+    position: absolute;
+    content: "";
+    bottom: -5px;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: rgb(40, 40, 40);
+}
+
+.nav-menu > li:hover .nav-submenu {
+    height: 150px;
+    border-bottom: 1px solid rgb(195, 195, 195);
+    z-index: 1;
+}
+
+.focus {
+    cursor: pointer;
+    color: #022c5f;
+    font-weight: bold;
+}
+
+/* 퀴즈 이벤트 참가 영역 */
+.event {
+    margin-top: 80px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.event-container {
+    margin-top: 60px;
+    width: 1280px;
+}
+
+.event-title {
+    position: relative;
+    font-size: 25px;
+    line-height: 50px;
+    margin-bottom: 50px;
+}
+
+.event-title::before {
+    position: absolute;
+    content: "";
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background-color: skyblue;
+}
+
+.event-contents {
+    width: 100%;
+}
+
+.settings {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgb(195, 195, 195);
+}
+
+/* 장소 선택 */
+.select {
+    width: 70px;
+    height: 30px;
+    background-color: white;
+    font-size: 15px;
+    color: rgb(40, 40, 40);
+    border-radius: 3px;
+}
+
+.btn-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.btn-container button {
+    color: white;
+    background-color: #022c5f;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    border: none;
+}
+
+.quiz-start {
+    margin: 0 20px;
+}
+
+.btn-container p {
+    position: absolute;
+    top: 50%;
+    left: 120px;
+    transform: translateY(-50%);
+}
+
+/* 모달박스 */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+    display: none;
+}
+
+.box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 250px;
+    background-color: white;
+    border-radius: 5px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.close-btn {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    background-color: rgb(40, 40, 40);
+    color: white;
+    padding: 5px 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.modal-info {
+    width: 100%;
+    text-align: center;
+}
+
+.modal-info h2 {
+    line-height: 80px;
+}
+
+#name {
+    width: 70%;
+    padding: 10px;
+    border: 2px solid rgb(195, 195, 195);
+    border-radius: 5px;
+}
+
+#name::placeholder {
+    color: rgb(195, 195, 195);
+}
+
+.submit {
+    margin-top: 10px;
+    width: 70%;
+    text-align: center;
+    border: none;
+    color: white;
+    background-color: #022c5f;
+    line-height: 40px;
+    font-size: 15px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.show-modal {
+    display: block;
+}
+
+/* 지도 */
+#canvas,
+#coupon-image,
+#file-input {
+    display: none;
+}
+
+.map {
+    margin-top: 30px;
+    position: relative;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    width: 1280px;
+    height: 700px;
+}
+
+/* 퀴즈 박스 */
+.quiz-box {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 450px;
+    height: 260px;
+    background-color: white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    border-radius: 18px;
+    padding: 10px;
+    overflow: hidden;
+    transition: 0.3s ease;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: -50px;
+    visibility: hidden;
+}
+
+.quiz-box > div {
+    width: 100%;
+    color: rgb(40, 40, 40);
+}
+
+.quiz-box h2 {
+    font-weight: 500;
+    line-height: 40px;
+}
+
+.quiz-box p {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.answer {
+    display: block;
+    width: 100%;
+    margin: 15px 0;
+    background-color: white;
+    border: 2px solid rgb(195, 195, 195);
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.answer:hover {
+    background-color: #022c5f;
+    color: white;
+    border: 2px solid #022c5f;
+}
+
+/* 정답 결과 박스 */
+.result-box {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 450px;
+    height: 60px;
+    background-color: white;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    border-radius: 18px;
+    text-align: center;
+    line-height: 60px;
+    font-size: 15px;
+    font-weight: bold;
+    overflow: hidden;
+    display: none;
+    z-index: 1;
+}
+
+.show-box {
+    visibility: visible;
+    margin-top: 0;
+}
+
+/* 경로 지점 */
+.waypoint {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    transform: translate(-50%, -50%);
+    background-color: #022c5f;
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 50px;
+}
+
+.complete-way {
+    color: rgb(40, 40, 40);
+    background-color: white;
+    border: 2px solid rgb(40, 40, 40);
+}
+
+/* 푸터 영역 */
+.footer {
+    width: 100%;
+}
+
+.footer-container {
+    margin-top: 140px;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    border-top: 1px solid rgb(195, 195, 195);
+    background-color: #f5f3f2;
+}
+
+.footer-container > div {
+    position: relative;
+    width: 1280px;
+    color: rgb(40, 40, 40);
+    overflow: hidden;
+}
+
+.footer-container p {
+    display: inline-block;
+    font-size: 25px;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.social-media {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 20px;
+    display: flex;
+    color: rgb(40, 40, 40);
+}
+
+.social-media i {
+    font-size: 25px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.scroll-up {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.scroll-up i {
+    cursor: pointer;
+    font-size: 20px;
+    background-color: rgb(40, 40, 40);
+    color: white;
+    width: 35px;
+    text-align: center;
+    line-height: 35px;
+}
+
+.copyright {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    background-color: rgb(40, 40, 40);
+}
+
+.copyright p {
+    width: 1280px;
+    color: white;
+    line-height: 40px;
+    font-size: 15px;
+}
