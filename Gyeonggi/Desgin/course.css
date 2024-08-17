@@ -298,7 +298,7 @@ canvas {
     position: absolute;
     width: 560px;
     left: 20px;
-    top: 400px;
+    top: 500px;
     max-height: 300px;
     overflow-y: auto;
     border-top: 1px solid black;
