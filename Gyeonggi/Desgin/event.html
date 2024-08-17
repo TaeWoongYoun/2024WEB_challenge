@@ -10,76 +10,50 @@
 <body>
     
     <!-- 헤더 영역 -->
-     <header class="header" id="home">
-
-        <div class="header-container">
-            <div class="header-inner">
-
-                <div class="logo">
-                    <a href="/A_Module/index.html">
-                        <p>달빛기행축제</p>
-                    </a>
-                </div>
-
-                <div class="login">
-                    <a href="#">로그인</a>
-                    <a href="#">회원가입</a>
-                </div>
-
+    <div class="header_area">
+        <header>
+            <div class="logo">
+                <img src="대지 3.png" alt="">
             </div>
-
-            <div class="header-menu">
-
-                <div class="nav">
-                    <ul class="nav-menu">
-                        <li>
-                            <a href="/A_Module/index.html">홈</a>
-                        </li>
-
-                        <li>
-                            <a href="#">소개</a>
-                            <ul class="nav-submenu">
-                                <li><a href="/A_Module/sub01.html">달빛기행축제란</a></li>
-                                <li><a href="#">지역별 달빛기행축제 안내</a></li>
-                                <li><a href="/A_Module/sub03.html">코스소개</a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="#">참여/소식</a>
-                            <ul class="nav-submenu">
-                                <li><a href="#">공지사항</a></li>
-                                <li><a href="/A_Module/sub02.html">문화달력</a></li>
-                                <li><a href="index.html"><span class="focus">퀴즈 이벤트 참가</span></a></li>
-                            </ul>
-                        </li>
-
-                        <li>
-                            <a href="#">굿즈SHOP</a>
-                        </li>
-
-                        <li>
-                            <a href="#">예약하기</a>
-                        </li>
-
-                        <li>
-                            <a href="#">마이페이지</a>
-                        </li>
-
-                    </ul>
+            <nav>
+                <ul class="main_menu">
+                    <li><a href="index.html">홈</a></li>
+                    <li><a href="#">소개</a>
+                        <ul class="sub_menu sub_menu01">
+                            <li><a href="sub01.html">달빛기행축제란</a></li>
+                            <li><a href="#">지역별 달빛기행축제 안내</a></li>
+                            <li><a href="course.html">코스소개</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">참여/소식</a>
+                        <ul class="sub_menu sub_menu02">
+                            <li><a href="#">공지사항</a></li>
+                            <li><a href="sub02.html">문화달력</a></li>
+                            <li><a href="event.html" class="highlight">퀴즈 이벤트 참가</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">예약하기</a></li>
+                    <li><a href="#">마이페이지</a></li>
+                </ul>
+            </nav>
+            <div class="sgin_btn">
+                <div class="login_btn">
+                    <i class="fa-solid fa-right-to-bracket"></i>
+                    <p>로그인</p>
                 </div>
-
+                <div class="join_btn">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <p>회원가입</p>
+                </div>
             </div>
-        </div>
-
-     </header>
+        </header>
+    </div>
+    <!-- 헤더 영역 -->
     
     <!-- 퀴즈 이벤트 참가 영역 -->
     <div class="event">
 
         <div class="event-container">
-
-            <p class="event-title">퀴즈 이벤트</p>
 
             <div class="event-contents">
                 <div class="settings">
@@ -140,34 +114,22 @@
     </div>
 
     <!-- 푸터 영역 -->
-    <div class="footer">
-        <div class="footer-container">
-            <div>
-                <a href="/A_Module/index.html">
-                    <p>달빛기행축제</p>
-                </a>
-
-                <div class="social-media">
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-x-twitter"></i>
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-youtube"></i>
-                </div>
-
-                <a href="index.html" class="scroll-up">
-                    <i class="fa-solid fa-arrow-up-long"></i>
-                </a>
+    <!-- 푸터 영역 -->
+    <div class="footer_area">
+        <footer>
+            <div class="footer_logo"><img src="대지 3.png" alt=""></div>
+            <div class="copy">© Moonlight Travel Festival all rights reserved.</div>
+            <div class="sns">
+                <i class="fa-brands fa-instagram"></i>
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-x-twitter"></i>
             </div>
-        </div>
-
-        <div class="copyright">
-            <p>© Moonlight Travel Festival all rights reserved.</p>
-        </div>
+        </footer>
     </div>
+    <!-- 푸터 영역 -->
 
     <input type="file" id="file-input">
 
     <script src="event.js"></script>
-
 </body>
 </html>

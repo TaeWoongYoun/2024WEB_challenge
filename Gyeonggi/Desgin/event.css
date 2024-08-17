@@ -19,185 +19,155 @@ a {
     display: none;
 }
 
+.highlight{
+    color: #1078D4;
+    font-weight: bold;
+}
+
 /* 헤더 영역 */
-.header {
-    position: fixed;
-    top: 0;
-    left: 0;
+.header_area{
     width: 100%;
-    height: 80px;
-    background-color: #022c5f;
+    height: 100px;
     display: flex;
+    align-items: center;
     justify-content: center;
-    color: white;
-    z-index: 2;
+    background-color: #fff;
+    z-index: 10;
 }
 
-.header-container {
-    width: 1280px;
-}
-
-.header-inner {
-    width: 100%;
-    height: 50px;
+header{
+    width: 1440px;
+    height: 100px;
     display: flex;
     justify-content: space-between;
-}
-
-/* 로고 */
-.logo,
-.login {
-    display: flex;
     align-items: center;
 }
 
-.logo p {
-    font-size: 25px;
-    cursor: pointer;
+.logo{
+    width: 200PX;
+    height: 85px;
+    text-align: center;
+    margin-left: 10px;
 }
 
-/* 로그인 & 회원가입 */
-.login a {
-    font-size: 15px;
-    cursor: pointer;
-}
-
-.login a:hover {
-    color: rgb(195, 195, 195);
-}
-
-.login a:nth-of-type(1) {
-    position: relative;
-    margin: 0 20px;
-}
-
-.login a:nth-of-type(1)::before {
-    position: absolute;
-    content: "";
-    top: 3px;
-    right: -10px;
-    width: 1px;
-    height: 13px;
-    background-color: white;
-}
-
-/* 네비게이션 */
-.header-menu {
+.logo img{
     width: 100%;
-    height: 30px;
+    height: 100%;
 }
 
-/* 메인 메뉴 */
-.nav-menu {
-    position: relative;
+.logo:hover{
+    cursor: pointer;
+}
+
+nav{
+    width: 1000px;
+    height: 100px;
+}
+
+.main_menu{
+    width: 100%;
+    height: 100%;
     display: flex;
-    color: rgb(195, 195, 195);
+    align-items: center;
+    justify-content: center;
 }
 
-.nav-menu > li {
-    padding-right: 20px;
-    height: 30px;
-}
-
-.nav-menu > li > a {
+.main_menu > li{
     position: relative;
-    cursor: pointer;
-    font-size: 15px;
+    padding: 0 40px;
+    height: 100px;
+    text-align: center;
+    line-height: 100px;
+    font-size: 24px;
 }
 
-.nav-menu > li > a:hover {
-    color: white;
+.main_menu > li:hover{
     font-weight: bold;
 }
 
-.nav-menu > li > a:hover::before {
-    position: absolute;
-    content: "";
-    bottom: -8.9px;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background-color: white;
+.main_menu > li:hover .sub_menu{
+    height: 180px;
 }
 
-/* 서브 메뉴 */
-.nav-submenu {
+.sub_menu{
+    transition: all 0.5s;
     position: absolute;
-    top: 30px;
-    left: 0;
-    width: 100%;
+    width: 260px;
     height: 0;
-    padding-left: 35px;
-    background-color: #f5f3f2;
-    color: rgb(40, 40, 40);
-    transition: 0.5s ease;
     overflow: hidden;
+    text-align: left;
+    background-color: #fff;
+    font-weight: 100;
+    z-index: 2;
+    padding-left: 10px;
+    font-size: 20px;
+    border-radius: 10px;
 }
 
-.nav-submenu > li {
-    width: 100%;
-    line-height: 50px;
+.sub_menu01{
+    margin-left: -30px;
 }
 
-.nav-submenu > li > a {
-    position: relative;
-    cursor: pointer;
+.sub_menu02{
+    margin-left: -20px;
 }
 
-.nav-submenu > li > a:hover {
+.sub_menu li{
+    width: 260px;
+    line-height: 60px;
+}
+
+.sub_menu li:hover{
     font-weight: bold;
 }
 
-.nav-submenu > li > a:hover::before {
-    position: absolute;
-    content: "";
-    bottom: -5px;
-    left: 0;
-    width: 100%;
-    height: 1px;
-    background-color: rgb(40, 40, 40);
+.sgin_btn{
+    width: 210px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.nav-menu > li:hover .nav-submenu {
-    height: 150px;
-    border-bottom: 1px solid rgb(195, 195, 195);
-    z-index: 1;
+.login_btn{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    font-size: 20px;
+    color: #888;
 }
 
-.focus {
+.login_btn i{
+    margin-top: 20px;
+}
+
+.login_btn:hover, .join_btn:hover{
     cursor: pointer;
-    color: #022c5f;
-    font-weight: bold;
+    color: #111;
 }
+
+.join_btn{
+    width: 80px;
+    height: 80px;
+    text-align: center;
+    font-size: 20px;
+    color: #888;
+}
+
+.join_btn i{
+    margin-top: 20px;
+}
+/* 헤더 영역 */
 
 /* 퀴즈 이벤트 참가 영역 */
 .event {
-    margin-top: 80px;
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
 .event-container {
-    margin-top: 60px;
     width: 1280px;
-}
-
-.event-title {
-    position: relative;
-    font-size: 25px;
-    line-height: 50px;
-    margin-bottom: 50px;
-}
-
-.event-title::before {
-    position: absolute;
-    content: "";
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background-color: skyblue;
 }
 
 .event-contents {
@@ -214,12 +184,12 @@ a {
 
 /* 장소 선택 */
 .select {
-    width: 70px;
+    width: 120px;
     height: 30px;
     background-color: white;
     font-size: 15px;
     color: rgb(40, 40, 40);
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 .btn-container {
@@ -440,76 +410,47 @@ a {
 }
 
 /* 푸터 영역 */
-.footer {
-    width: 100%;
-}
-
-.footer-container {
-    margin-top: 140px;
+.footer_area{
     width: 100%;
     height: 100px;
+    background-color: #111;
     display: flex;
+    align-items: center;
     justify-content: center;
-    border-top: 1px solid rgb(195, 195, 195);
-    background-color: #f5f3f2;
 }
 
-.footer-container > div {
-    position: relative;
-    width: 1280px;
-    color: rgb(40, 40, 40);
-    overflow: hidden;
-}
-
-.footer-container p {
-    display: inline-block;
-    font-size: 25px;
-    margin-top: 20px;
-    cursor: pointer;
-}
-
-.social-media {
-    position: absolute;
-    top: 0;
-    right: 0;
-    margin-top: 20px;
+footer{
+    width: 1440px;
+    height: 100px;
     display: flex;
-    color: rgb(40, 40, 40);
+    color: #555;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.social-media i {
-    font-size: 25px;
-    margin-left: 10px;
-    cursor: pointer;
+.footer_logo{
+    width: 200px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+}
+.footer_logo img{
+    filter: grayscale(100%);
 }
 
-.scroll-up {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-}
-
-.scroll-up i {
-    cursor: pointer;
+.copy{
     font-size: 20px;
-    background-color: rgb(40, 40, 40);
-    color: white;
-    width: 35px;
-    text-align: center;
-    line-height: 35px;
 }
 
-.copyright {
-    width: 100%;
-    height: 40px;
+.sns{
+    width: 180px;
+    height: 100px;
     display: flex;
-    justify-content: center;
-    background-color: rgb(40, 40, 40);
+    align-items: center;
+    justify-content: space-between;
 }
 
-.copyright p {
-    width: 1280px;
-    color: white;
-    line-height: 40px;
-    font-size: 15px;
+.sns i{
+    font-size: 44px;
 }
+/* 푸터 영역 */
