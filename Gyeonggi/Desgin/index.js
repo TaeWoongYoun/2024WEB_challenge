@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     let mapData;
     let speed = 3;
-    let courseIndex = 0;
+    let courseIndex= 0;
 
     fetch('course.json')
         .then(response => response.json())
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (targetPointer) {
                     ctx.beginPath();
                     ctx.moveTo(pointer.location[0] + 15, pointer.location[1] + 15);
-                    ctx.lineTo(targetPointer.location[0] + 15, targetPointer.location[1] + 15)
+                    ctx.lineTo(targetPointer.location[0] + 15, targetPointer.location[1] + 15);
                     ctx.strokeStyle = '#111';
                     ctx.lineWidth = 5;
                     ctx.stroke();
@@ -69,7 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         renderLinks(data.pointer);
-    }
+    };
 
     const calculateRoutes = data => {
         const routes = [];
@@ -94,7 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         traverse(startPointer, [], 0);
         routes.sort((a,b) => a.distance - b.distance);
-        renderRouteList(routes.slice(0, 5));
+        renderRouteList(routes.slice(0,5));
     };
 
     const renderRouteList = routes => {
