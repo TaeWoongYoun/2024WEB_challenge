@@ -61,3 +61,16 @@ document.getElementById('file-input').addEventListener('change', event => {
         alert('쿠폰 발급 받아')
     }
 })
+
+const loadQuestion = () => {
+    const {idx, question : dataQuestion, correct, incorrect} = question[locationIndex].quiz[index];
+    const allAnswer = [correct, ...incorrect].sort(() => Math.random() - 0.5);
+    document.querySelector('.quiz-box').innerHTML = `
+        <div>
+            <h2>${idx}번 문제</h2>
+            <p>${dataQuestion}</p>
+            ${allAnswer.map(item => `<button class="answer">${item}</button>`).join('')}
+        </div>`;
+
+    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('click', () => handleAnswer(btn.textCOntent = correct)));
+}
