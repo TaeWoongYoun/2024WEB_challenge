@@ -50,13 +50,13 @@ const startQuiz = () => {
         loadQuestion();
     }
 }
-document.querySelector('.quiz-start').addEventListener('click', () => startQuiz);
+document.querySelector('.quiz-start').addEventListener('click', startQuiz);
 document.getElementById('file-input').addEventListener('change', event => {
     const file = event.target.files[0];
     if (file && file.name === 'stamp_card.png') {
         document.getElementById('this-file').innerHTML = file.name;
         isFileLoaded = true;
-        startQuiz;
+        startQuiz();    
     } else {
         alert('쿠폰 발급 받아')
     }
