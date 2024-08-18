@@ -5,6 +5,10 @@
     cursor: default;
 }
 
+body{
+    height: 100%;
+}
+
 li {
     list-style: none;
     padding-left: 0;
@@ -158,253 +162,226 @@ nav{
     margin-top: 20px;
 }
 /* 헤더 영역 */
-
 /* 퀴즈 이벤트 참가 영역 */
-.event {
+.event_area{
     width: 100%;
     display: flex;
     justify-content: center;
+    margin: 20px 0;
 }
 
-.event-container {
+.event{
     width: 1280px;
 }
 
-.event-contents {
-    width: 100%;
-}
-
-.settings {
+.btn_area{
+    position: relative;
     width: 100%;
     height: 80px;
     display: flex;
     align-items: center;
-    border-bottom: 1px solid rgb(195, 195, 195);
+    border-bottom: 1px solid #eee;
 }
 
-/* 장소 선택 */
-.select {
-    width: 120px;
-    height: 30px;
-    background-color: white;
-    font-size: 15px;
-    color: rgb(40, 40, 40);
-    border-radius: 5px;
-}
-
-.btn-container {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-}
-
-.btn-container button {
-    color: white;
-    background-color: #022c5f;
+.btn_area select {
     padding: 5px 10px;
+    margin:  5px;
+    border: 1px solid black;
     border-radius: 5px;
-    cursor: pointer;
-    font-size: 15px;
+    font-size: 16px;
+}
+
+.quiz-start{
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #1078D4;
+    border: 1px solid #1078D4;
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    margin: 5px;
+}
+
+.select-file {
+    font-size: 16px;
+    margin: 5px;
+}
+
+.coupon{
+    position: absolute;
+    right: 5px;
+    padding: 5px 10px;
+    font-size: 16px;
+    background-color: #1078D4;
+    border: 1px solid #1078D4;
+    color: #fff;
+    border-radius: 5px;
     border: none;
 }
 
-.quiz-start {
-    margin: 0 20px;
-}
-
-.btn-container p {
-    position: absolute;
-    top: 50%;
-    left: 120px;
-    transform: translateY(-50%);
-}
-
-/* 모달박스 */
-.modal {
+/* 쿠폰 발급 모달 */
+.modal{
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 2;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
     display: none;
 }
 
-.box {
+.box{
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    height: 250px;
-    background-color: white;
-    border-radius: 5px;
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 300px;
+    background-color: #fff;
 }
 
-.close-btn {
+.close-btn{
     position: absolute;
-    top: 5px;
-    right: 5px;
-    background-color: rgb(40, 40, 40);
-    color: white;
-    padding: 5px 10px;
-    font-size: 15px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.modal-info {
-    width: 100%;
+    right: 0;
+    top: 0;
+    width: 100px;
+    height: 40px;
     text-align: center;
-}
-
-.modal-info h2 {
-    line-height: 80px;
-}
-
-#name {
-    width: 70%;
-    padding: 10px;
-    border: 2px solid rgb(195, 195, 195);
-    border-radius: 5px;
-}
-
-.submit {
-    margin-top: 10px;
-    width: 70%;
-    text-align: center;
-    border: none;
-    color: white;
-    background-color: #022c5f;
     line-height: 40px;
-    font-size: 15px;
-    cursor: pointer;
-    border-radius: 5px;
+    background-color: #111;
+    color: #fff;
 }
 
-.show-modal {
+.box h1{
+    text-align: center;
+    line-height: 150px;
+}
+
+.box input{
+    width: 340px;
+    height: 40px;
+    padding-left: 10px;
+    margin-left: 25px;
+    font-size: 16px;
+}
+
+.submit{
+    width: 340px;
+    height: 40px;
+    margin-top: 10px;
+    margin-left: 25px;
+    background-color: #1078D4;
+    color: #fff;
+    font-size: 16px;
+}
+
+.show-modal{
     display: block;
 }
-
-/* 지도 */
-#canvas,
-#coupon-image,
-#file-input {
+/* 쿠폰 발급 모달 */
+/* 퀴즈 박스 */
+#canvas, #coupon-image{
     display: none;
 }
 
-.map {
-    margin-top: 30px;
+.map{
+    margin-top: 20px;
     position: relative;
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 2px #444;
     width: 1280px;
     height: 700px;
 }
 
-/* 퀴즈 박스 */
-.quiz-box {
+.quiz-box{
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 20px;
     width: 450px;
     height: 260px;
-    background-color: white;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-    border-radius: 18px;
+    background-color: #fff;
+    border-radius: 20px;
+    box-shadow: 0 0 2px #444;
     padding: 10px;
-    overflow: hidden;
-    transition: 0.3s ease;
-    z-index: 1;
-    display: flex;
-    justify-content: center;
+    z-index: 2;
     text-align: center;
-    margin-top: -50px;
     visibility: hidden;
 }
 
-.quiz-box > div {
-    width: 100%;
-    color: rgb(40, 40, 40);
-}
-
-.quiz-box h2 {
-    font-weight: 500;
+.quiz-box h2{
     line-height: 40px;
 }
 
-.quiz-box p {
-    font-size: 15px;
+.quiz-box p{
+    font-size: 16px;
     font-weight: bold;
 }
 
-.answer {
+.answer{
     display: block;
     width: 100%;
     margin: 15px 0;
-    background-color: white;
-    border: 2px solid rgb(195, 195, 195);
+    background-color: #fff;
+    border: 2px solid #444;
     border-radius: 5px;
     padding: 10px;
     cursor: pointer;
 }
 
-.answer:hover {
-    background-color: #022c5f;
-    color: white;
-    border: 2px solid #022c5f;
+.answer:hover{
+    background-color: #1078D4;
+    color: #fff;
+    border: 2px solid #1078D4;
+    font-weight: bold;
 }
 
-/* 정답 결과 박스 */
-.result-box {
+.result-box{
     position: absolute;
-    top: 10px;
-    left: 10px;
+    top: 20px;
+    left: 20px;
     width: 450px;
     height: 60px;
-    background-color: white;
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-    border-radius: 18px;
+    background-color: #fff;
+    box-shadow: 0 0 2px #444;
+    border-radius: 10px;
     text-align: center;
     line-height: 60px;
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
-    overflow: hidden;
     display: none;
-    z-index: 1;
+    z-index: 3;
 }
 
-.show-box {
+.show-box{
     visibility: visible;
-    margin-top: 0;
 }
-
-/* 경로 지점 */
-.waypoint {
+/* 퀴즈 박스 */
+/* 포인터 */
+.waypoint{
     position: absolute;
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     transform: translate(-50%, -50%);
-    background-color: #022c5f;
-    color: white;
+    background-color: #111;
+    color: #fff;
     border-radius: 50%;
     text-align: center;
-    line-height: 50px;
+    line-height: 30px;
 }
 
-.complete-way {
-    color: rgb(40, 40, 40);
-    background-color: white;
-    border: 2px solid rgb(40, 40, 40);
+.complete-way{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 35px;
+    color: #fff;
+    background-color: #1078D4;
+    border: 2px solid #fff;
 }
-
+/* 포인터 */
+/* 퀴즈 이벤트 참가 영역 */
 /* 푸터 영역 */
 .footer_area{
     width: 100%;

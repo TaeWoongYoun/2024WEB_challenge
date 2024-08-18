@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>달빛기행축제</title>
+    <title>퀴즈 이벤트 참가</title>
     <link rel="stylesheet" href="event.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-    
     <!-- 헤더 영역 -->
     <div class="header_area">
         <header>
@@ -49,69 +48,54 @@
         </header>
     </div>
     <!-- 헤더 영역 -->
-    
+
     <!-- 퀴즈 이벤트 참가 영역 -->
-    <div class="event">
-
-        <div class="event-container">
-
-            <div class="event-contents">
-                <div class="settings">
-
-                    <select name="location" id="location" class="select">
-                        <option value="창덕궁">창덕궁</option>
-                        <option value="경복궁">경복궁</option>
-                        <option value="신라">신라</option>
-                    </select>
-
-                    <div class="btn-container">
-                        <button class="quiz-start">퀴즈 시작</button>
-                        <p><span class="select-file">등록된 쿠폰 : </span><span id="this-file"></span></p>
-                        <button class="coupon">쿠폰 발급</button>
-                    </div>
-
-                    <div class="modal">
-                        <div class="box">
-
-                            <div class="close-btn">닫기</div>
-
-                            <div class="modal-info">
-                                <h2>쿠폰 발급</h2>
-                                <input type="text" placeholder="이름" id="name">
-                                <button class="submit">발급</button>
-                            </div>
-
-                        </div>
-                    </div>
-
-                </div>
-
-                <div class="map">
-
-                    <canvas id="canvas"></canvas>
-                    <img src="map/창덕궁.png" alt="지도" title="지도" id="map-image">
-                    <img src="coupon/stamp_card.png" alt="쿠폰" title="쿠폰" id="coupon-image">
-
-                    <div class="quiz-box">
-                        <div>
-                            <h2>1번 문제</h2>
-                            <p>창덕궁 희정당에 알맞은 의미는?</p>
-                            <button class="answer">정치를 빛낸다.</button>
-                            <button class="answer">정치를 뒤흔든다.</button>
-                            <button class="answer">정치를 차지한다.</button>
-                        </div>
-                    </div>
-
-                    <div class="result-box">
-                        <p class="result">정답입니다!</p>
-                    </div>
-
-                </div>
+    <div class="event_area">
+        <div class="event">
+            <div class="btn_area">
+                <select name="location" id="location" class="select">
+                    <option value="창덕궁">창덕궁</option>
+                    <option value="경복궁">경복궁</option>
+                    <option value="신라">신라</option>
+                </select>
+                <button class="quiz-start">퀴즈 시작</button>
+                <p><span class="select-file">등록된 쿠폰 : </span><span id="this-file"></span></p>
+                <button class="coupon">쿠폰 발급</button>
             </div>
 
-        </div>
+            <!-- 쿠폰 발급 모달 -->
+            <div class="modal">
+                <div class="box">
+                    <div class="close-btn">닫기</div>
+                    <h1>쿠폰 발급</h1>
+                    <input type="text" name="name" id="name" placeholder="이름"><br>
+                    <button class="submit">발급</button>
+                </div>
+            </div>
+            <!-- 쿠폰 발급 모달 -->
 
+            <!-- 퀴즈 박스 -->
+            <div class="map">
+                <canvas id="canvas"></canvas>
+                <img src="map/창덕궁.png" alt="" id="map-image">
+                <img src="coupon/stamp_card.png" alt="" id="coupon-image">
+
+                <div class="quiz-box">
+                    <h2>1번 문제</h2>
+                    <p>창덕궁 희정당에 알맞는 의미는?</p>
+                    <button class="answer">정치를 빛낸다.</button>
+                    <button class="answer">정치를 뒤흔든다.</button>
+                    <button class="answer">정치를 차지한다.</button>
+                </div>
+
+                <div class="result-box">
+                    <p class="result">정답입니다!</p>
+                </div>
+            </div>
+            <!-- 퀴즈 박스 -->
+        </div>
     </div>
+    <!-- 퀴즈 이벤트 참가 영역 -->
 
     <!-- 푸터 영역 -->
     <div class="footer_area">
@@ -127,7 +111,7 @@
     </div>
     <!-- 푸터 영역 -->
 
-    <input type="file" id="file-input">
+    <input type="file" id="file-input" hidden>
 
     <script src="event.js"></script>
 </body>
