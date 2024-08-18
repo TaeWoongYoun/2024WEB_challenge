@@ -30,7 +30,7 @@ document.querySelector('.submit').addEventListener('click', () => {
         document.getElementById('canvas').width = image.width;
         document.getElementById('canvas').height = image.height;
         ctx.drawImage(image, 0, 0);
-        ctx.fillText(document.getElementById('name').value, canvas.width - 185, canvas.height - 305);
+        ctx.fillText(document.getElementById('name').value, canvas.width - 185, canvas.height - 305)
         ctx.fillText(new Date().toISOString().split('T')[0], canvas.width - 185, canvas.height - 355)
         const link = document.createElement('a');
         link.href = document.getElementById('canvas').toDataURL('image/png');
@@ -39,3 +39,15 @@ document.querySelector('.submit').addEventListener('click', () => {
     }
 })
 
+const startQuiz = () => {
+    const selectedCourse = document.querySelector('.select').value;
+    if (completedCourse[selectedCourse]) {
+        alert("이미 완주한 코스입니다.")
+    } else if (!isFileLoaded) {
+        document.getElementById('file-input').click();
+    } else {
+        document.querySelector('.quiz-box').classList.add('show-box');
+        loadQuestion();
+    }
+}
+document.querySelector('.quiz-start').addEventListener('click', startQuiz);
