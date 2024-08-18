@@ -33,7 +33,7 @@ document.querySelector('.submit').addEventListener('click', () => {
         ctx.fillText(document.getElementById('name').value, canvas.width - 185, canvas.height - 305)
         ctx.fillText(new Date().toISOString().split('T')[0], canvas.width - 185, canvas.height - 355)
         const link = document.createElement('a')
-        link.href = document.getElementById('canvas').toDataRUL('image/png')
+        link.href = document.getElementById('canvas').toDataURL('image/png')
         link.download = 'stamp_card.png'
         link.click();
     }
@@ -47,7 +47,6 @@ const startQuiz = () => {
         document.getElementById('file-input').click();
     } else {
         document.querySelector('.quiz-box').classList.add('show-box')
-        isFileLoaded = true;
         loadQuestion();
     }
 }
@@ -75,7 +74,7 @@ const loadQuestion = () => {
             ${allAnswer.map(item => `<button class="answer">${item}</button>`).join('')}
         </div>`;
 
-    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('change', handleAnswer(btn.textContent = incorrect)))
+    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('click', handleAnswer(btn.textContent === correct)))
 }
 
 const handleAnswer = isCorrect => {
