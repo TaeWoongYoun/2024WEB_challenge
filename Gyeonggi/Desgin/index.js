@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         });
 
-        if(highlight.length > 0) {
+        if (highlight.length > 0) {
             ctx.beginPath();
             for(let i = 0; i < highlight.length - 1; i++) {
                 const start = pointers.find(p => p.idx === highlight[i]);
@@ -79,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const traverse = (current, path, distance) => {
             if (current.idx === 6) {
                 routes.push({path: [...path, current.idx], distance});
-                return;
+                return
             }
             current.link.forEach(linkIdx => {
                 if (!path.includes(linkIdx)) {
@@ -98,17 +98,17 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const renderRouteList = routes => {
-        const routeList = document.getElementById('routeList');
-        routeList.innerHTML = '';
+        const routelist = document.getElementById('routeList');
+        routelist.innerHTML = '';
         routes.forEach(route => {
             const listItem = document.createElement('div');
             listItem.className = 'route-item';
             const time = (route.distance / speed).toFixed(2);
-            listItem.innerHTML = `경로: ${route.path.join(' -> ')}<br>이동시간 ${convertTime(time)}<br>이동거리: ${route.distance.toFixed(2)}m`;
+            listItem.innerHTML = `경로: ${route.path.join(' -> ')}<br>이동시간: ${convertTime(time)}<br>이동거리: ${route.distance.toFixed(2)}m`;
             listItem.addEventListener('click', () => {
                 highlightRoute(route.path);
             });
-            routeList.appendChild(listItem);
+            routelist.appendChild(listItem);
         });
     };
 
@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const highlightRoute = path => {
         renderMap(mapData[courseIndex]);
         renderLinks(mapData[courseIndex].pointer, path);
-    }
+    };
 
     const courseChange = event => {
         const index = event.target.id.slice(-1) - 1;
@@ -141,5 +141,5 @@ document.addEventListener('DOMContentLoaded', () => {
 
     ['move01', 'move02'].forEach(id => {
         document.getElementById(id).addEventListener('change', tabChange);
-    });
+    })
 })
