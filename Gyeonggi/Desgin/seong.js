@@ -12,9 +12,9 @@ fetch('quiz.json')
         window.addEventListener('DOMContentLoaded', eventChange())
     })
 
-const toggleModal = show => document.querySelector('.modal').classList.toggle('show-modal', show)
+const toggleModal = show => document.querySelector('.modal').classList.toggle('show-modal', show);
 document.querySelector('.coupon').addEventListener('click', () => {
-    if (document.querySelector('.quiz-box').classList.contains('show-box')){
+    if(document.querySelector('.quiz-box').classList.contains('show-box')) {
         alert("퀴즈가 이미 시작되어서 쿠폰을 발급 받을 수 없습니다.")
     } else {
         toggleModal(true);
@@ -23,7 +23,7 @@ document.querySelector('.coupon').addEventListener('click', () => {
 document.querySelector('.close-btn').addEventListener('click', () => toggleModal(false))
 
 document.querySelector('.submit').addEventListener('click', () => {
-    const ctx = document.getElementById('canvas').getContext('2d');
+    const ctx = document.getElementById('canvas').getContext('2d')
     const image = new Image();
     image.src = document.getElementById('coupon-image').src;
     image.onload = () => {
@@ -42,11 +42,11 @@ document.querySelector('.submit').addEventListener('click', () => {
 const startQuiz = () => {
     const selectedCourse = document.querySelector('.select').value;
     if (completedCourse[selectedCourse]) {
-        alert("이미 완주한 코스입니다.")
+        alert('이미 완주한 코스입니다.');
     } else if (!isFileLoaded) {
         document.getElementById('file-input').click();
     } else {
-        document.querySelector('.quiz-box').classList.add('show-box');
+        document.querySelector('.quiz-box').classList.add('show-box')
         loadQuestion();
     }
 }
@@ -57,38 +57,41 @@ document.getElementById('file-input').addEventListener('change', event => {
     if (file && file.name === 'stamp_card.png') {
         document.getElementById('this-file').innerHTML = file.name;
         isFileLoaded = true;
+        startQuiz();
     } else {
-        alert("우리가 발급한 쿠폰을 사용해주세요.")
+        alert('우리가 발급한 쿠폰을 사용하세요')
     }
 })
 
 const loadQuestion = () => {
-    const {idx, question: dataQuestion, correct, incorrect} = question[locationIndex].quiz[index];
+    const {idx, question : dataQuestion, correct, incorrect} = question[locationIndex].quiz[index]
     const allAnswer = [correct, ...incorrect].sort(() => Math.random() - 0.5);
 
     document.querySelector('.quiz-box').innerHTML = `
-        <div>
-            <h2>${idx}번 문제</h2>
-            <p>${dataQuestion}</p>
-            ${allAnswer.map(item => `<button class="answer">${item}</button>`).join('')}
-        </div>`;
+    <div>                    
+        <h2>${idx}번 문제</h2>
+        <p>${dataQuestion}</p>
+        ${allAnswer.map(item => `<button class="answer">${item}</button>`).join('')}
+    </div>`;
 
     document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('click', handleAnswer(btn.textContent = correct)))
 }
 
 const handleAnswer = isCorrect => {
-    document.querySelector('.result-box').textContent = isCorrect ? '정답입니다' : '오답입니다 다시 시도';
+    document.querySelector('.result-box').textContent = isCorrect ? '정답입니다' : '오답입니다 다시 시도'
+
     if (isCorrect) {
-        index++
+        index++;
         document.querySelectorAll('.waypoint').forEach(waypoint => {
-            if (index == waypoint.innerHTML) waypoint.classList.add('complete-way')
-        })
+            if (index == waypoint.innerHTML) waypoint.classList.add('complete-way');
+        });
     }
 
     document.querySelector('.result-box').style.display = 'block'
     document.querySelector('.quiz-box').style.display = 'none'
+
     setTimeout(() => {
-        if (index < question[locationIndex].quiz.length) {
+        if (index < question[locationIndex].quiz.length){
             loadQuestion()
         } else {
             finishQuiz();
