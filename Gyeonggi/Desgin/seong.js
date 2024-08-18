@@ -23,26 +23,25 @@ document.querySelector('.coupon').addEventListener('click', () => {
 document.querySelector('.close-btn').addEventListener('click', () => toggleModal(false));
 
 document.querySelector('.submit').addEventListener('click', () => {
-    const ctx = document.getElementById('canvas').getContext('2d');
+    const ctx = document.getElementById('canvas').getContext('2d')
     const image = new Image();
     image.src = document.getElementById('coupon-image').src;
     image.onload = () => {
         document.getElementById('canvas').width = image.width;
         document.getElementById('canvas').height = image.height;
         ctx.drawImage(image, 0, 0)
-        ctx.fillText(document.getElementById('name').value, canvas.width - 185, canvas.height - 305)
-        ctx.fillText(new Date().toISOString().split('T')[0], canvas.width - 185, canvas.height - 355)
+        ctx.fillText(document.getElementById('name').value, canvas.width - 185, canvas.height - 305);
+        ctx.fillText(new Date().toISOString().split('T')[0], canvas.width - 185, canvas.height - 355);
         const link = document.createElement('a')
-        link.href = document.getElementById('canvas').toDataURL('image/png')
-        link.download = 'stamp_card.png'
-        link.click();
+        link.href = document.getElementById('canvas').toDateURL('image/png')
+        link.download = 'stamp_card.png';
     }
 })
 
 const startQuiz = () => {
-    const selectedCourse = document.querySelector('.select').valeu;
-    if (completedCourse[selectedCourse]) {
-        alert('이미 완주한 코스')
+    const selectedCourse = document.querySelector('.select').value;
+    if(completedCourse[selectedCourse]) {
+        alert("이미 완주한 코스입니다.")
     } else if (!isFileLoaded) {
         document.getElementById('file-input').click();
     } else {
@@ -59,14 +58,14 @@ document.getElementById('file-input').addEventListener('change', event => {
         isFileLoaded = true;
         startQuiz();
     } else {
-        alert('내가 준 이미지를 골라라')
+        alert('내가 등록한 코드 사용하셍')
     }
 })
 
 const loadQuestion = () => {
     const {idx, question : dataQuestion, correct, incorrect} = question[locationIndex].quiz[index];
     const allAnswer = [correct, ...incorrect].sort(() => Math.random() - 0.5);
-
+    
     document.querySelector('.quiz-box').innerHTML = `
         <div>
             <h2>${idx}번 문제</h2>
@@ -74,7 +73,7 @@ const loadQuestion = () => {
             ${allAnswer.map(item => `<button class="answer">${item}</button>`).join('')}
         </div>`;
 
-    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('click', handleAnswer(btn.textContent === correct)))
+    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('click', handleAnswer(btn.textContent = correct)))
 }
 
 const handleAnswer = isCorrect => {
@@ -82,9 +81,9 @@ const handleAnswer = isCorrect => {
     if (isCorrect) {
         index++;
         document.querySelectorAll('.waypoint').forEach(waypoint => {
-            if (index == waypoint.innerHTML) waypoint.classList.add('complete-way');
-        });
-    };
+            if (index == waypoint.innerHTML) waypoint.classList.add('complete-way')
+        })
+    }
 
     document.querySelector('.result-box').style.display = 'block'
     document.querySelector('.quiz-box').style.display = 'none'
@@ -95,7 +94,7 @@ const handleAnswer = isCorrect => {
         } else {
             finishQuiz();
         }
-        document.querySelector('.result-box').style.display = 'none'
-        document.querySelector('.quiz-box').style.display = 'block'
+            document.querySelector('.result-box').style.display = 'none'
+            document.querySelector('.quiz-box').style.display = 'block'
     }, 1000)
-} 
+}
