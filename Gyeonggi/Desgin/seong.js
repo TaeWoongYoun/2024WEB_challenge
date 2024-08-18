@@ -9,17 +9,17 @@ fetch('quiz.json')
     .then(data => {
         question = data;
         initMap();
-        window.addEventListener('DOMContentLoaded', eventChange())
-    })
+        window.addEventListener('DOMContentLoaded', eventChange());
+    });
 
 const toggleModal = show => document.querySelector('.modal').classList.toggle('show-modal', show);
 document.querySelector('.coupon').addEventListener('click', () => {
-    if(document.querySelector('.quiz-box').classList.contains('show-box')){
-        alert("퀴즈가 이미 시작되어서 쿠폰 발급 불가");
+    if (document.querySelector('.quiz-box').classList.contains('show-box')) {
+        alert("퀴즈가 이미 시작되어서 쿠폰을 발급 받을 수 없습니다.")
     } else {
-        toggleModal(true);
-    };
-})
+        toggleModal(true)
+    }
+});
 document.querySelector('.close-btn').addEventListener('click', () => toggleModal(false));
 
 document.querySelector('.submit').addEventListener('click', () => {
@@ -33,16 +33,16 @@ document.querySelector('.submit').addEventListener('click', () => {
         ctx.fillText(document.getElementById('name').value, canvas.width - 185, canvas.height - 305)
         ctx.fillText(new Date().toISOString().split('T')[0], canvas.width - 185, canvas.height - 355)
         const link = document.createElement('a')
-        link.href = document.getElementById('canvas').toDataURL('image/png')
-        link.download = 'stamp_card.png';
+        link.href = document.getElementById('canvas').toDataRUL('image/png')
+        link.download = 'stamp_card.png'
         link.click();
     }
 })
 
 const startQuiz = () => {
-    const selectCourse = document.querySelector('.select').value;
-    if (completedCourse[selectCourse]) {
-        alert('이미 완주한 코스임')
+    const selectedCourse = document.querySelector('.select').valeu;
+    if (completedCourse[selectedCourse]) {
+        alert('이미 완주한 코스')
     } else if (!isFileLoaded) {
         document.getElementById('file-input').click();
     } else {
@@ -51,6 +51,7 @@ const startQuiz = () => {
         loadQuestion();
     }
 }
+
 document.querySelector('.quiz-start').addEventListener('click', startQuiz);
 document.getElementById('file-input').addEventListener('change', event => {
     const file = event.target.files[0];
@@ -59,7 +60,7 @@ document.getElementById('file-input').addEventListener('change', event => {
         isFileLoaded = true;
         startQuiz();
     } else {
-        alert('내가 준 이미지를 골라라.')
+        alert('내가 준 이미지를 골라라')
     }
 })
 
@@ -71,22 +72,23 @@ const loadQuestion = () => {
         <div>
             <h2>${idx}번 문제</h2>
             <p>${dataQuestion}</p>
-            ${allAnswer.map(item => `<button class="answer">${item}</button>`).join('')};
+            ${allAnswer.map(item => `<button class="answer">${item}</button>`).join('')}
         </div>`;
 
-    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('change', handleAnswer(btn.textContent = correct)));
+    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('change', handleAnswer(btn.textContent = incorrect)))
 }
 
 const handleAnswer = isCorrect => {
-    document.querySelector('.result-box').textContent = isCorrect ? '정답입니다.' : '틀렸습니다 다시 시도.';
+    document.querySelector('.result-box').textContent = isCorrect ? '정답입니다' : '오답입니다 다시 시도';
     if (isCorrect) {
         index++;
         document.querySelectorAll('.waypoint').forEach(waypoint => {
-            if(index == waypoint.innerHTML) waypoint.classList.add('complete-way');
-        })
-    }
-    document.querySelector('quiz-box').style.display = 'none'
-    document.querySelector('result-box').style.display = 'block'
+            if (index == waypoint.innerHTML) waypoint.classList.add('complete-way');
+        });
+    };
+
+    document.querySelector('.result-box').style.display = 'block'
+    document.querySelector('.quiz-box').style.display = 'none'
 
     setTimeout(() => {
         if (index < question[locationIndex].quiz.length) {
@@ -94,7 +96,7 @@ const handleAnswer = isCorrect => {
         } else {
             finishQuiz();
         }
-        document.querySelector('quiz-box').style.display = 'block'
-        document.querySelector('result-box').style.display = 'none'
+        document.querySelector('.result-box').style.display = 'none'
+        document.querySelector('.quiz-box').style.display = 'block'
     }, 1000)
-}
+} 
