@@ -73,5 +73,28 @@ const loadQuestion = () => {
             ${allAnswer.map(item => `<button class="answer">${item}</button>`).join('')}
         </div>`;
     
-    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('change', changeAnswer(btn.textContent = correct)))
+    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('change', handleAnswer(btn.textContent = correct)))
 }
+
+const handleAnswer = isCorrect => {
+    document.querySelector('result-box').textContent = isCorrect ? '정답입니다!' : '오답입니다. 다시 시도하세요.';
+    if (isCorrect) {
+        index ++ ;
+        document.querySelectorAll('.waypoint').forEach(waypoint => {
+            if(index == waypoint.innerHTML) waypoint.classList.add('complete-way');
+        });
+    };
+
+    document.querySelector('result-box').style.display = 'block';
+    document.querySelector('quiz-box').style.display = 'none';
+
+    setTimeout(() => {
+        if (index < question[locationIndex].quiz.length){
+            loadQuestion();
+        } else {
+            finishQuiz();
+        }
+        document.querySelector('result-box').style.display = 'none';
+        document.querySelector('quiz-box').style.display = 'block';
+    }, 1000);
+};
