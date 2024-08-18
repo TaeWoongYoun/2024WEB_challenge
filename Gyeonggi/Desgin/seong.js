@@ -40,61 +40,61 @@ document.querySelector('.submit').addEventListener('click', () => {
 })
 
 const startQuiz = () => {
-    const selectedCourse = document.querySelector('.select').value;
-    if (completedCourse[selectedCourse]){
-        alert("이미 완료한 코스입니다.")
+    const selectCourse = document.querySelector('.select').value;
+    if (completedCourse[selectCourse]) {
+        alert('이미 완주한 코스임')
     } else if (!isFileLoaded) {
         document.getElementById('file-input').click();
     } else {
-        document.querySelector('.quiz-box').classList.add('show-box');
+        document.querySelector('.quiz-box').classList.add('show-box')
+        isFileLoaded = true;
         loadQuestion();
     }
 }
 document.querySelector('.quiz-start').addEventListener('click', startQuiz);
 document.getElementById('file-input').addEventListener('change', event => {
     const file = event.target.files[0];
-    if (file && file.name === 'stamp_card.png'){
+    if (file && file.name === 'stamp_card.png') {
         document.getElementById('this-file').innerHTML = file.name;
         isFileLoaded = true;
         startQuiz();
     } else {
-        alert("내가 발급한 쿠폰만 써야지")
+        alert('내가 준 이미지를 골라라.')
     }
 })
 
 const loadQuestion = () => {
     const {idx, question : dataQuestion, correct, incorrect} = question[locationIndex].quiz[index];
-    const allAnswer = [correct, ...incorrect].sort(() => Math.random() - 0,5);
+    const allAnswer = [correct, ...incorrect].sort(() => Math.random() - 0.5);
 
     document.querySelector('.quiz-box').innerHTML = `
         <div>
             <h2>${idx}번 문제</h2>
             <p>${dataQuestion}</p>
-            ${allAnswer.map(item => `<button class="answer">${item}</button>`).join('')}
+            ${allAnswer.map(item => `<button class="answer">${item}</button>`).join('')};
         </div>`;
-    
-    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('change', handleAnswer(btn.textContent = correct)))
+
+    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('change', handleAnswer(btn.textContent = correct)));
 }
 
 const handleAnswer = isCorrect => {
-    document.querySelector('result-box').textContent = isCorrect ? '정답입니다!' : '오답입니다. 다시 시도하세요.';
+    document.querySelector('.result-box').textContent = isCorrect ? '정답입니다.' : '틀렸습니다 다시 시도.';
     if (isCorrect) {
-        index ++ ;
+        index++;
         document.querySelectorAll('.waypoint').forEach(waypoint => {
             if(index == waypoint.innerHTML) waypoint.classList.add('complete-way');
-        });
-    };
-
-    document.querySelector('result-box').style.display = 'block';
-    document.querySelector('quiz-box').style.display = 'none';
+        })
+    }
+    document.querySelector('quiz-box').style.display = 'none'
+    document.querySelector('result-box').style.display = 'block'
 
     setTimeout(() => {
-        if (index < question[locationIndex].quiz.length){
+        if (index < question[locationIndex].quiz.length) {
             loadQuestion();
         } else {
             finishQuiz();
         }
-        document.querySelector('result-box').style.display = 'none';
-        document.querySelector('quiz-box').style.display = 'block';
-    }, 1000);
-};
+        document.querySelector('quiz-box').style.display = 'block'
+        document.querySelector('result-box').style.display = 'none'
+    }, 1000)
+}
