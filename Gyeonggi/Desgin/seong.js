@@ -29,10 +29,10 @@ document.querySelector('.submit').addEventListener('click', () => {
     image.onload = () => {
         document.getElementById('canvas').width = image.width;
         document.getElementById('canvas').height = image.height;
-        ctx.drawImage(image, 0, 0);
+        ctx.drawImage(image, 0, 0)
         ctx.fillText(document.getElementById('name').value, canvas.width - 185, canvas.height - 305)
         ctx.fillText(new Date().toISOString().split('T')[0], canvas.width - 185, canvas.height - 355)
-        const link = document.createElement('a');
+        const link = document.createElement('a')
         link.href = document.getElementById('canvas').toDataURL('image/png');
         link.download = 'stamp_card.png';
         link.click();
@@ -41,13 +41,23 @@ document.querySelector('.submit').addEventListener('click', () => {
 
 const startQuiz = () => {
     const selectedCourse = document.querySelector('.select').value;
-    if (completedCourse[selectedCourse]) {
+    if (completedCourse[selectedCourse]){
         alert("이미 완주한 코스입니다.")
     } else if (!isFileLoaded) {
         document.getElementById('file-input').click();
     } else {
-        document.querySelector('.quiz-box').classList.add('show-box');
+        document.querySelector('.quiz-box').classList.add('show-box')
         loadQuestion();
     }
 }
 document.querySelector('.quiz-start').addEventListener('click', startQuiz);
+document.getElementById('file-input').addEventListener('change', event => {
+    const file = event.target.file[0];
+    if (file && file.name === 'stamp_card.png') {
+        document.getElementById('this-file').innerHTML = file.name;
+        isFileLoaded = true;
+        startQuiz;
+    } else {
+        alert('내가 준 이미지를 사용해 시발')
+    }
+})
