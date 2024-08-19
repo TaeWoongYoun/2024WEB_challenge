@@ -8,21 +8,21 @@ fetch('quiz.json')
     .then(response => response.json())
     .then(data => {
         question = data;
-        initMap();
+        initMap()
         window.addEventListener('DOMContentLoaded', eventChange())
     })
 
 const toggleModal = show => document.querySelector('.modal').classList.toggle('show-modal', show);
 document.querySelector('.coupon').addEventListener('click', () => {
-    if(document.querySelector('.quiz-box').classList.contains('show-box')) {
-        alert("퀴즈가 이미 시작되어서 쿠폰을 발급 받을 수 없습니다.")
+    if (document.querySelector('.quiz-box').classList.contains('show-box')) {
+        alert("퀴즈가 시작되어서 쿠폰을 발급 받을 수 없습니다.")
     } else {
         toggleModal(true);
     }
 })
 document.querySelector('.close-btn').addEventListener('click', () => toggleModal(false))
 
-document.querySelector('.submit').addEventListener('click', () => {
+document.querySelector('.submit').addEventListener('click', function(){
     const ctx = document.getElementById('canvas').getContext('2d');
     const image = new Image();
     image.src = document.getElementById('coupon-image').src;
@@ -41,25 +41,25 @@ document.querySelector('.submit').addEventListener('click', () => {
 
 const startQuiz = () => {
     const selectedCourse = document.querySelector('.select').value;
-    if(completedCourse[selectedCourse]) {
-        alert("이미 완주한 코스입니다.")
+    if (completedCourse[selectedCourse]) {
+        alert('이미 완주한 코스입니다.')
     } else if (!isFileLoaded) {
         document.getElementById('file-input').click();
     } else {
         document.querySelector('.quiz-box').classList.add('show-box');
-        loadQuestion();
+        loadQuestion()
     }
 }
 
-document.querySelector('.quiz-start').addEventListener('click', startQuiz);
+document.querySelector('.quiz-start').addEventListener('click', startQuiz)
 document.getElementById('file-input').addEventListener('change', event => {
     const file = event.target.files[0];
-    if (file && file.name === 'stamp_card.png'){
+    if (file && file.name === 'stamp_card.png') {
         document.getElementById('this-file').innerHTML = file.name;
         isFileLoaded = true;
         startQuiz();
     } else {
-        alert("우리가 발급한 쿠폰을 사용해주세요")
+        alert('우리가 등록한 쿠폰을 사용해주세요.')
     }
 })
 
@@ -74,16 +74,15 @@ const loadQuestion = () => {
         ${allAnswer.map(item => `<button class="answer">${item}</button>`).join('')}
     </div>`;
 
-    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('click', handleAnswer(btn.textContent = correct)));
+    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('click', handleAnswer(btn.textContent === correct)))
 }
 
 const handleAnswer = isCorrect => {
-    document.querySelector('.result-box').textContent = isCorrect ? '정답입니다' : '오답입니다 다시 시도';
-
-    document.querySelectorAll('waypoint').forEach(waypoint => {
-        if (isCorrect) {
+    document.querySelector('.result-box').textContent = isCorrect ? '정답입니다' : '오답입니다 다시 시도'
+    document.querySelectorAll('.waypoint').forEach(waypoint => {
+        if(isCorrect) {
             index++;
-            if(index == waypoint.innerHTML) waypoint.classList.add('complete-way');
+            if (index == waypoint.innerHTML) waypoint.classList.add('complete-way');
         }
     })
 
@@ -106,9 +105,9 @@ const finishQuiz = () => {
     completedCourse[selectedCourse] = true;
     document.querySelector('.quiz-box').classList.remove('show-box')
     index = 0;
-    alert(Object.keys(completedCourse).length == 3 ? '모든 코스를 완주했습니다.' : '문제풀이 성공')
+    alert(Object.keys(completedCourse).length == 3 ? '모든 코스를 완주했습니다' : '해당 코스를 완주했습니다')
     if (Object.keys(completedCourse).length == 3) {
         document.getElementById('this-file').innerHTML = ''
-        isFileLoaded = false;
+        isFileLoaded = false
     }
 }
