@@ -23,7 +23,7 @@ document.querySelector('.coupon').addEventListener('click', () => {
 document.querySelector('.close-btn').addEventListener('click', () => toggleModal(false))
 
 document.querySelector('.submit').addEventListener('click', () => {
-    const ctx = document.getElementById('canvas').getContext('2d')
+    const ctx = document.getElementById('canvas').getContext('2d');
     const image = new Image();
     image.src = document.getElementById('coupon-image').src;
     image.onload = () => {
@@ -41,12 +41,12 @@ document.querySelector('.submit').addEventListener('click', () => {
 
 const startQuiz = () => {
     const selectedCourse = document.querySelector('.select').value;
-    if (completedCourse[selectedCourse]) {
-        alert('이미 완주한 코스입니다.');
+    if(completedCourse[selectedCourse]) {
+        alert("이미 완주한 코스입니다.")
     } else if (!isFileLoaded) {
         document.getElementById('file-input').click();
     } else {
-        document.querySelector('.quiz-box').classList.add('show-box')
+        document.querySelector('.quiz-box').classList.add('show-box');
         loadQuestion();
     }
 }
@@ -54,49 +54,61 @@ const startQuiz = () => {
 document.querySelector('.quiz-start').addEventListener('click', startQuiz);
 document.getElementById('file-input').addEventListener('change', event => {
     const file = event.target.files[0];
-    if (file && file.name === 'stamp_card.png') {
+    if (file && file.name === 'stamp_card.png'){
         document.getElementById('this-file').innerHTML = file.name;
         isFileLoaded = true;
         startQuiz();
     } else {
-        alert('우리가 발급한 쿠폰을 사용하세요')
+        alert("우리가 발급한 쿠폰을 사용해주세요")
     }
 })
 
 const loadQuestion = () => {
-    const {idx, question : dataQuestion, correct, incorrect} = question[locationIndex].quiz[index]
+    const {idx, question : dataQuestion, correct, incorrect} = question[locationIndex].quiz[index];
     const allAnswer = [correct, ...incorrect].sort(() => Math.random() - 0.5);
 
     document.querySelector('.quiz-box').innerHTML = `
-    <div>                    
+    <div>
         <h2>${idx}번 문제</h2>
         <p>${dataQuestion}</p>
         ${allAnswer.map(item => `<button class="answer">${item}</button>`).join('')}
     </div>`;
 
-    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('click', handleAnswer(btn.textContent = correct)))
+    document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('click', handleAnswer(btn.textContent = correct)));
 }
 
 const handleAnswer = isCorrect => {
-    document.querySelector('.result-box').textContent = isCorrect ? '정답입니다' : '오답입니다 다시 시도'
+    document.querySelector('.result-box').textContent = isCorrect ? '정답입니다' : '오답입니다 다시 시도';
 
-    if (isCorrect) {
-        index++;
-        document.querySelectorAll('.waypoint').forEach(waypoint => {
-            if (index == waypoint.innerHTML) waypoint.classList.add('complete-way');
-        });
-    }
+    document.querySelectorAll('waypoint').forEach(waypoint => {
+        if (isCorrect) {
+            index++;
+            if(index == waypoint.innerHTML) waypoint.classList.add('complete-way');
+        }
+    })
 
     document.querySelector('.result-box').style.display = 'block'
     document.querySelector('.quiz-box').style.display = 'none'
 
     setTimeout(() => {
-        if (index < question[locationIndex].quiz.length){
-            loadQuestion()
+        if (index < question[locationIndex].quiz.length) {
+            loadQuestion();
         } else {
             finishQuiz();
         }
         document.querySelector('.result-box').style.display = 'none'
         document.querySelector('.quiz-box').style.display = 'block'
     }, 1000)
+}
+
+const finishQuiz = () => {
+    const selectedCourse = document.querySelector('.select').value;
+    completedCourse[selectedCourse] = true;
+    document.querySelector('.quiz-box').classList.remove('show-box')
+    index = 0;
+    alert(Object.keys(completedCourse).length == 3 ? '모든 코스를 완주했습니다.' : '문제풀이 성공')
+    if (Object.keys(completedCourse).length == 3) {
+        document.getElementById('this-file').innerHTML = ''
+        isFileLoaded = false;
+    }
 }
