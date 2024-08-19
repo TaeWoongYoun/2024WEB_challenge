@@ -78,19 +78,19 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const handleAnswer = isCorrect => {
-        document.querySelector('.result-box').textContent = isCorrect ? '정답입니다' : '오답입니다. 다시 시도';
+        document.querySelector('.result-box').textContent = isCorrect ? '정답입니다' : '오답입니다 다시 시도';
         if (isCorrect) {
             index++;
             document.querySelectorAll('.waypoint').forEach(waypoint => {
                 if (index == waypoint.innerHTML) waypoint.classList.add('complete-way');
-            })
+            });
         }
 
         document.querySelector('.result-box').style.display = 'block';
         document.querySelector('.quiz-box').style.display = 'none';
 
         setTimeout(() => {
-            if (index < question[locationIndex].quiz.length) {
+            if (index == question[locationIndex].quiz.length) {
                 loadQuestion();
             } else {
                 finishQuiz();
@@ -105,8 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
         index = 0;
         completedCourse[selectedCourse] = true;
         document.querySelector('.quiz-box').classList.remove('show-box');
-        alert(Object.keys(completedCourse).length == 3 ? '모든 코스를 완주했습니다' : '해당코스를 완주했습니다');
-        if (Object.keys(completedCourse).length == 3) {
+        alert(Object.keys(completedCourse).length == 3 ? '모든 코스를 완주했습니다' : '해당 코스를 완주했습니다');
+        if (Object.keys(completedCourse).length == 3){
             isFileLoaded = false;
             document.getElementById('this-file').innerHTML = '';
         }
@@ -118,12 +118,12 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.querySelector('.select').addEventListener('change', () => {
-        updateMap(this.value)
+        updateMap(this.value);
         eventChange();
     });
 
     const updateMap = value => {
-        document.getElementById('map-image').src =  `map/${value}.png`;
+        document.getElementById('map-image').src = `map/${value}.png`;
         locationIndex = ['창덕궁', '경복궁', '신라'].indexOf(value);
     };
 
@@ -132,9 +132,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const setCanvasSize = () => {
         Object.assign(pathCanvas, {
-            width : document.querySelector('.map').offsetWidth,
-            height : document.querySelector('.map').offsetHeight,
-            style : "pointion: absolute; left: -15px; top: -15px;"
-        })
+            width: document.querySelector('.map').offsetWidth,
+            height: document.querySelector('.map').offsetHeight,
+            style: 'position: absolute; left: -15px; top: -15px;'
+        });
     }
 });
