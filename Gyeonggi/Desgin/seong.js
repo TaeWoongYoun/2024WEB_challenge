@@ -90,7 +90,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.querySelector('.quiz-box').style.display = 'none';
 
         setTimeout(() => {
-            if (index == question[locationIndex].quiz.length) {
+            if (index < question[locationIndex].quiz.length) {
                 loadQuestion();
             } else {
                 finishQuiz();
@@ -136,5 +136,41 @@ document.addEventListener('DOMContentLoaded', () => {
             height: document.querySelector('.map').offsetHeight,
             style: 'position: absolute; left: -15px; top: -15px;'
         });
-    }
+    };
+
+    const drawPaths = waypoint => {
+        const ctx = pathCanvas.getContext('2d');
+        ctx.clearRect(0, 0, pathCanvas.width, pathCanvas.height);
+        if (waypoint.length > 1) {
+            ctx.beginPath();
+            waypoint.forEach((wp, i) => {
+                const [x,y] = [wp.offsetLeft + wp.offsetWidth / 2,wp.offsetTop + wp.offsetHeight / 2];
+                i === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
+            });
+            ctx.strokeStyle = '#111';
+            ctx.lineWidth = 5;
+            ctx.stroke();
+        }
+    };
+
+    const eventChange = () => {
+        const selectedCourse = document.getElementById('location').value;
+        document.querySelectorAll('.waypoint').forEach(wp => wp.remove());
+        const waypoints = question[locationIndex].quiz.map(ping => {
+            const way = document.createElement('div');
+            way.className = 'waypoint';
+            Object.assign(way.style, {
+                position: 'absolute',
+                left: `${ping.location[0]}px`,
+                top: `${ping.location[1]}px`
+            });
+            way.innerHTML = ping.idx;
+            if (completedCourse[selectedCourse]) way.classList.add("complete-way");
+            document.querySelector('.map').appendChild(way);
+            return way;
+        });
+    
+        setCanvasSize();
+        drawPaths(waypoints);
+    };
 });
