@@ -65,9 +65,9 @@ document.getElementById('file-input').addEventListener('change', event => {
 
 const loadQuestion = () => {
     const {idx, question : dataQuestion, correct, incorrect} = question[locationIndex].quiz[index];
-    const allAnswer = [correct, ...incorrect].sort(() => Math.random() - 0.5);
-
-    document.querySelector('.quiz-box').innerHTML = `
+    const allAnswer = [correct, ...incorrect].sort(() => Math.random() - 0.5)
+    
+    document.querySelector('quiz-box').innerHTML = `
     <div>
         <h2>${idx}번 문제</h2>
         <p>${dataQuestion}</p>
@@ -78,13 +78,13 @@ const loadQuestion = () => {
 }
 
 const handleAnswer = isCorrect => {
-    document.querySelector('.result-box').textContent = isCorrect ? '정답입니다' : '오답입니다 다시 시도'
-    document.querySelectorAll('.waypoint').forEach(waypoint => {
-        if(isCorrect) {
-            index++;
-            if (index == waypoint.innerHTML) waypoint.classList.add('complete-way');
-        }
-    })
+    document.querySelector('.result-box').textContent = isCorrect ? '정답입니다' : '오답입니다 다시 시도';
+    if (isCorrect) {
+        index++
+        document.querySelectorAll('.waypoint').forEach(waypoint => {
+            if(index == waypoint.innerHTML) waypoint.classList.add('complete-way')
+        })
+    }
 
     document.querySelector('.result-box').style.display = 'block'
     document.querySelector('.quiz-box').style.display = 'none'
@@ -105,9 +105,9 @@ const finishQuiz = () => {
     completedCourse[selectedCourse] = true;
     document.querySelector('.quiz-box').classList.remove('show-box')
     index = 0;
-    alert(Object.keys(completedCourse).length == 3 ? '모든 코스를 완주했습니다' : '해당 코스를 완주했습니다')
+    alert(Object.keys(completedCourse).length == 3 ? '모든 코스를 완주' : '해당 코스를 완주');
     if (Object.keys(completedCourse).length == 3) {
         document.getElementById('this-file').innerHTML = ''
-        isFileLoaded = false
+        isFileLoaded = false;
     }
 }
