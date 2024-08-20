@@ -299,7 +299,7 @@ canvas {
     width: 560px;
     left: 20px;
     top: 500px;
-    max-height: 300px;
+    height: 300px;
     overflow-y: auto;
     border-top: 1px solid black;
     border-bottom: 1px solid black;
