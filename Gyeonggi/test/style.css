@@ -104,3 +104,39 @@ nav{
     font-weight: bold;
 }
 /* 헤더 영역 */
+
+/* 비주얼 영역 */
+.visual_area{
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+}
+
+.slider{
+    position: relative;
+    display: flex;
+    animation: infinite linear slider 10s;
+    width: 7700px;
+    height: 100%;
+}
+
+@keyframes slider{
+    0%, 23%{left: -1320px;}
+    33%, 56%{left: -2840px;}
+    66%, 90%{left: -4380px;}
+    100%{left: -5920px;}
+}
+
+.slide{
+    width: 1440px;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    margin: 0 50px;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+}
+/* 비주얼 영역 */
