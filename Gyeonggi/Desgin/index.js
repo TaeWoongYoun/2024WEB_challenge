@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', ()  => {
             listItem.className = 'route-item';
             const time = (route.distance / speed).toFixed(2);
             listItem.innerHTML = `경로: ${route.path.join(' -> ')}<br>이동시간: ${convertTime(time)}<br>이동거리: ${route.distance.toFixed(2)}m`;
-            routeList.addEventListener('click', () => {
+            listItem.addEventListener('click', () => {
                 highlightRoute(route.path);
             })
             routeList.appendChild(listItem);
@@ -136,10 +136,10 @@ document.addEventListener('DOMContentLoaded', ()  => {
     };
 
     ['festa01', 'festa02', 'festa03'].forEach(id => {
-        document.getElementById(id).addEventListener('click', courseChange);
+        document.getElementById(id).addEventListener('change', courseChange);
     });
 
     ['move01', 'move02'].forEach(id => {
-        document.getElementById(id).addEventListener('click', tabChange);
+        document.getElementById(id).addEventListener('change', tabChange);
     });
 });
