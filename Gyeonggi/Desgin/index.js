@@ -1,4 +1,5 @@
-document.addEventListener('DOMContentLoaded', ()  => {
+
+document.addEventListener('DOMContentLoaded', () => {
     let mapData;
     let speed = 3;
     let courseIndex = 0;
@@ -47,8 +48,8 @@ document.addEventListener('DOMContentLoaded', ()  => {
                 const start = pointers.find(p => p.idx === highlight[i]);
                 const end = pointers.find(p => p.idx === highlight[i + 1]);
                 if (start && end) {
-                    ctx.moveTo(start.location[0] + 15, start.location[1] + 15)
-                    ctx.lineTo(end.location[0] + 15, end.location[1] + 15)
+                    ctx.moveTo(start.location[0] + 15, start.location[1] + 15);
+                    ctx.lineTo(end.location[0] + 15, end.location[1] + 15);
                 }
             }
             ctx.strokeStyle = '#FF0000';
@@ -77,14 +78,14 @@ document.addEventListener('DOMContentLoaded', ()  => {
         if (!startPointer) return;
 
         const traverse = (current, path, distance) => {
-            if(current.idx === 6) {
+            if (current.idx === 6) {
                 routes.push({path: [...path, current.idx], distance});
                 return;
             }
             current.link.forEach(linkIdx => {
-                if(!path.includes(linkIdx)) {
-                    const nextPointer = data.pointer.find(p => p.idx === linkIdx)
-                    if(nextPointer) {
+                if (!path.includes(linkIdx)) {
+                    const nextPointer = data.pointer.find(p => p.idx === linkIdx);
+                    if (nextPointer) {
                         const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1]);
                         traverse(nextPointer, [...path, current.idx], distance + dist);
                     }
@@ -104,10 +105,10 @@ document.addEventListener('DOMContentLoaded', ()  => {
             const listItem = document.createElement('div');
             listItem.className = 'route-item';
             const time = (route.distance / speed).toFixed(2);
-            listItem.innerHTML = `경로: ${route.path.join(' -> ')}<br>이동시간: ${convertTime(time)}<br>이동거리: ${route.distance.toFixed(2)}m`;
+            listItem.innerHTML = `경로: ${route.path.join(' → ')}<br>이동시간: ${convertTime(time)}<br>이동거리: ${route.distance.toFixed(2)}m`;
             listItem.addEventListener('click', () => {
                 highlightRoute(route.path);
-            })
+            });
             routeList.appendChild(listItem);
         });
     };
@@ -131,7 +132,7 @@ document.addEventListener('DOMContentLoaded', ()  => {
     };
 
     const tabChange = event => {
-        speed = event.target.id === 'move01' ? 3 : 10 ;
+        speed = event.target.id === 'move01' ? 3 : 10;
         calculateRoutes(mapData[courseIndex]);
     };
 
