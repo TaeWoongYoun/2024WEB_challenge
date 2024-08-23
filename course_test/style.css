@@ -5,7 +5,6 @@
 
 img{
     display: none;
-    margin-top: 200px;
 }
 
 #festa01:checked~.map-image01,
@@ -16,7 +15,7 @@ img{
 
 .map{
     position: absolute;
-    top: 230px;
+    top: 30px;
     left: -15px;
     width: 1280px;
     height: 700px;
