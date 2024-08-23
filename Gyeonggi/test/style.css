@@ -646,6 +646,153 @@ nav{
 }
 /* 이용수칙 영역 */
 /* 달빛기행축제란 페이지 영역 */
+
+/* 문화달력 페이지 영역 */
+.calender_area{
+    width: 100%;
+    height: 1100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calender{
+    width: 1440px;
+    height: 900px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.calender_event{
+    width: 600px;
+    height: 800px;
+}
+
+.search{
+    width: 370px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search input{
+    width: 250px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+}
+
+.search button{
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 18px;
+}
+
+.card{
+    width: 600px;
+    height: 700px;
+    margin-top: 20px;
+}
+
+.card h1{
+    line-height: 50px;
+    padding-left: 10px;
+}
+
+.card img{
+    width: 500px;
+    height: 700px;
+    margin-bottom: 20px;
+    border-radius: 20px;
+}
+
+.card p{
+    font-size: 18px;
+    padding-left: 10px;
+}
+
+.card p span{
+    font-weight: bold;
+}
+
+.calender_content{
+    position: relative;
+}
+
+.btn_box{
+    position: absolute;
+    right: 0;
+    width: 450px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.btn_box button{
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 18px;
+}
+
+.btn_box select{
+    width: 120px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 18px;
+}
+
+.calender_box{
+    position: relative;
+    top: 100px;
+    width: 900px;
+}
+
+.calender_box h1{
+    text-align: center;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th, td{
+    width: 140px;
+    height: 140px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 24px;
+    border-radius: 20px;
+}
+
+td:hover{
+    background-color: beige;
+    transition: all 0.3s;
+}
+
+.gray{
+    color: #888;
+}
+
+.red{
+    color: orangered;
+}
+
+.blue{
+    color: #1074DD;
+}
+/* 문화달력 페이지 영역 */
 /* 푸터 영역 */
 .footer_area{
     width: 100%;
