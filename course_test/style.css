@@ -44,3 +44,18 @@ img{
     text-align: center;
     line-height: 30px;
 }
+
+#routeList{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    width: 300px;
+    max-height: 300px;
+    overflow-y: scroll;
+}
+
+.route-item{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding:  10px 20px;
+}
