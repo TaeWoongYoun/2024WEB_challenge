@@ -17,6 +17,10 @@ a{
     font-size: 70px;
 }
 
+.highlight{
+    color: #1074DD;
+}
+
 /* 헤더 영역 */
 .head_area{
     width: 100%;
@@ -464,6 +468,184 @@ nav{
     50%{bottom: 20px;}
 }
 /* 갤러리 영역 */
+/* 달빛기행축제란 페이지 영역 */
+/* 소개 영역 */
+.introduce{
+    position: relative;
+    width: 100%;
+    height: 1000px;
+}
+
+.introduce:hover img{
+    transition: all 0.5s;
+    filter: brightness(100%);
+}
+
+.introduce img{
+    width: 100%;
+    height: 100%;
+    filter: brightness(50%);
+}
+
+.introduce_txt{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
+}
+
+.introduce_txt p{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+.sub_txt{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+    color: #fff;
+}
+/* 소개 영역 */
+/* 관람 동선 안내 영역 */
+.map_area{
+    width: 100%;
+    height: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.map{
+    position: relative;
+    width: 1440px;
+    height: 500px;
+}
+
+.map h1{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.map-img{
+    position: absolute;
+    width: 700px;
+    height: 500px;
+    right: 0;
+    top: 0;
+}
+
+.map button{
+    position: absolute;
+    padding: 5px 10px;
+    border: 1px solid black;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+.btn1{
+    top: 100px;
+    right: 360px;
+}
+
+.btn1:hover + .hover-img1{
+    display: block;
+}
+
+.btn2{
+    top: 200px;
+    right: 260px;
+}
+
+.btn2:hover + .hover-img2{
+    display: block;
+}
+
+.btn3{
+    top: 450px;
+    right: 400px;
+}
+
+.btn3:hover + .hover-img3{
+    display: block;
+}
+
+.map_imgBox{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 400px;
+    background-color: beige;
+    text-align: center;
+    line-height: 400px;
+    font-size: 24px;
+}
+
+.hover-img{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 600px;
+    height: 400px;
+    z-index: 1;
+    display: none;
+}
+/* 관람 동선 안내 영역 */
+/* 이용수칙 영역 */
+.danger_area{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.danger_area h1{
+    position: absolute;
+    left: 230px;
+    top: 0;
+}
+
+.danger{
+    width: 1440px;
+    height: 400px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.danger div{
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid black;
+}
+
+.danger div:hover{
+    font-weight: bold;
+
+}
+
+.danger div span{
+    display: block;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    line-height: 40px;
+    background-color: orange;
+    border-radius: 10px;
+    margin: 0 15px;
+}
+
+.danger div p{
+    font-size: 18px;
+}
+/* 이용수칙 영역 */
+/* 달빛기행축제란 페이지 영역 */
 /* 푸터 영역 */
 .footer_area{
     width: 100%;
