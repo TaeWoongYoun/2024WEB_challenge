@@ -613,7 +613,7 @@ nav{
 .danger{
     width: 1440px;
     height: 400px;
-    border: 2px solid black;
+    border: 1px solid black;
     border-radius: 10px;
 }
 
@@ -622,7 +622,7 @@ nav{
     height: 100px;
     display: flex;
     align-items: center;
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid black;
 }
 
 .danger div:hover{
