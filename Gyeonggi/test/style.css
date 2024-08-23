@@ -13,6 +13,10 @@ a{
     color: inherit;
 }
 
+.h1{
+    font-size: 70px;
+}
+
 /* 헤더 영역 */
 .head_area{
     width: 100%;
@@ -116,7 +120,100 @@ nav{
     margin-top: 10px;
 }
 /* 헤더 영역 */
+/* 비주얼 영역 */
+.visual{
+    position: relative;
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+}
 
+.num{
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 30px;
+    color: #fff;
+    background: rgba(0, 0, 0, 0.9);
+    width: 100px;
+    height: 40px;
+    border-radius: 20px;
+}
+
+.num p{
+    visibility: hidden;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.num1{animation: infinite linear 10s num1;}
+@keyframes num1 {
+    0%, 33.9%{visibility: visible;}
+    34%, 66.9%{visibility: hidden;}
+    67%, 90.9%{visibility: hidden;}
+    91%, 100%{visibility: visible;}
+}
+.num2{animation: infinite linear 10s num2;}
+@keyframes num2 {
+    0%, 33.9%{visibility: hidden;}
+    34%, 66.9%{visibility: visible;}
+    67%, 90.9%{visibility: hidden;}
+    91%, 100%{visibility: hidden;}
+}
+.num3{animation: infinite linear 10s num3;}
+@keyframes num3 {
+    0%, 33.9%{visibility: hidden;}
+    34%, 66.9%{visibility: hidden;}
+    67%, 90.9%{visibility: visible;}
+    91%, 100%{visibility: hidden;}
+}
+
+.slider{
+    width: 7700px;
+    height: 100%;
+    display: flex;
+    position: relative;
+    animation: infinite linear 10s slider;
+}
+
+@keyframes slider{
+    0%, 23%{left: -1360px;}
+    33%, 56%{left: -2900px;}
+    66%, 90%{left: -4440px;}
+    100%{left: -5980px;}
+}
+
+.slide{
+    position: relative;
+    width: 1440px;
+    margin: 0 50px;
+    height: 100%;
+    border-radius: 30px;
+}
+
+.textBox{
+    position: absolute;
+    top: 55%;
+    right: 200px;
+    transform: translateY(-50%);
+    width: 500px;
+    height: 300px;
+    color: #fff;
+}
+
+.textBox p{
+    font-size: 20px;
+}
+
+.slide img{
+    width: 100%;
+    height: 100%;
+    border-radius: 30px;
+}
+/* 비주얼 영역 */
 /* 푸터 영역 */
 .footer_area{
     width: 100%;
