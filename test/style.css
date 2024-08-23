@@ -1,0 +1,53 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.gall{
+    width: 100%;
+    height: 700px;
+    scroll-snap-type: y mandatory;
+    overflow: auto;
+}
+
+.gall::-webkit-scrollbar{
+    display: none;
+}
+
+.content{
+    width: 100%;
+    height: 100%;
+    scroll-snap-align: start;
+}
+
+.container{
+    transform-style: preserve-3d;
+    width: 400px;
+    height: 400px;
+    position: relative;
+    display: flex;
+    transition: all 2s linear;
+}
+
+.container:hover{
+    transform: rotateY(-270deg);
+}
+
+.item{
+    width: 400px;
+    height: 400px;
+    position: absolute;
+}
+
+.item:nth-child(1){
+    transform: rotateY(0deg) translateZ(200px);
+}
+.item:nth-child(2){
+    transform: rotateY(90deg) translateZ(200px);
+}
+.item:nth-child(3){
+    transform: rotateY(180deg) translateZ(200px);
+}
+.item:nth-child(4){
+    transform: rotateY(270deg) translateZ(200px);
+}
