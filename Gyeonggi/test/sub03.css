@@ -150,19 +150,28 @@ nav{
     line-height: 30px;
     color: #fff;
     z-index: 10;
+    background-color: #111;
+}
+
+.map{
+    position: absolute;
+    top: 130px;
+    right: 15px;
+    width: 1280px;
+    height: 100%;
+    z-index: 10;
+}
+
+#mapContainer{
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 #mapCanvas{
     position: relative;
     width: 100%;
     height: 100%;
-}
-
-canvas{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 1;
 }
 /* 코스 소개 페이지 */
 /* 푸터 영역 */
