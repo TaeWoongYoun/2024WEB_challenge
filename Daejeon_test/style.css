@@ -213,3 +213,70 @@ nav{
 }
 /* 세로 네비게이션 */
 /* 헤더 영역 */
+/* 비주얼 영역 */
+.visual{
+    position: relative;
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+}
+
+.slider{
+    width: 400%;
+    height: 800px;
+    display: flex;
+    position: relative;
+    animation: infinite linear 10s slider;
+}
+
+@keyframes slider{
+    0%, 23%{left: 0;}
+    33%, 56%{left: -100%;}
+    66%, 90%{left: -200%;}
+    100%{left: -300%;}
+}
+
+.slide{
+    width: 100%;
+    height: 100%;
+}
+
+.stop{
+    position: relative;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background-color: #111;
+    color: #fff;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+
+}
+
+.stop i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+}
+
+#stop:checked~.slider{
+    animation-play-state: paused;
+}
+
+#stop:checked~.stop #play{
+    visibility: visible;
+}
+
+#stop:checked~.stop .fa-pause{
+    visibility: hidden;
+}
+
+#play{
+    visibility: hidden;
+}
+/* 비주얼 영역 */
