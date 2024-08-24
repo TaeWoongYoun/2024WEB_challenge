@@ -3,11 +3,30 @@
     margin: 0;
 }
 
+body{
+    height: 100%;
+}
+
+ul li{
+    list-style: none;
+    padding-left: 0;
+}
+
+li a{
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 헤더 영역 */
 .head_area{
     position: relative;
     width: 100%;
     height: 140px;
     background-color: #fff;
+}
+
+#nav:checked~.height-nav-area{
+    width: 100%;
 }
 
 .sgin_area{
@@ -25,7 +44,7 @@
     width: 200px;
     height: 30px;
     padding-left: 10px;
-     margin: 5px;
+    margin: 5px;
 }
 
 .sgin_area label{
@@ -38,6 +57,7 @@
 
 header{
     position: absolute;
+    top: 40px;
     left: 50%;
     transform: translateX(-50%);
     width: 1440px;
@@ -46,3 +66,150 @@ header{
     align-items: center;
     justify-content: space-between;
 }
+
+.logo{
+    width: 300px;
+}
+
+nav{
+    width: 800px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.main-menu{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.main-menu > li{
+    padding: 0 30px;
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    font-size: 20px;
+}
+
+.main-menu li:hover{
+    font-weight: bold;
+}
+
+.main-menu > li:hover .sub-menu03{
+    height: 210px;
+}
+
+.main-menu > li:hover .sub-menu04{
+    height: 280px;
+}
+
+.sub-menu{
+    padding-left: 0;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+    background-color: #fff;
+    color: #111;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.sub-menu li{
+    line-height: 70px;
+}
+
+.ham{
+    position: relative;
+    width: 100px;
+    height: 100px;
+    display: block;
+}
+
+.ham svg{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50px;
+    height: 50px;
+}
+
+/* 세로 네비게이션 */
+.height-nav-area{
+    position: fixed;
+    top: 0;
+    right: 0;
+    transition: all 0.5s;
+    z-index: 100;
+    width: 0;
+    height: 100vh;
+    display: flex;
+    background: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.height-nav{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 350px;
+    height: 100vh;
+    background-color: #fff;
+}
+
+.close{
+    position: absolute;
+    top: 65px;
+    left: 10px;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.close svg{
+    width: 45px;
+    height: 45px;
+}
+
+.menu{
+    margin-top: 150px;
+    width: 100%;
+    padding-left: 0;
+}
+
+.menu > li{
+    width: 100%;
+    line-height: 70px;
+    font-size: 20px;
+    text-align: center;
+    line-height: 70px;
+}
+
+.menu > li:hover{
+    background-color: #1078d4;
+    color: #fff;
+}
+
+.menu > li:hover .sub03{
+    height: 210px;
+    line-height: 70px;
+}
+
+.menu > li:hover .sub04{
+    line-height: 70px;
+    height: 280px;
+}
+
+.sub{
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    transition: all 0.5s;
+    padding-left: 0;
+}
+/* 세로 네비게이션 */
+/* 헤더 영역 */
