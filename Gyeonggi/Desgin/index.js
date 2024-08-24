@@ -1,4 +1,3 @@
-
 document.addEventListener('DOMContentLoaded', () => {
     let mapData;
     let speed = 3;
