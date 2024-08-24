@@ -151,3 +151,16 @@ td > button{
     margin: 10px;
     border-radius: 5px;
 }
+
+.box{
+    width: 100px;
+    background-color: black;
+    color: #fff;
+    height: 100px;
+}
+
+.box p{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
