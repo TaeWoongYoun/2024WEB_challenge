@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        body {
+            scroll-snap-type: y mandatory;
+        }
+        header {
+            width: 100%;
+            height: 100px;
+            background: red;
+        } 
+        .content {
+            width: 100%;
+            height: 1000vh;
+            background: aliceblue;
+        }
+        .sex {
+            width: 100%;
+            height: 50%;
+            background: purple;
+        }
+        footer {
+            width: 100%;
+            height: 150px;
+            background: #000;
+        }
+        .upBtn {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #fff;
+            border: 1px solid #111;
+            text-decoration: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+        .upBtn > p {
+            text-align: center;
+            font-size: 17px;
+
+        }
+        .upBtn:active {
+            scroll-snap-align: start;
+        }
+    </style>
+</head>
+<body>
+    <a href="#top" class="upBtn">
+        <p>↑</p>
+    </a>
+    <header id="top"></header>
+    <div class="content">
+        <div class="sex"></div>
+    </div>
+    <footer></footer>
+</body>
+</html>
