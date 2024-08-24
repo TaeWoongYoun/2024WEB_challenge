@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
             for (let i = 0; i < highlight.length - 1; i++) {
                 const start = pointers.find(p => p.idx === highlight[i]);
                 const end = pointers.find(p => p.idx === highlight[i + 1]);
-                if (start & end) {
+                if (start && end) {
                     ctx.moveTo(start.location[0] + 15, start.location[1] + 15);
                     ctx.lineTo(end.location[0] + 15, end.location[1] + 15);
                 }
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         const traverse = (current, path, distance) => {
             if (current.idx === 6) {
-                routes.push({path: [...path, current], distance});
+                routes.push({path: [...path, current.idx], distance});
                 return;
             }
             current.link.forEach(linkIdx => {
@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const nextPointer = data.pointer.find(p => p.idx === linkIdx);
                     if (nextPointer) {
                         const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1]);
-                        traverse(nextPointer, [...path, current], distance + dist);
+                        traverse(nextPointer, [...path, current.idx], distance + dist);
                     }
                 }
             });
