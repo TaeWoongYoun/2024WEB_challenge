@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
             eventChange();
         });
 
-    const toggleModal = show => document.querySelector(".modal").classList.toggle('show-modal', show);
+    const toggleModal = show => document.querySelector('.modal').classList.toggle('show-modal', show);
     document.querySelector('.coupon').addEventListener('click', () => {
         if (document.querySelector('.quiz-box').classList.contains('show-box')) {
             alert('퀴즈가 이미 시작되어 쿠폰을 발급 받을 수 없습니다.');
@@ -97,7 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             document.querySelector('.result-box').style.display = 'none';
             document.querySelector('.quiz-box').style.display = 'block';
-        }, 1000)
+        }, 1000);
     };
 
     const finishQuiz = () => {
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.querySelector('.select').addEventListener('change', function(){
-        updateMap(this.value);
+        updateMap(this.value)
         eventChange();
     });
 
@@ -160,11 +160,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const way = document.createElement('div');
             way.className = 'waypoint';
             Object.assign(way.style, {
-                position : 'absolute',
+                position: 'absolute',
                 left : `${ping.location[0]}px`,
                 top : `${ping.location[1]}px`
             });
-            way.innerHTML = ping.idx;
+            way.textContent = ping.idx;
             if (completedCourse[selectedCourse]) way.classList.add('complete-way');
             document.querySelector('.map').appendChild(way);
             return way;
