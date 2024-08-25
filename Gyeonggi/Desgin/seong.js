@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', () => {
             waypoint.forEach((wp, i) => {
                 const [x,y] = [wp.offsetLeft + wp.offsetWidth / 2, wp.offsetTop + wp.offsetHeight / 2];
                 i === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
-            })
+            });
         }
         ctx.strokeStyle = '#111';
         ctx.lineWidth = 5;
@@ -162,8 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
             Object.assign(way.style, {
                 position : 'absolute',
                 left : `${ping.location[0]}px`,
-                top : `${ping.location[1]}px`,
-            })
+                top : `${ping.location[1]}px`
+            });
             way.innerHTML = ping.idx;
             if (completedCourse[selectedCourse]) way.classList.add('complete-way');
             document.querySelector('.map').appendChild(way);
@@ -171,5 +171,5 @@ document.addEventListener('DOMContentLoaded', () => {
         })
         setCanvasSize();
         drawPaths(waypoints);
-    }
+    };
 });
