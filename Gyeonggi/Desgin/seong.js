@@ -168,7 +168,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (completedCourse[selectedCourse]) way.classList.add('complete-way');
             document.querySelector('.map').appendChild(way);
             return way;
-        })
+        });
         setCanvasSize();
         drawPaths(waypoints);
     };
