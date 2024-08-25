@@ -59,14 +59,14 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('this-file').innerHTML = file.name;
             isFileLoaded = true;
         } else {
-            alert('저희가 발급한 스탬프 카드를 사용해주세요.')
+            alert('저희가 발급한 스탬프 카드를 사용해주세요.');
         }
     });
 
     const loadQuestion = () => {
         const {idx, question: dataQuestion, correct, incorrect} = question[locationIndex].quiz[index];
         const allAnswers = [correct, ...incorrect].sort(() => Math.random() - 0.5);
-
+        
         document.querySelector('.quiz-box').innerHTML = `
         <div>
             <h2>${idx}번 문제</h2>
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (waypoint.length > 1) {
             ctx.beginPath();
             waypoint.forEach((wp, i) => {
-                const [x,y] = [wp.offsetLeft + wp.offsetWidth / 2, wp.offsetTop + wp.offsetHeight / 2]
+                const [x,y] = [wp.offsetLeft + wp.offsetWidth / 2, wp.offsetTop + wp.offsetHeight / 2];
                 i === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
             });
         }
