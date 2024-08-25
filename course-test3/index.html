@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <input type="radio" name="festa" id="festa01" checked>
+    <label for="festa01">창덕궁</label>
+    <input type="radio" name="festa" id="festa02">
+    <label for="festa02">경복궁</label>
+    <input type="radio" name="festa" id="festa03">
+    <label for="festa03">신라</label> <br>
+
+    <input type="radio" name="move" id="move01" hidden checked>
+    <label for="move01">도보</label>
+    <input type="radio" name="move" id="move02" hidden>
+    <label for="move02">자전거</label>
+
+    <img src="./map/창덕궁.png" alt="" class="img01">
+    <img src="./map/경복궁.png" alt="" class="img02">
+    <img src="./map/신라.png" alt="" class="img03">
+
+    <div class="map">
+        <div id="mapContainer">
+            <canvas id="mapCanvas"></canvas>
+        </div>
+    </div>
+
+    <div id="routeList"></div>
+    <script src="index.js"></script>
+</body>
+</html>
