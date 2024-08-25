@@ -19,3 +19,9 @@
     height: 100%;
     scroll-snap-align: start;
 }
+
+.content{
+    width: 100%;
+    height: 1000px;
+    background-color: bisque;
+}
