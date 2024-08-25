@@ -59,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('this-file').innerHTML = file.name;
             isFileLoaded = true;
         } else {
-            alert('저희가 발급한 스탬프 카드를 사용해주세요.');
+            alert('저희가 발급한 스탬프 카드를 사용해주세요.')
         }
     });
 
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.querySelector('.select').addEventListener('change', function(){
-        updateMap(this.value)
+        updateMap(this.value);
         eventChange();
     });
 
@@ -144,7 +144,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (waypoint.length > 1) {
             ctx.beginPath();
             waypoint.forEach((wp, i) => {
-                const [x,y] = [wp.offsetLeft + wp.offsetWidth / 2, wp.offsetTop + wp.offsetHeight / 2];
+                const [x,y] = [wp.offsetLeft + wp.offsetWidth / 2, wp.offsetTop + wp.offsetHeight / 2]
                 i === 0 ? ctx.moveTo(x,y) : ctx.lineTo(x,y);
             });
         }
@@ -160,7 +160,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const way = document.createElement('div');
             way.className = 'waypoint';
             Object.assign(way.style, {
-                position: 'absolute',
+                position : 'absolute',
                 left : `${ping.location[0]}px`,
                 top : `${ping.location[1]}px`
             });
