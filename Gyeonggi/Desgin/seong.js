@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             ctx.fillText(new Date().toISOString().split('T')[0], canvas.width - 185, canvas.height - 355);
             const link = document.createElement('a');
             link.href = document.getElementById('canvas').toDataURL('image/png');
-            link.download = 'stamp_card.png';
+            link.download = 'stamp_card_test.png';
             link.click();
         };
     });
@@ -55,26 +55,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.quiz-start').addEventListener('click', startQuiz);
     document.getElementById('file-input').addEventListener('change', event => {
         const file = event.target.files[0];
-        if (file && file.name === 'stamp_card.png') {
+        if (file && file.name === 'stamp_card_test.png') {
             document.getElementById('this-file').innerHTML = file.name;
             isFileLoaded = true;
         } else {
-            alert('저희가 발급한 스탬프 카드를 사용해주세요.');
+            alert("저희가 발급한 쿠폰을 사용해주세요");
         }
     });
 
     const loadQuestion = () => {
         const {idx, question: dataQuestion, correct, incorrect} = question[locationIndex].quiz[index];
         const allAnswers = [correct, ...incorrect].sort(() => Math.random() - 0.5);
-        
+
         document.querySelector('.quiz-box').innerHTML = `
         <div>
             <h2>${idx}번 문제</h2>
-            <p>${dataQuestion}</p>
-            ${allAnswers.map(item => `<button class="answer">${item}</button>`).join('')}
+            <h4>${dataQuestion}</h4>
+            ${allAnswers.map(item => `<div class="answer">${item}</div>`).join('')}
         </div>`;
 
-        document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('click', () => handleAnswer(btn.textContent === correct)));
+        document.querySelectorAll('.answer').forEach(btn => btn.addEventListener('click', handleAnswer(btn.textContent === correct)));
     };
 
     const handleAnswer = isCorrect => {
@@ -82,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (isCorrect) {
             index++;
             document.querySelectorAll('.waypoint').forEach(waypoint => {
-                if (index == waypoint.innerHTML) waypoint.classList.add('complete-way');
+                if (index == waypoint.innerHTML) waypoint.classList.add('complete-way'); 
             });
         }
 
@@ -117,7 +117,7 @@ document.addEventListener('DOMContentLoaded', () => {
         eventChange();
     };
 
-    document.querySelector('.select').addEventListener('change', function(){
+    document.querySelector('select').addEventListener('change', function(){
         updateMap(this.value);
         eventChange();
     });
@@ -128,7 +128,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const pathCanvas = document.createElement('canvas');
-    document.querySelector('.map').appendChild(pathCanvas);
+    document.querySelector('map').appendChild(pathCanvas);
 
     const setCanvasSize = () => {
         Object.assign(pathCanvas, {
@@ -162,8 +162,8 @@ document.addEventListener('DOMContentLoaded', () => {
             Object.assign(way.style, {
                 position : 'absolute',
                 left : `${ping.location[0]}px`,
-                top : `${ping.location[1]}px`
-            });
+                top : `${ping.location[1]}px`,
+            })
             way.textContent = ping.idx;
             if (completedCourse[selectedCourse]) way.classList.add('complete-way');
             document.querySelector('.map').appendChild(way);
