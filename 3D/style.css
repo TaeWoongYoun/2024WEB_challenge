@@ -15,14 +15,16 @@
     position: relative;
     width: 400px;
     height: 400px;
+    /* overflow: hidden; */
     transform-style: preserve-3d;
     animation: infinite linear 5s box;
+    transform: rotateY(5deg) rotateX(5deg);
 }
-
+/* 
 @keyframes box{
     0%{transform: rotateY(0deg) rotateX(0deg);}
     100%{transform: rotateY(360deg) rotateX(360deg);}
-}
+} */
 
 .item{
     position: absolute;
@@ -38,3 +40,12 @@
 .item4{transform: rotateY(270deg) translateZ(200px);}
 .item5{transform: rotateX(90deg) translateZ(200px);}
 .item6{transform: rotateX(270deg) translateZ(200px);}
+
+.item1{
+    height: 800px;
+}
+
+.item1:hover{
+    transition: all 0.5s;
+    transform: rotateX(-90deg);
+}
