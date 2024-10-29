@@ -5,12 +5,31 @@ document.addEventListener('DOMContentLoaded', () => {
     let completedCourse = {};
     let isFileLoaded = false;
 
+    const eventChange = () => {
+        const selectedCourse = document.querySelector('.select').value;
+        document.querySelectorAll('.waypoint').forEach(wp => wp.remove());
+        const waypoints = question[locationIndex].quiz.map(ping => {
+            const way = document.createElement('div');
+            way.className = 'waypoint';
+            Object.assign(way.style, {
+                position : 'absolute',
+                left : `${ping.location[0]}px`,
+                top : `${ping.location[1]}px`,
+            })
+            way.textContent = ping.idx;
+            if (completedCourse[selectedCourse]) way.classList.add('complete-way');
+            document.querySelector('.map').appendChild(way);
+            return way;
+        });
+        setCanvasSize();
+        drawPaths(waypoints);
+    };
+
     fetch('quiz.json')
         .then(response => response.json())
         .then(data => {
             question = data;
             initMap();
-            eventChange();
         });
 
     const toggleModal = show => document.querySelector('.modal').classList.toggle('show-modal', show);
@@ -128,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const pathCanvas = document.createElement('canvas');
-    document.querySelector('map').appendChild(pathCanvas);
+    document.querySelector('.map').appendChild(pathCanvas);
 
     const setCanvasSize = () => {
         Object.assign(pathCanvas, {
@@ -151,25 +170,5 @@ document.addEventListener('DOMContentLoaded', () => {
         ctx.strokeStyle = '#111';
         ctx.lineWidth = 5;
         ctx.stroke();
-    };
-
-    const eventChange = () => {
-        const selectedCourse = document.querySelector('.select').value;
-        document.querySelectorAll('.waypoint').forEach(wp => wp.remove());
-        const waypoints = question[locationIndex].quiz.map(ping => {
-            const way = document.createElement('div');
-            way.className = 'waypoint';
-            Object.assign(way.style, {
-                position : 'absolute',
-                left : `${ping.location[0]}px`,
-                top : `${ping.location[1]}px`,
-            })
-            way.textContent = ping.idx;
-            if (completedCourse[selectedCourse]) way.classList.add('complete-way');
-            document.querySelector('.map').appendChild(way);
-            return way;
-        });
-        setCanvasSize();
-        drawPaths(waypoints);
     };
 });

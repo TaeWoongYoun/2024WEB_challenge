@@ -4,9 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>문화관광포털</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="sub02.css">
 </head>
 <body>
+
+    <style>
+        
+    </style>
+
     <input type="checkbox" id="login" hidden>
     <input type="checkbox" id="join" hidden>
     <!-- 헤더 영역 -->
@@ -57,31 +62,31 @@
     </div>
     <!-- 회원가입 모달 -->
     <!-- 축제 찾기 섹션 -->
-    <div class="search_area">
-        <h1>축제 찾기</h1>
-        <div class="search">
-            <div class="search_box">
-                <input type="text" id="searchInput" placeholder="search"><br>
-                <select id="sidoSelect">
-                    <option value="광역자치 단체명" disabled selected>광역자치 단체명</option>
-                </select>
-                <select id="gunguSelect">
-                    <option value="기초자치 단체명" disabled selected>기초자치 단체명</option>
-                </select>
-                <select id="typeSelect">
-                    <option value="축제유형" disabled selected>축제유형</option>
-                </select>
-                <input type="text" id="startDateInput" placeholder="축제 시작일 (YYYY-MM-DD)">
-                <button id="searchButton">검색</button>
-                <img src="maps/kr.svg" alt="">
-            </div>
+    <div class="content_area">
+        <div class="search_area">
+            <input type="text" id="searchInput" placeholder="search">
+            <select id="sidoSelect">
+                <option value="" disabled selected>광역자치 단체명</option>
+            </select>
+            <select id="gunguSelect">
+                <option value="" disabled selected>기초자치 단체명</option>
+            </select>
+            <select id="typeSelect">
+                <option value="" disabled selected>축제유형</option>
+            </select>
+            <input type="text" id="startDateInput" placeholder="축제 시작일 (YYYY-MM-DD)">
+            <button id="searchButton">검색</button>
+        </div>
+        <img src="maps/kr.svg" alt="지도" class="map">
+
+        <div class="content_window">
             <div class="content" id="resultContent">
-                <!-- 카드 생성 -->
+                <!-- 검색 결과 카드가 여기 추가됩니다 -->
             </div>
-            <div class="search_btn_area">
-                <button class="prev" id="prevButton">이전</button>
-                <button class="next" id="nextButton">다음</button>
-            </div>
+        </div>
+        <div class="btn_area">
+            <button class="prev" id="prevButton" disabled>이전</button>
+            <button class="next" id="nextButton" disabled>다음</button>
         </div>
     </div>
     <!-- 축제 찾기 섹션 -->

@@ -1,0 +1,455 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    height: 100%;
+    scroll-snap-type: y mandatory;
+}
+
+/* 최상단 이동 버튼 */
+.top_btn{
+    scroll-snap-align: start;
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 50px;
+    height: 50px;
+    background: blue;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+    font-size: 20px;
+    font-weight: bolder;
+    border-radius: 50%;
+    border: none;
+    transform: rotate(-90deg);
+    z-index: 1;
+}
+/* 최상단 이동 버튼 */
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+ul li{
+    padding-left: 0;
+    list-style: none;
+}
+/* 헤더 영역 */
+.header_area{
+    position: relative;
+    width: 100%;
+    height:70px;
+    border-bottom: 1px solid black;
+}
+
+header{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1440px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo{
+    width: 200px;
+    height: 100%;
+    line-height: 70px;
+    cursor: pointer;
+}
+
+nav{
+    width: 600px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.main_menu{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.main_menu li{
+    width: 150px;
+    height: 50px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+}
+
+.main_menu li:hover{
+    background-color: black;
+    color: #fff;
+}
+
+.sgin_area{
+    width: 220px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sgin_area label{
+    display: block;
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    background: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    text-align: center;
+    line-height: 40px;
+}
+/* 헤더 영역 */
+/* 로그인 모달 */
+.login_modal_area{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 10;
+}
+
+.login_modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 300px;
+    background-color: #fff;
+}
+
+.login_modal h2{
+    text-align: center;
+    line-height: 70px;
+}
+
+.login_modal p{
+    text-align: center;
+    margin: 15px;
+}
+
+.login_modal input{
+    width: 350px;
+    height: 40px;
+    border: 1px solid black;
+    padding-left: 10px;
+}
+
+.login_modal a{
+    text-decoration: underline;
+    color: blue;
+}
+
+.login_modal button{
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 18px;
+}
+
+#login:checked~.login_modal_area{
+    display: block;
+}
+/* 로그인 모달 */
+/* 회원가입 모달 */
+.join_modal_area{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 10;
+}
+
+.join_modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    height: 500px;
+    background-color: #fff;
+}
+
+.join_modal h2{
+    text-align: center;
+    line-height: 70px;
+}
+
+.join_modal p{
+    text-align: center;
+    margin: 15px;
+}
+
+.join_modal input{
+    width: 350px;
+    height: 40px;
+    border: 1px solid black;
+    padding-left: 10px;
+}
+
+.join_modal a{
+    text-decoration: underline;
+    color: blue;
+}
+
+.join_modal button{
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background-color: #fff;
+    font-size: 18px;
+}
+
+.captcha{
+    width: 360px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.captcha img{
+    width: 250px;
+    height: 40px;
+    border-radius: 5px;
+}
+
+#join:checked~.join_modal_area{
+    display: block;
+}
+/* 회원가입 모달 */
+
+.content_area {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 1350px;
+}
+
+.map{
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.search_area {
+    width: 1350px;
+    display: flex;
+    align-items: center;
+    margin: 10px;
+    margin-top: 50px;
+}
+
+.search_area input{
+    padding-left: 10px;
+    width: 300px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+.search_area select{
+    width: 180px;
+    height: 40px;
+    font-size: 18px;
+    margin-left: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+}
+
+.search_area button{
+    width: 100px;
+    height: 40px;
+    margin-left: 10px;
+    border: 1px solid black;
+    font-size: 18px;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.content_window {
+    width: 1350px;
+    height: 250px;
+    margin-top: 100px;
+    margin-left: 10px;
+}
+
+.content {
+    height: 250px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card {
+    width: 240px;
+    padding: 5px;
+    border-radius: 25px 5px;
+    background-color: #F3F3F3;
+}
+
+.card h3 {
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.card p {
+    padding: 5px;
+}
+
+.card button {
+    margin-top: 10px;
+    margin-right: 5px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    background-color: #111;
+    color: #fff;
+    font-weight: 900;
+    float: right;
+}
+
+.btn_area {
+    width: 1350px;
+    height: 70px;
+    display: flex;
+    margin-left: 10px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.prev, .next {
+    width: 100px;
+    height: 40px;
+    border: 1px solid black;
+    background-color: #fff;
+    font-weight: 600;
+    border-radius: 5px;
+    margin: 5px;
+    font-size: 18px;
+}
+
+.modal-content{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 700px;
+    padding: 10px;
+    border: 1px solid black;
+    background-color: #fff;
+    border-radius: 10px;
+}
+
+.close-button{
+    position: absolute;
+    top: -10px;
+    right: 10px;
+    font-size: 50px;
+    cursor: pointer;
+}
+
+.modal-content img{
+    width: 100%;
+    height: 300px;
+    margin-top: 50px;
+}
+
+.modal_btn_area{
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+}
+
+.modal_btn_area button{
+    padding: 5px 10px;
+    border: 1px solid black;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/* 푸터 영역 */
+.footer_area{
+    width: 100%;
+    height: 150px;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+}
+
+footer{
+    width: 1440px;
+    height: 150px;
+    display: flex;
+    justify-content: space-between;
+    color: #555;
+    align-items: center;
+}
+
+.logo{
+    width: 300px;
+    height: 150px;
+    line-height: 150px;
+}
+
+footer p{
+    font-size: 20px;
+}
+
+.icon_area{
+    width: 330px;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.icon{
+    width: 100px;
+    height: 110px;
+}
+
+.icon img{
+    width: 100px;
+    height: 100px;
+    filter: grayscale(100%);
+}
+
+.icon img:hover{
+    transition: all 0.5s;
+    filter: grayscale(0);
+}
+
+.icon p{
+    width: 100px;
+    height: 10px;
+    font-size: 11px;
+    text-align: center;
+}
+/* 푸터 영역 */
