@@ -1,143 +1,77 @@
 document.addEventListener('DOMContentLoaded', () => {
-    let mapData;
-    let speed = 3;
-    let courseIndex = 0;
+    let mapData, speed = 3, courseIndex = 0;
 
     fetch('course.json')
         .then(response => response.json())
         .then(data => {
             mapData = data;
-            renderMap(mapData[courseIndex]);
+            renderMap(mapData[courseIndex]); 
             calculateRoutes(mapData[courseIndex]);
         });
 
-    const createPointer = ({location: [x, y], idx}) => 
-        Object.assign(document.createElement('div'), {
-            className: 'pointer',
-            style: `left: ${x}px; top: ${y}px`,
-            textContent: idx
+    const createPointer = ({location: [x, y], idx}) => Object.assign(document.createElement('div'), {
+        className: 'pointer', style: `left: ${x}px; top: ${y}px`, textContent: idx
     });
 
     const renderLinks = (pointers, highlight = []) => {
-        const canvas = document.getElementById('mapCanvas');
-        const ctx = canvas.getContext('2d');
-        canvas.width = document.getElementById('mapContainer').offsetWidth;
-        canvas.height = document.getElementById('mapContainer').offsetHeight;
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        const ctx = (document.getElementById('mapCanvas').getContext('2d'));
+        Object.assign(ctx.canvas, {width: document.getElementById('mapContainer').offsetWidth, height: document.getElementById('mapContainer').offsetHeight});
+        ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
 
-        pointers.forEach(pointer => {
-            pointer.link.forEach(linkIdx => {
-                const targetPointer = pointers.find(p => p.idx === linkIdx);
-                if (targetPointer) {
-                    ctx.beginPath();
-                    ctx.moveTo(pointer.location[0] + 15, pointer.location[1] + 15);
-                    ctx.lineTo(targetPointer.location[0] + 15, targetPointer.location[1] + 15);
-                    ctx.strokeStyle = '#111';
-                    ctx.lineWidth = 5;
-                    ctx.stroke();
-                }
-            });
-        });
+        pointers.forEach(p => p.link.forEach(l => {
+            const t = pointers.find(p => p.idx === l);
+            t && (ctx.beginPath(), ctx.moveTo(p.location[0] + 15, p.location[1] + 15), 
+            ctx.lineTo(t.location[0] + 15, t.location[1] + 15), 
+            Object.assign(ctx, {strokeStyle: '#111', lineWidth: 5}).stroke());
+        }));
 
-        if (highlight.length > 0) {
-            ctx.beginPath();
-            for (let i = 0; i < highlight.length - 1; i++) {
-                const start = pointers.find(p => p.idx === highlight[i]);
-                const end = pointers.find(p => p.idx === highlight[i + 1]);
-                if (start && end) {
-                    ctx.moveTo(start.location[0] + 15, start.location[1] + 15);
-                    ctx.lineTo(end.location[0] + 15, end.location[1] + 15);
-                }
-            }
-            ctx.strokeStyle = '#FF0000';
-            ctx.lineWidth = 5;
-            ctx.stroke();
-        }
+        highlight.length && (ctx.beginPath(), highlight.slice(0, -1).forEach((h, i) => {
+            const [s, e] = [pointers.find(p => p.idx === h), pointers.find(p => p.idx === highlight[i + 1])];
+            s && e && (ctx.moveTo(s.location[0] + 15, s.location[1] + 15), 
+            ctx.lineTo(e.location[0] + 15, e.location[1] + 15));
+        }), Object.assign(ctx, {strokeStyle: '#FF0000', lineWidth: 5}).stroke());
     };
 
     const renderMap = data => {
-        const mapContainer = document.getElementById('mapContainer');
-        mapContainer.innerHTML = '';
-        const canvas = document.createElement('canvas');
-        canvas.id = 'mapCanvas';
-        mapContainer.appendChild(canvas);
-
-        data.pointer.forEach(pointer => {
-            mapContainer.appendChild(createPointer(pointer));
-        });
-
+        const m = document.getElementById('mapContainer');
+        m.innerHTML = '<canvas id="mapCanvas"></canvas>';
+        data.pointer.forEach(p => m.appendChild(createPointer(p)));
         renderLinks(data.pointer);
     };
 
     const calculateRoutes = data => {
-        const routes = [];
-        const startPointer = data.pointer.find(p => p.idx === 1);
-        if (!startPointer) return;
-
-        const traverse = (current, path, distance) => {
-            if (current.idx === 6) {
-                routes.push({path: [...path, current.idx], distance});
-                return;
-            }
-            current.link.forEach(linkIdx => {
-                if (!path.includes(linkIdx)) {
-                    const nextPointer = data.pointer.find(p => p.idx === linkIdx);
-                    if (nextPointer) {
-                        const dist = Math.hypot(nextPointer.location[0] - current.location[0], nextPointer.location[1] - current.location[1]);
-                        traverse(nextPointer, [...path, current.idx], distance + dist);
-                    }
-                }
+        const routes = [], traverse = (c, p = [], d = 0) => {
+            c.idx === 6 ? routes.push({path: [...p, c.idx], distance: d}) :
+            c.link.forEach(l => {
+                !p.includes(l) && data.pointer.find(n => n.idx === l) && 
+                traverse(data.pointer.find(n => n.idx === l), [...p, c.idx], 
+                d + Math.hypot(data.pointer.find(n => n.idx === l).location[0] - c.location[0], 
+                data.pointer.find(n => n.idx === l).location[1] - c.location[1]));
             });
         };
-
-        traverse(startPointer, [], 0);
-        routes.sort((a,b) => a.distance - b.distance);
-        renderRouteList(routes.slice(0, 5));
+        traverse(data.pointer.find(p => p.idx === 1));
+        renderRouteList(routes.sort((a,b) => a.distance - b.distance).slice(0, 5));
     };
 
-    const renderRouteList = routes => {
-        const routeList = document.getElementById('routeList');
-        routeList.innerHTML = '';
-        routes.forEach(route => {
-            const listItem = document.createElement('div');
-            listItem.className = 'route-item';
-            const time = (route.distance / speed).toFixed(2);
-            listItem.innerHTML = `경로: ${route.path.join(' → ')}<br>이동시간: ${convertTime(time)}<br>이동거리: ${route.distance.toFixed(2)}m`;
-            listItem.addEventListener('click', () => {
-                highlightRoute(route.path);
-            });
-            routeList.appendChild(listItem);
+    const renderRouteList = r => {
+        const l = document.getElementById('routeList');
+        l.innerHTML = '';
+        r.forEach(r => {
+            const i = document.createElement('div');
+            i.className = 'route-item';
+            const t = (r.distance / speed).toFixed(2);
+            i.innerHTML = `경로: ${r.path.join('→')}<br>이동시간: ${~~(t/60)}분${Math.round(t%60)}초<br>이동거리: ${r.distance.toFixed(2)}m`;
+            i.addEventListener('click', () => (renderMap(mapData[courseIndex]), renderLinks(mapData[courseIndex].pointer, r.path)));
+            l.appendChild(i);
         });
     };
 
-    const convertTime = time => {
-        const min = Math.floor(time / 60);
-        const sec = Math.round(time % 60);
-        return `${min}분 ${sec}초`;
-    };
+    ['festa01', 'festa02', 'festa03'].forEach(id => 
+        document.getElementById(id).addEventListener('change', e => 
+            (courseIndex = e.target.id.slice(-1) - 1, renderMap(mapData[courseIndex]), 
+            calculateRoutes(mapData[courseIndex]))));
 
-    const highlightRoute = path => {
-        renderMap(mapData[courseIndex]);
-        renderLinks(mapData[courseIndex].pointer, path);
-    };
-
-    const courseChange = event => {
-        const index = event.target.id.slice(-1) - 1;
-        courseIndex = index;
-        renderMap(mapData[index]);
-        calculateRoutes(mapData[index]);
-    };
-
-    const tabChange = event => {
-        speed = event.target.id === 'move01' ? 3 : 10;
-        calculateRoutes(mapData[courseIndex]);
-    };
-
-    ['festa01', 'festa02', 'festa03'].forEach(id => {
-        document.getElementById(id).addEventListener('change', courseChange);
-    });
-
-    ['move01', 'move02'].forEach(id => {
-        document.getElementById(id).addEventListener('change', tabChange);
-    });
+    ['move01', 'move02'].forEach(id => 
+        document.getElementById(id).addEventListener('change', e => 
+            (speed = e.target.id === 'move01' ? 3 : 10, calculateRoutes(mapData[courseIndex]))));
 });
